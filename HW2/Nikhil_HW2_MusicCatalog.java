@@ -60,14 +60,7 @@ public class Nikhil_HW2_MusicCatalog {
 		System.out.println("Composer: " + composer);
 	}
 	
-	
-	
-	// Save details about music catalog to a file
-	public void saveToFile() {
-		// TODO: Stuff 
-	}
-
-	
+		
 	// Getters
 	public String getTitle() {
 		return title;
@@ -101,7 +94,7 @@ public class Nikhil_HW2_MusicCatalog {
 		
 		
 		System.out.println("Welcome to the Music Catalog program.");
-		System.out.println("You will enter data about musical pieces you want to enter, and it will be saved to a file.");
+		System.out.println("You will enter data about musical pieces you want to enter, and it will be saved to a file called \"Nikhil_Output_HW2.txt\".");
 		System.out.println("Let's begin!");
 		
 		String continueProgram = "";
@@ -116,6 +109,7 @@ public class Nikhil_HW2_MusicCatalog {
 			double durationInMinutes;
 			String comments;
 			
+			System.out.println("\n\n\n\n\n"); // why not
 			System.out.println("\nCreating new music piece to add to the catalog.");
 			
 			// Get the data from the user
@@ -141,8 +135,9 @@ public class Nikhil_HW2_MusicCatalog {
 			comments = reader.readLine();
 			
 			Nikhil_HW2_MusicCatalog musicCatalog = new Nikhil_HW2_MusicCatalog(title, instruments, durationInMinutes, comments, composer);
-			System.out.println(musicCatalog.getComments()); // test
 			
+			appendMusicCatalogToFile(musicCatalog);
+			System.out.println("Saved data to file.");
 			
 			
 			// Repeat the program if the user wishes to do so.
@@ -152,6 +147,50 @@ public class Nikhil_HW2_MusicCatalog {
 		
 		while (continueProgram.equalsIgnoreCase("y"));
 		
-	}
+	} // end of main
+	
+	
+	
+	// Method to append data into file
+	public static void appendMusicCatalogToFile(Nikhil_HW2_MusicCatalog catalog) throws Exception {
+		
+		String[] instruments = catalog.getInstruments();
+		
+		// Create new FileOutputStream in append mode
+		// The program will automatically create the file if it doesn't exist.
+		FileOutputStream outputPipe = new FileOutputStream("Nikhil_HW2_Output.txt", true);
+		PrintWriter fileWriter = new PrintWriter(outputPipe);
+		
+		fileWriter.flush(); // get rid of anything in the pipe
+		
+		// Output the data in this format to the file
+		// "title" by "composer" 
+		// Duration: ____
+		// Number of Instruments: ____
+		// Instrument #1: _______
+		// Instrument #n: _______
+		// Comments: __________________
+		
+		fileWriter.append("\n--------------------------------------");
+		fileWriter.append("\n" + catalog.getTitle() + " by " + catalog.getComposer()); // title + composer
+		fileWriter.append("\nDuration: " + catalog.getDurationInMinutes()); // duration
+		fileWriter.append("\nNumber of Instruments: " + instruments.length); 
+		
+		// Display each instrument
+		for (int i = 0; i < catalog.getInstruments().length; i++) {
+			fileWriter.append("\nInstrument #" + (i + 1) + ": " + instruments[i]);
+		}
+		
+		fileWriter.append("\nComments: " + catalog.getComments());
+		fileWriter.append("\n--------------------------------------\n\n\n");
+		
+		
+		// Always remember to close!
+		fileWriter.close();
+		
+	} // end of appendMusicCatalogToFile();
 
-}
+	
+	
+	
+} // end of class
