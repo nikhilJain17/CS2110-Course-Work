@@ -79,9 +79,9 @@ public class LevenshteinTypoAlgorithm {
 			// delete char from t
 			// delete char from both		
 		
-		return Math.min(getLevenshteinDifference(userInput.substring(0, userInput.length() - 1), compareTo), 
-				Math.min(getLevenshteinDifference(userInput, compareTo.substring(0, compareTo.length() - 1)), 
-						getLevenshteinDifference(userInput.substring(0, userInput.length() - 1), compareTo.substring(0, compareTo.length() - 1))));
+		return Math.min(getLevenshteinDifference(userInput.substring(0, userInput.length() - 1), compareTo) + 1, 
+				Math.min(getLevenshteinDifference(userInput, compareTo.substring(0, compareTo.length() - 1)) + 1, 
+						getLevenshteinDifference(userInput.substring(0, userInput.length() - 1), compareTo.substring(0, compareTo.length() - 1) + cost)));
 
 		
 		
