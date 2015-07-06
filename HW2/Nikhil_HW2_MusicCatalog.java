@@ -95,7 +95,12 @@ public class Nikhil_HW2_MusicCatalog {
 		
 		System.out.println("Welcome to the Music Catalog program.");
 		System.out.println("You will enter data about musical pieces you want to enter, and it will be saved to a file called \"Nikhil_Output_HW2.txt\".");
+		System.out.println("The program also checks for typo's in the instrument name using the Levenshtein algorithm. Note-this feature is not perfect");
 		System.out.println("Let's begin!");
+		
+		LevenshteinTypoAlgorithm algorithm = new LevenshteinTypoAlgorithm();
+		int nadgir = algorithm.getLevenshteinDifference("potato", "potota");
+		System.out.println("The levenshtein difference between potato and potata is: " + nadgir);
 		
 		String continueProgram = "";
 		

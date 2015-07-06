@@ -15,6 +15,7 @@ public class LevenshteinTypoAlgorithm {
 	// It compares the user's word to a preset array of words that act as a dictionary.
 	
 	private ArrayList<String> instrumentDictionary = new ArrayList<String>();
+	public int cost; // levenshtein cost or distance
 	
 	public LevenshteinTypoAlgorithm() {
 		
@@ -54,13 +55,35 @@ public class LevenshteinTypoAlgorithm {
 //		                 LevenshteinDistance(s, len_s    , t, len_t - 1) + 1,
 //		                 LevenshteinDistance(s, len_s - 1, t, len_t - 1) + cost);
 //		}
-	
+			
 		// empty strings
 		if (userInput.length() == 0)
 			return compareTo.length();
 		
 		if (compareTo.length() == 0)
 			return userInput.length();
+		
+		// check last characters of strings
+		// need to convert them into char arrays first
+		char[] userInputChar = userInput.toCharArray();
+		char[] compareToChar = compareTo.toCharArray();
+		
+		if (userInputChar[userInputChar.length - 1] == compareToChar[compareToChar.length-1])
+			cost = 0;
+		
+		else
+			cost = 1;
+		
+		// return minimum of following operations
+			// delete char from s
+			// delete char from t
+			// delete char from both		
+		
+		return Math.min(getLevenshteinDifference(userInput.substring(0, userInput.length() - 1), compareTo), 
+				Math.min(getLevenshteinDifference(userInput, compareTo.substring(0, compareTo.length() - 1)), 
+						getLevenshteinDifference(userInput.substring(0, userInput.length() - 1), compareTo.substring(0, compareTo.length() - 1))));
+
+		
 		
 		
 	}
