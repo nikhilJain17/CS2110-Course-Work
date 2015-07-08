@@ -97,10 +97,26 @@ public class Nikhil_HW2_MusicCatalog {
 		System.out.println("You will enter data about musical pieces you want to enter, and it will be saved to a file called \"Nikhil_Output_HW2.txt\".");
 		System.out.println("The program also checks for typo's in the instrument name using the Levenshtein algorithm. Note-this feature is not perfect");
 		System.out.println("Let's begin!");
+//		
+		String a = "tomato", b = "tomato";
+//		
+//		LevenshteinTypoAlgorithm algorithm = new LevenshteinTypoAlgorithm();
+//		int nadgir = algorithm.getLevenshteinDifference(a, b);
+//		System.out.println("The levenshtein difference between " + a + " " + b + " is " + nadgir);
 		
-		LevenshteinTypoAlgorithm algorithm = new LevenshteinTypoAlgorithm();
-		int nadgir = algorithm.getLevenshteinDifference("potato", "potota");
-		System.out.println("The levenshtein difference between potato and potata is: " + nadgir);
+		/*
+		 * use a try-catch and "printStackTrace" to not crash program
+		 */
+		
+//		if (a.equals("tomato")) {
+//			try {
+//				throw new TypoException();
+//			}
+//			catch (TypoException t) {
+//				t.printStackTrace();
+//			}
+//		}
+		
 		
 		String continueProgram = "";
 		
@@ -113,6 +129,8 @@ public class Nikhil_HW2_MusicCatalog {
 			String[] instruments;
 			double durationInMinutes;
 			String comments;
+			
+			TypoCatcher typoCatcher = new TypoCatcher(); // catches typos
 			
 			System.out.println("\n\n\n\n\n"); // why not
 			System.out.println("\nCreating new music piece to add to the catalog.");
@@ -132,8 +150,25 @@ public class Nikhil_HW2_MusicCatalog {
 			
 				// input each of the instruments
 			for (int i = 0; i < instruments.length; i++) {
-				System.out.println("What is the name of instrument #" + (i + 1) + "?");
-				instruments[i] = reader.readLine();
+				
+				try {
+					System.out.println("What is the name of instrument #" + (i + 1) + "?");
+					instruments[i] = reader.readLine();
+					
+					int difference = typoCatcher.catchTypo(instruments[i], 0);
+					System.out.println("difference: " + difference);
+					
+					if (difference < 4 && difference > 0) {
+						throw new TypoException();
+					}
+				}
+				
+				catch (TypoException e) {
+					e.printStackTrace();
+					System.out.println("Please re-enter the instrument name:");
+					instruments[i] = reader.readLine();
+				}
+				
 			}
 			
 			System.out.println("What are some comments about the piece you wish to include?");
