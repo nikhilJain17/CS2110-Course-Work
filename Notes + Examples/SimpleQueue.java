@@ -1,3 +1,5 @@
+import java.io.*;
+
 /*
 * A simple queue.
 * Uses an array instead of nodes
@@ -19,25 +21,37 @@ class SimpleQueue {
 
 // The only purpose of this function is so that I don't
 // have to type "System.out.println()"
-  public void p (String displayThis) {
+  public static void p (String displayThis) {
     System.out.println(displayThis);
   }
 
-  public int menu() {
-    p("--------------");
-    p("Menu Options: ");
-    p("--------------");
-    p("1 -> Display");
-    p("2 -> Add Person")
+  public static int menu() throws IOException {
 
+    int choice;
 
+    do {
+      p("\n--------------");
+      p("Menu Options: ");
+      p("--------------");
+      p("1 -> Display");
+      p("2 -> Add Person");
+      p("3 -> Remove Person");
+      p("4 -> Find Person");
 
+      InputStreamReader pipe = new InputStreamReader(System.in);
+      BufferedReader reader = new BufferedReader(pipe);
+
+      choice = Integer.parseInt(reader.readLine());
+    }
+    while (choice > 4 || choice < 1);
+
+    return choice;
 
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     System.out.println("Welcome to the queue program.");
-
+    menu();
 
 
   }
