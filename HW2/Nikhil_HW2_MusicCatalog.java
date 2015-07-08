@@ -95,10 +95,10 @@ public class Nikhil_HW2_MusicCatalog {
 		
 		System.out.println("Welcome to the Music Catalog program.");
 		System.out.println("You will enter data about musical pieces you want to enter, and it will be saved to a file called \"Nikhil_Output_HW2.txt\".");
-		System.out.println("The program also checks for typo's in the instrument name using the Levenshtein algorithm. Note-this feature is not perfect");
+		System.out.println("The program also checks for typo's based on how many differences there are compared to a dictionary. Note-this feature is not perfect");
 		System.out.println("Let's begin!");
 //		
-		String a = "tomato", b = "tomato";
+//		String a = "tomato", b = "tomato";
 //		
 //		LevenshteinTypoAlgorithm algorithm = new LevenshteinTypoAlgorithm();
 //		int nadgir = algorithm.getLevenshteinDifference(a, b);
@@ -120,7 +120,7 @@ public class Nikhil_HW2_MusicCatalog {
 		
 		String continueProgram = "";
 		
-		// Keep on running the program until the user wants to quit
+		// Keep on running the program until the user wants to quit through their input
 		do {
 			
 			// Parameters necessary to create a MusicCatalog object
@@ -139,11 +139,35 @@ public class Nikhil_HW2_MusicCatalog {
 			System.out.println("\nWhat is the title?");
 			title = reader.readLine();
 			
-			System.out.println("\nWhat is the composer's name?");
-			composer = reader.readLine();
+			
+			try {
+				System.out.println("\nWhat is the composer's name?");
+				composer = reader.readLine();
+				
+				int difference = typoCatcher.catchTypo(composer, 1);
+				System.out.println("Difference between your entered word and closest match: " + difference);
+				
+				// reasonable range for a typo
+				// if it is much greater, then it probably is a different word entirely
+				// if it is less than 1, then it is 0 and therefore is the same word
+				// if it is negative, then we are living inside the matrix
+				if (difference > 0 && difference < 5) {
+					throw new TypoException();
+				}
+								
+			}
+			
+			catch (TypoException e) {
+				e.printStackTrace();
+				System.out.println("Please re-enter the composer name: ");
+				composer = reader.readLine();
+			}
+			
 			
 			System.out.println("\nWhat is the duration in minutes? (Ex: For 4 min 30 sec, type in 4.5.)");
 			durationInMinutes = Double.parseDouble(reader.readLine());
+			
+			
 			
 			System.out.println("\nHow many instruments are there?");
 			instruments = new String[Integer.parseInt(reader.readLine())];
@@ -156,7 +180,7 @@ public class Nikhil_HW2_MusicCatalog {
 					instruments[i] = reader.readLine();
 					
 					int difference = typoCatcher.catchTypo(instruments[i], 0);
-					System.out.println("difference: " + difference);
+					System.out.println("\nDifference between closest match in dictionary: " + difference);
 					
 					if (difference < 4 && difference > 0) {
 						throw new TypoException();
