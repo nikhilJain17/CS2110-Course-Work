@@ -68,8 +68,15 @@ class NodeQueue {
 
       public static void displayQueue() {
 
-            System.out.println("Front: " + front.getData());
-            System.out.println("Back: " + back.getData());
+            p("\nFront: " + front.getData());
+            p("\nBack: " + back.getData());
+
+            for (MyIterator iterator = new MyIterator(front); !iterator.atEnd(); iterator.PlusPlus()) {
+                  p("|" + iterator.getCurrent().getData() + "|");
+            }
+
+
+
 
       }
 
