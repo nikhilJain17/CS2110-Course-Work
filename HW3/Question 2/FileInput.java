@@ -1,6 +1,7 @@
 // The purpose of this class is to input the user data from a file
 // It must be separated by EITHER a space OR a newline character
 import java.io.*;
+import java.util.ArrayList; // see explanation below or in readme for using arraylists
 
 class FileInput {
 
@@ -13,6 +14,16 @@ class FileInput {
 
       public String[] getNamesFromFile () throws Exception {
 
+            // Only used because coming up with a size for the
+            // String array "names" was becoming a pain in the neck
+            // Before, I had to pass over the whole file twice
+            // Once, to get the number of elements
+            // Then I set that as the size of names
+            // Next, I passed over again to get the actual data
+            // This way is 1000x easier
+            // cause now i dont have to do that
+            ArrayList<String> data = new ArrayList<String>();
+
             try {
                   FileReader filePipe = new FileReader(fileName);
                   BufferedReader fileReader = new BufferedReader(filePipe);
@@ -21,41 +32,35 @@ class FileInput {
                   // this separates each "\n"
                   // then just do .split(" ")
 
-                  String line;
+                  String line = "";
                   String[] tempStorage; // temporary stored in here until moved to String[] names
-                  int numberOfElements = 0;
                   // Detects end of file
                   while (fileReader.readLine() != null) {
 
                         // Split by newline characters
                         line = fileReader.readLine();
                         // Split by spaces
-                        tempStorage = line.split("s");
-                        // increment the number of elements
-                        // this tells us what size to make the array
-                        // since we are not allowed to use ArrayLists
-                        numberOfElements++;
+                        tempStorage = line.split(" ");
 
-                        // test if splitting worked
+                        // copy all the strings from tempStorage to data
                         for (int i = 0; i < tempStorage.length; i++) {
-                              p(tempStorage[i]);
+                              data.add(tempStorage[i]);
                         }
 
                   }
-
-                  // Now, do the same thing
-                  // But this time, copy into the names array
-                  // This is necessary because the first pass got the size
-                  // ArrayLists would solve this problem
-
-
 
             }
             catch (FileNotFoundException e) {
                   p("Sorry, the file was not found. Check your spelling again.");
             }
 
-            return null;
+            names = new String[data.size()];
+            // convert to array[]
+            for (int i = 0; i < data.size(); i++) {
+                  names[i] = data.get(i);
+            }
+
+            return names;
       }
 
       // The only purpose of this is so that I dont have to type out system.out.println

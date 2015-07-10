@@ -64,7 +64,7 @@ class Nikhil_SuperQueue {
                         Customer leavingCustomer = wantsToLeave.getCustomer(); // to be returned
 
                         // Is the person who wants to leave at the front?
-                        if (front == wantsToLeave {
+                        if (front == wantsToLeave) {
                               front = wantsToLeave.getNext();
                               front.setPrevious(null);
 
@@ -97,7 +97,7 @@ class Nikhil_SuperQueue {
 
       }
 
-      
+
 
       // It is a lot easier to just type p("hello") than System.out.println("")
       // The only purpose of this function is to save time and typing

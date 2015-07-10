@@ -14,7 +14,7 @@
             p("Welcome to Nikhil Jain Inc.'s Customer Queue Program!");
 
             int choice;
-            
+
             do {
                   choice = menu();
 
@@ -27,7 +27,11 @@
 
             // testing file input
             FileInput input = new FileInput("names.txt");
-            input.getNamesFromFile();
+            String[] namesFromFile = input.getNamesFromFile();
+
+            for (int i = 0; i < namesFromFile.length; i++) {
+                  p(namesFromFile[i]);
+            }
 
       }
 
