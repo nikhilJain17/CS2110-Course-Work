@@ -46,7 +46,7 @@ class Nikhil_SuperQueue {
 
       // User must specify who wants to leave
       // Can leave from front OR anywhere else
-      public Customer leave(Node wantsToLeave) {
+      public Customer leaveQueue(Node wantsToLeave) {
             // use the iterator to iterate through the nodes
             // then, when it finds a match, remove that person from the queue
 
@@ -97,10 +97,6 @@ class Nikhil_SuperQueue {
 
       }
 
-      public static void main(String[] args) {
-            p("Welcome to Nikhil Jain Inc.'s Customer Queue Program!");
-            // Now, commence input process (through file)
-      }
 
 
       // It is a lot easier to just type p("hello") than System.out.println("")
