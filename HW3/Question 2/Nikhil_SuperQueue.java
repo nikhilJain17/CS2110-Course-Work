@@ -60,8 +60,28 @@ class Nikhil_SuperQueue {
                   // are they the same?
                   // TODO Refine this "is-same?" checking process
                   if (iterator.getCurrent() == wantsToLeave) {
-                        // Make sure nothing is pointing at the thing wanting to leave
+
                         Customer leavingCustomer = wantsToLeave.getCustomer(); // to be returned
+
+                        // Is the person who wants to leave at the front?
+                        if (front == wantsToLeave {
+                              front = wantsToLeave.getNext();
+                              front.setPrevious(null);
+
+                              return leavingCustomer;
+                        }
+
+                        // Or is it at the back?
+                        else if (back == wantsToLeave) {
+                              back = back.getPrevious();
+                              back.setNext(null);
+
+                              return leavingCustomer;
+                        }
+
+
+
+                        // Make sure nothing is pointing at the thing wanting to leave
                         Node newPrevious = wantsToLeave.getPrevious();
                         Node newNext = wantsToLeave.getNext();
                         newPrevious.setNext(newNext); // now, nothing is pointing at leaving person
