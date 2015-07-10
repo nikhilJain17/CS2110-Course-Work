@@ -10,8 +10,84 @@ class Nikhil_SuperQueue {
       // 4. Find customer by name (Handle multiple names - exception maybe?)
       // 5. Sort customers by name (Use ASCII!)
 
-      
 
+      private Node front;
+      private Node back;
+      private int length;
+
+      // constructor
+      public Nikhil_SuperQueue() {
+            length = 0;
+            front = null;
+            back = null;
+      }
+
+      // getters
+      public int getLength() {
+            return length;
+      }
+
+      public Node getFront() {
+            return front;
+      }
+
+      public Node getBack() {
+            return back;
+      }
+
+      // setters
+      public void setFront(Node n) {
+            front = n;
+      }
+
+      public void setBack(Node n) {
+            back = n;
+      }
+
+      // User must specify who wants to leave
+      // Can leave from front OR anywhere else
+      public Customer leave(Node wantsToLeave) {
+            // use the iterator to iterate through the nodes
+            // then, when it finds a match, remove that person from the queue
+
+            // TODO How to figure out if there is a match?
+            // if (back == wantsToLeave) means points to same object
+            // maybe compare name?
+            // maybe compare id numbers?
+
+            for (NodeIterator iterator = new NodeIterator(front); !iterator.atEnd(); iterator.PlusPlus()) {
+
+                  // are they the same?
+                  // TODO Refine this "is-same?" checking process
+                  if (iterator.getCurrent() == wantsToLeave) {
+                        // Make sure nothing is pointing at the thing wanting to leave
+                        Customer leavingCustomer = wantsToLeave.getCustomer(); // to be returned
+                        Node newPrevious = wantsToLeave.getPrevious();
+                        Node newNext = wantsToLeave.getNext();
+                        newPrevious.setNext(newNext); // now, nothing is pointing at leaving person
+
+                        return leavingCustomer;
+                  }
+
+            }
+
+            // Nobody found.
+            p("That person was not found.");
+            return null;
+
+      }
+
+      public static void main(String[] args) {
+            p("Welcome to Nikhil Jain Inc.'s Customer Queue Program!");
+            // Now, commence input process (through file)
+      }
+
+
+      // It is a lot easier to just type p("hello") than System.out.println("")
+      // The only purpose of this function is to save time and typing
+      public static void p(String print) {
+            System.out.println(print);
+      }
 
 
 }

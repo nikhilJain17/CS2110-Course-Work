@@ -1,7 +1,7 @@
 // Each person will be part of a Node
 
 class Node {
-      
+
       private Node next;
       private Node previous; // Implement or not?
       private Customer customer;
@@ -27,6 +27,14 @@ class Node {
 
       public Node getPrevious() {
             return previous;
+      }
+
+      public Customer getCustomer() {
+            return customer;
+      }
+
+      public void setCustomer(Customer c) {
+            customer = c;
       }
 
 
