@@ -47,7 +47,7 @@ class Nikhil_SuperQueue {
 
       // User must specify who wants to leave
       // Can leave from front OR anywhere else
-      public Customer leaveQueue(Node wantsToLeave) {
+      public Customer leaveQueue(Customer wantsToLeave) {
             // use the iterator to iterate through the nodes
             // then, when it finds a match, remove that person from the queue
 
@@ -56,24 +56,26 @@ class Nikhil_SuperQueue {
             // maybe compare name?
             // maybe compare id numbers?
 
+            String nameWantsToLeave = wantsToLeave.getName();
+
             for (NodeIterator iterator = new NodeIterator(front); !iterator.atEnd(); iterator.PlusPlus()) {
 
                   // are they the same?
                   // TODO Refine this "is-same?" checking process
-                  if (iterator.getCurrent() == wantsToLeave) {
+                  if (iterator.getCurrent().getCustomer().getName() == nameWantsToLeave) {
 
-                        Customer leavingCustomer = wantsToLeave.getCustomer(); // to be returned
+                        Customer leavingCustomer = wantsToLeave; // to be returned
 
                         // Is the person who wants to leave at the front?
-                        if (front == wantsToLeave) {
-                              front = wantsToLeave.getNext();
+                        if (front.getCustomer().getName() == nameWantsToLeave) {
+                              front = front.getNext();
                               front.setPrevious(null);
 
                               return leavingCustomer;
                         }
 
                         // Or is it at the back?
-                        else if (back == wantsToLeave) {
+                        else if (back.getCustomer().getName() == nameWantsToLeave) {
                               back = back.getPrevious();
                               back.setNext(null);
 
@@ -83,9 +85,9 @@ class Nikhil_SuperQueue {
 
 
                         // Make sure nothing is pointing at the thing wanting to leave
-                        Node newPrevious = wantsToLeave.getPrevious();
-                        Node newNext = wantsToLeave.getNext();
-                        newPrevious.setNext(newNext); // now, nothing is pointing at leaving person
+                        // Node newPrevious = wantsToLeave.getPrevious();
+                        // Node newNext = wantsToLeave.getNext();
+                        // newPrevious.setNext(newNext); // now, nothing is pointing at leaving person
 
                         return leavingCustomer;
                   }
@@ -96,6 +98,19 @@ class Nikhil_SuperQueue {
             p("That person was not found.");
             return null;
 
+      }
+
+      public Customer findPerson(String name) {
+
+            NodeIterator iterator = new NodeIterator(front);
+            return null;
+
+      }
+
+      // flush out last person in "pipe"
+      public void flush() {
+            // add Dummy
+            // then remove him
       }
 
       // Join queue
@@ -133,6 +148,8 @@ class Nikhil_SuperQueue {
                   Customer c = currentNode.getCustomer();
                   p("[" + c.getName() + "]");
             }
+            // iterator is off by 1, so display last person
+            p("[" + back.getCustomer().getName() + "]");
 
       }
 

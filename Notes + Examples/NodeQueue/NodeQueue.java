@@ -71,8 +71,9 @@ class NodeQueue {
             p("\nFront: " + front.getData());
             p("\nBack: " + back.getData());
 
+            p("|" + front.getData() + "|");
             for (MyIterator iterator = new MyIterator(front); !iterator.atEnd(); iterator.PlusPlus()) {
-                  p("|" + iterator.getCurrent().getData() + "|");
+                  p("|" + iterator.getCurrent().getNext().getData() + "|");
             }
 
 

@@ -42,12 +42,10 @@
                         superQueue.joinQueue(addCustomer); // add the person to the queue
                   }
 
-                  // Flush out last person in queue
-                  superQueue.joinQueue(new Customer("Dummy"));
-                  superQueue.length = superQueue.length - 1;
-
                   p("\n");
                   superQueue.displayQueue();
+
+                  Customer addCustomer;
 
                   // call the appropriate function depending on the user's choice
                   switch (choice) {
@@ -56,14 +54,18 @@
                               p("\nYou chose to add a person to the queue.");
                               p("\nPlease enter the person's name: ");
                               String personName = reader.readLine();
-                              Customer addCustomer = new Customer(personName);
+                              addCustomer = new Customer(personName);
                               // Node addNode = new Node(addCustomer);
-                              superQueue.joinQueue(addCustomer);
+                              //superQueue.joinQueue(new Customer("JamesJones"));
+                              p(personName + " joined the queue.");
+
+                              p("\n" + superQueue.getBack().getCustomer().getName() + " is at the back of the queue");
                               break;
 
                         case 2:
                               // leave queue
-                              // fook
+                              p("\nPlease enter the person's EXACT name who wishes to leave.");
+                              superQueue.leaveQueue(new Customer(reader.readLine()));
                               break;
 
                         case 3:
