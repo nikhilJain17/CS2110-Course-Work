@@ -29,9 +29,6 @@
             FileInput input = new FileInput("names.txt");
             String[] namesFromFile = input.getNamesFromFile();
 
-            for (int i = 0; i < namesFromFile.length; i++) {
-                  p(namesFromFile[i]);
-            }
 
       }
 

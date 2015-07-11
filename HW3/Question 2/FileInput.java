@@ -34,18 +34,29 @@ class FileInput {
 
                   String line = "";
                   String[] tempStorage; // temporary stored in here until moved to String[] names
-                  // Detects end of file
-                  while (fileReader.readLine() != null) {
+                  // Detects end of file, also reads in a line
 
-                        // Split by newline characters
-                        line = fileReader.readLine();
-                        // Split by spaces
-                        tempStorage = line.split(" ");
+                  while ((line = fileReader.readLine()) != null) {
 
-                        // copy all the strings from tempStorage to data
-                        for (int i = 0; i < tempStorage.length; i++) {
-                              data.add(tempStorage[i]);
-                        }
+                        /*
+                        *
+                        *     TEMPORARILY REMOVED SPLITTING BY SPACES
+                        *     @TODO ADD THAT BACK!
+                        *
+                        */
+
+
+
+                        // // Split by spaces
+                        // tempStorage = line.split(" ");
+
+                        // // copy all the strings from tempStorage to data
+                        // for (int i = 0; i < tempStorage.length; i++) {
+                        //       data.add(tempStorage[i]);
+                        // }
+
+                        p(line);
+                        data.add(line);
 
                   }
 
