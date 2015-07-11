@@ -13,7 +13,7 @@ class Nikhil_SuperQueue {
 
       private Node front;
       private Node back;
-      private int length;
+      int length;
 
       // constructor
       public Nikhil_SuperQueue() {
@@ -43,6 +43,7 @@ class Nikhil_SuperQueue {
       public void setBack(Node n) {
             back = n;
       }
+
 
       // User must specify who wants to leave
       // Can leave from front OR anywhere else

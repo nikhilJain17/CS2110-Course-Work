@@ -42,6 +42,11 @@
                         superQueue.joinQueue(addCustomer); // add the person to the queue
                   }
 
+                  // Flush out last person in queue
+                  superQueue.joinQueue(new Customer("Dummy"));
+                  superQueue.length = superQueue.length - 1;
+
+                  p("\n");
                   superQueue.displayQueue();
 
                   // call the appropriate function depending on the user's choice
