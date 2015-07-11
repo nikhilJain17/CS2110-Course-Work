@@ -60,10 +60,6 @@ class FileInput {
 
                   }
 
-                  // print contents of data array
-                  for (int i = 0; i < data.size(); i++) {
-                        p(data.get(i));
-                  }
 
             }
             catch (FileNotFoundException e) {

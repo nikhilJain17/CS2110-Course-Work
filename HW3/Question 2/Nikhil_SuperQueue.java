@@ -97,6 +97,39 @@ class Nikhil_SuperQueue {
 
       }
 
+      // Join queue
+      // Must join at back
+      public void joinQueue(Node join) {
+
+            // Is this Node the only Node in the queue?
+            if (length == 0) {
+                  front = join;
+                  back = front; // since there is only 1 node
+            }
+
+            else {
+                  back.setNext(join);
+                  back = back.getNext();
+            }
+
+            length++;
+            return;
+
+      }
+
+
+      // Show contents of queue
+      public void displayQueue() {
+
+            // why not use iterators
+            for (NodeIterator iterator = new NodeIterator(front); !iterator.atEnd(); iterator.PlusPlus()) {
+                  Node currentNode = iterator.getCurrent();
+                  Customer c = currentNode.getCustomer();
+                  p("[" + c.getName() + "]");
+            }
+
+      }
+
 
 
       // It is a lot easier to just type p("hello") than System.out.println("")

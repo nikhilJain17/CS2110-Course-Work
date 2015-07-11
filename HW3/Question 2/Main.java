@@ -11,10 +11,13 @@
 
 
       public static void main (String[] args) throws Exception {
+
+            InputStreamReader pipe = new InputStreamReader(System.in);
+            BufferedReader reader = new BufferedReader(pipe);
+
             p("Welcome to Nikhil Jain Inc.'s Customer Queue Program!");
 
             int choice;
-
             do {
                   choice = menu();
 
@@ -23,11 +26,27 @@
             }
             while (choice < 1 || choice > 5);
 
-            // Now, commence input process (through file)
+            // Get file name
+            p("\nPlease enter the CORRECT filename along with the extension, and check the path:");
+            String fileName = reader.readLine();
 
-            // testing file input
-            FileInput input = new FileInput("names.txt");
+            // Input names from file
+            FileInput input = new FileInput(fileName);
             String[] namesFromFile = input.getNamesFromFile();
+
+            // initialize the SuperQueue and add everybody to it IN ORDER
+            Nikhil_SuperQueue superQueue = new Nikhil_SuperQueue();
+
+            // add people to queue in ORDER
+            for (int i = 0; i < namesFromFile.length; i++) {
+                  Customer addCustomer = new Customer(namesFromFile[i]);
+                  Node person = new Node(addCustomer);
+                  superQueue.joinQueue(person); // add the person to the queue
+            }
+
+            superQueue.displayQueue();
+
+            // call the appropriate function depending on the user's choice
 
 
       }
