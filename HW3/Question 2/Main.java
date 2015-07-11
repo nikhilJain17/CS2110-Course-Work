@@ -25,25 +25,22 @@
             FileInput input = new FileInput(fileName);
             String[] namesFromFile = input.getNamesFromFile();
 
+            // initialize the SuperQueue and add everybody to it IN ORDER
+            Nikhil_SuperQueue superQueue = new Nikhil_SuperQueue();
+            
+            // add people to queue in ORDER
+            for (int i = 0; i < namesFromFile.length; i++) {
+                  Customer addCustomer = new Customer(namesFromFile[i]);
+                  // Node person = new Node(addCustomer);
+                  superQueue.joinQueue(addCustomer); // add the person to the queue
+            }
+
             int choice;
             do {
                   choice = menu();
 
                   if (choice < 1 || choice > 5)
                         p("\n choice");
-
-                  // initialize the SuperQueue and add everybody to it IN ORDER
-                  Nikhil_SuperQueue superQueue = new Nikhil_SuperQueue();
-
-                  // add people to queue in ORDER
-                  for (int i = 0; i < namesFromFile.length; i++) {
-                        Customer addCustomer = new Customer(namesFromFile[i]);
-                        // Node person = new Node(addCustomer);
-                        superQueue.joinQueue(addCustomer); // add the person to the queue
-                  }
-
-                  p("\n");
-                  superQueue.displayQueue();
 
                   Customer addCustomer;
 
@@ -56,10 +53,11 @@
                               String personName = reader.readLine();
                               addCustomer = new Customer(personName);
                               // Node addNode = new Node(addCustomer);
-                              //superQueue.joinQueue(new Customer("JamesJones"));
-                              p(personName + " joined the queue.");
-
+                              // superQueue.joinQueue(new Customer("TestCustomer"));
+                              p("\n" + personName + " joined the queue.");
+                              superQueue.joinQueue(addCustomer);
                               p("\n" + superQueue.getBack().getCustomer().getName() + " is at the back of the queue");
+
                               break;
 
                         case 2:

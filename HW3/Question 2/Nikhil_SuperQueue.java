@@ -117,6 +117,8 @@ class Nikhil_SuperQueue {
       // Must join at back
       public void joinQueue(Customer c) {
 
+            p("called joinqueue");
+
             Node join = new Node(c);
 
             // Is this Node the only Node in the queue?
@@ -128,7 +130,7 @@ class Nikhil_SuperQueue {
             else {
                   back.setNext(join);
                   back = back.getNext();
-                  back.setNext(null);
+                  // back.setNext(null);
             }
 
             length++;
@@ -149,7 +151,7 @@ class Nikhil_SuperQueue {
                   p("[" + c.getName() + "]");
             }
             // iterator is off by 1, so display last person
-            p("[" + back.getCustomer().getName() + "]");
+            p("[" + back.getCustomer().getName() + "] - back");
 
       }
 
