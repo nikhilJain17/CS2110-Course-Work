@@ -99,7 +99,9 @@ class Nikhil_SuperQueue {
 
       // Join queue
       // Must join at back
-      public void joinQueue(Node join) {
+      public void joinQueue(Customer c) {
+
+            Node join = new Node(c);
 
             // Is this Node the only Node in the queue?
             if (length == 0) {
@@ -110,6 +112,7 @@ class Nikhil_SuperQueue {
             else {
                   back.setNext(join);
                   back = back.getNext();
+                  back.setNext(null);
             }
 
             length++;
@@ -120,6 +123,8 @@ class Nikhil_SuperQueue {
 
       // Show contents of queue
       public void displayQueue() {
+
+            p("\nLength of queue: " + length + "\n");
 
             // why not use iterators
             for (NodeIterator iterator = new NodeIterator(front); !iterator.atEnd(); iterator.PlusPlus()) {
