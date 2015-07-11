@@ -48,16 +48,21 @@ class FileInput {
 
 
                         // // Split by spaces
-                        // tempStorage = line.split(" ");
+                        tempStorage = line.split(" ");
 
-                        // // copy all the strings from tempStorage to data
-                        // for (int i = 0; i < tempStorage.length; i++) {
-                        //       data.add(tempStorage[i]);
-                        // }
+                        // copy all the strings from tempStorage to data
+                        for (int i = 0; i < tempStorage.length; i++) {
+                              data.add(tempStorage[i]);
+                        }
 
-                        p(line);
-                        data.add(line);
+                        // p(line);
+                        // data.add(line);
 
+                  }
+
+                  // print contents of data array
+                  for (int i = 0; i < data.size(); i++) {
+                        p(data.get(i));
                   }
 
             }
