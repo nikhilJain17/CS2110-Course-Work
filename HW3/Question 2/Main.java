@@ -68,6 +68,11 @@
                               break;
 
                         case 3:
+                              // search for specific person in queue
+                              p("\nYou chose to search for a person in the queue.");
+                              p("\nPlease enter their name: ");
+                              superQueue.findPerson(reader.readLine());
+                              break;
 
                         case 5:
                               superQueue.displayQueue();

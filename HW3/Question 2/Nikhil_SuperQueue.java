@@ -120,10 +120,39 @@ class Nikhil_SuperQueue {
 
 
       // @TODO Implement this
-      public Customer findPerson(String name) {
+      public void findPerson(String name) {
 
-            NodeIterator iterator = new NodeIterator(front);
-            return null;
+            boolean foundSomebody = false;
+
+            // First check back, since iterator skips it
+            if (back.getCustomer().getName().equals(name)) {
+                  p(name + " is the last person in the queue.");
+                  foundSomebody = true;
+            }
+
+            // For displaying where in the queue the person is
+            int position = 1;
+
+            // Iterate through the nodes
+            for (NodeIterator iterator = new NodeIterator(front); !iterator.atEnd(); iterator.PlusPlus()) {
+
+                  if (iterator.getCurrent().getCustomer().getName().equals(name)) {
+                        p("\n" + name + " is in the queue at position " + position);
+                        foundSomebody = true;
+                  }
+
+                  position++;
+
+            }
+
+            // Was somebody found?
+            if (foundSomebody) {
+                  return;
+            }
+
+            else {
+                  p("Sorry, that person is not in the queue.");
+            }
 
       }
 
