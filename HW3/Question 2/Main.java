@@ -27,7 +27,7 @@
 
             // initialize the SuperQueue and add everybody to it IN ORDER
             Nikhil_SuperQueue superQueue = new Nikhil_SuperQueue();
-            
+
             // add people to queue in ORDER
             for (int i = 0; i < namesFromFile.length; i++) {
                   Customer addCustomer = new Customer(namesFromFile[i]);
@@ -63,7 +63,8 @@
                         case 2:
                               // leave queue
                               p("\nPlease enter the person's EXACT name who wishes to leave.");
-                              superQueue.leaveQueue(new Customer(reader.readLine()));
+                              Customer left = superQueue.leaveQueue(new Customer(reader.readLine()));
+                              p(left.getName() + " left the queue.");
                               break;
 
                         case 3:

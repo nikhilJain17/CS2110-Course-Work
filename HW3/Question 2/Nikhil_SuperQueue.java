@@ -62,12 +62,14 @@ class Nikhil_SuperQueue {
 
                   // are they the same?
                   // TODO Refine this "is-same?" checking process
-                  if (iterator.getCurrent().getCustomer().getName() == nameWantsToLeave) {
+                  if (iterator.getCurrent().getCustomer().getName().equals(nameWantsToLeave)) {
+
+                        length--;
 
                         Customer leavingCustomer = wantsToLeave; // to be returned
 
                         // Is the person who wants to leave at the front?
-                        if (front.getCustomer().getName() == nameWantsToLeave) {
+                        if (front.getCustomer().getName().equals(nameWantsToLeave)) {
                               front = front.getNext();
                               front.setPrevious(null);
 
@@ -75,11 +77,26 @@ class Nikhil_SuperQueue {
                         }
 
                         // Or is it at the back?
-                        else if (back.getCustomer().getName() == nameWantsToLeave) {
+                        else if (back.getCustomer().getName().equals(nameWantsToLeave)) {
                               back = back.getPrevious();
                               back.setNext(null);
 
                               return leavingCustomer;
+                        }
+
+                        // Or neither?
+                        else {
+
+                              Node current = iterator.getCurrent();
+
+                              // remove the node 'current'
+                              Node beforeCurrent = current.getPrevious();
+                              Node afterCurrent = current.getNext();
+
+                              beforeCurrent.setNext(afterCurrent);
+                              afterCurrent.setPrevious(beforeCurrent);
+
+
                         }
 
 
@@ -94,12 +111,15 @@ class Nikhil_SuperQueue {
 
             }
 
+
             // Nobody found.
             p("That person was not found.");
             return null;
 
       }
 
+
+      // @TODO Implement this
       public Customer findPerson(String name) {
 
             NodeIterator iterator = new NodeIterator(front);
@@ -107,17 +127,12 @@ class Nikhil_SuperQueue {
 
       }
 
-      // flush out last person in "pipe"
-      public void flush() {
-            // add Dummy
-            // then remove him
-      }
 
       // Join queue
       // Must join at back
       public void joinQueue(Customer c) {
 
-            p("called joinqueue");
+            // p("called joinqueue");
 
             Node join = new Node(c);
 
@@ -125,11 +140,15 @@ class Nikhil_SuperQueue {
             if (length == 0) {
                   front = join;
                   back = front; // since there is only 1 node
+                  front.setNext(back);
+                  back.setPrevious(front);
             }
 
             else {
+                  Node oldBack = back;
                   back.setNext(join);
                   back = back.getNext();
+                  back.setPrevious(oldBack);
                   // back.setNext(null);
             }
 
