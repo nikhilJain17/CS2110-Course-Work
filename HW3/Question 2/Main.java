@@ -77,7 +77,14 @@
                         case 4:
                               // get sorted list of all members of queue
                               SortQueue sorter = new SortQueue(superQueue);
-                              sorter.convertToAsciiValues();
+                              int[] asciiValues = sorter.convertToAsciiValues();
+                              int[] sortedValues = sorter.bubbleSort(asciiValues);
+
+                              // check if sorted properly
+                              for (int i = 0; i < sortedValues.length; i++) {
+                                    System.out.println("Sorted - " + sortedValues[i]);
+                              }
+
                               break;
 
                         case 5:

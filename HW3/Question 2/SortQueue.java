@@ -61,6 +61,31 @@
 
        }
 
+       // Sorts the ascii array and returns a sorted version
+       public int[] bubbleSort(int[] unsortedInt) {
+
+            int temp;
+
+            for (int i = 0; i < unsortedInt.length; i++) {
+
+                    // iterate trhough int array and swap adjacent values if neded
+                   for (int j = 1; j < (unsortedInt.length - i); j++) {
+
+                        // is the greater number to the left of the lesser number?
+                        if (unsortedInt[j-1] > unsortedInt[j]) {
+                              temp = unsortedInt[j-1];
+                              unsortedInt[j-1] = unsortedInt[j];
+                              unsortedInt[j] = temp;
+                        }
+
+                  }
+            }
+
+            return unsortedInt; // jokes on you, its actually sorted
+
+       }
+
+
        // THe only purpose of this is so that I don't have to type System.out.println
        // over and over again
        public static void p (String message) {
