@@ -80,10 +80,15 @@
                               int[] asciiValues = sorter.convertToAsciiValues();
                               int[] sortedValues = sorter.bubbleSort(asciiValues);
 
-                              // check if sorted properly
-                              for (int i = 0; i < sortedValues.length; i++) {
-                                    System.out.println("Sorted - " + sortedValues[i]);
-                              }
+                              // // The sortedValues array must be lowercase
+                              // // standard for the program
+                              // for (int i = 0; i < sortedValues.length; i++) {
+                              //       sortedValues[i] = sortedValues[i].toLowerCase();
+                              // }
+
+                              // sorter.convertAsciiToString(sortedValues);
+
+                              sorter.sortAlpha();
 
                               break;
 
