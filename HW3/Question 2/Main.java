@@ -74,6 +74,12 @@
                               superQueue.findPerson(reader.readLine());
                               break;
 
+                        case 4:
+                              // get sorted list of all members of queue
+                              SortQueue sorter = new SortQueue(superQueue);
+                              sorter.convertToAsciiValues();
+                              break;
+
                         case 5:
                               superQueue.displayQueue();
                               break;

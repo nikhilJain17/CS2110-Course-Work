@@ -38,14 +38,6 @@ class FileInput {
 
                   while ((line = fileReader.readLine()) != null) {
 
-                        /*
-                        *
-                        *     TEMPORARILY REMOVED SPLITTING BY SPACES
-                        *     @TODO ADD THAT BACK!
-                        *
-                        */
-
-
 
                         // // Split by spaces
                         tempStorage = line.split(" ");
