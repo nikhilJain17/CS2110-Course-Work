@@ -10,6 +10,8 @@ public class Main {
 		}
 		
 		
+		
+		
 	}
 	
 	
@@ -20,7 +22,7 @@ public class Main {
 		
 		
 		// randomly generate a choice for which vehicles will be created, etc
-		double choice = Math.round(Math.random() * 4); // generates 5 choices, from 0 to 4
+		double choice = Math.round((Math.random() * 5)); // generates 6 choices, from 0 to 5
 		
 		switch ((int) choice) {
 		
