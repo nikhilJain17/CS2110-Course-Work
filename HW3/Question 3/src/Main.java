@@ -50,6 +50,20 @@ public class Main {
 			
 			 else if (choice == 2) {
 				 
+				 int whichIntersection = 0;
+				 
+				 // input validation 
+				 do {
+					 System.out.println("\nEnter the intersection number of the intersection (0->8)");
+					 InputStreamReader pipe = new InputStreamReader(System.in);
+					 BufferedReader reader = new BufferedReader(pipe);
+					 
+					 whichIntersection = Integer.parseInt(reader.readLine());
+				 }
+				 while (whichIntersection < 0 || whichIntersection > 8);
+				 
+				 roadNetwork[whichIntersection].busyIntersection();
+				 
 			 }
 			 
 			 
