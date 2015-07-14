@@ -1,58 +1,297 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.concurrent.TimeUnit;
+
 // Launch-point of program
 public class Main {
 	
-	public static void main(String[] args) {
+	static Intersection[] roadNetwork;
+	static Road[] masterRoadArray ; // holds master 
+	
+	public static void main(String[] args) throws Exception {
 		
-		Vehicle[] vehicles = generateVehicles();
+		// init size of array
+		 roadNetwork = new Intersection[9];
 		
-		Road FirstStreet = new Road(vehicles, true);
-//		FirstStreet.displayCarsOnRoad();
+		 // initialize the roadNetwork
+		 init();
+		 
+		 int choice = 0;
+		 do {
+			 
+			 choice = menu();
+			 
+			 if (choice == 1) {
+				 // display info on road
+				 int whichRoad = -1;
+				 
+				 // Input validation for street 
+				 do {
+					 
+					 System.out.println("\nEnter 0 for First Ave.");
+					 System.out.println("\nEnter 1 for Second Ave.");
+					 System.out.println("\nEnter 2 for Third Ave.");
+					 System.out.println("\nEnter 3 for First Street.");
+					 System.out.println("\nEnter 4 for Second Street.");
+					 System.out.println("\nEnter 5 for Third Street.");
+					 
+					 InputStreamReader pipe = new InputStreamReader(System.in);
+					 BufferedReader reader = new BufferedReader(pipe);
+					 
+					 whichRoad = Integer.parseInt(reader.readLine());
+					 
+				 }
+				 while(whichRoad < 0 || whichRoad > 5);
+				 
+				 masterRoadArray[whichRoad].displayCarsOnRoad();
+				 
+			}
+			 
+			
+			 else if (choice == 2) {
+				 
+			 }
+			 
+			 
+		 }
+		 while (choice < 2 || choice > 1);
+		 
+		 
+	}
+	
+	public static int menu() throws Exception {
 		
-		vehicles = generateVehicles();
+		System.out.println("\n|----------------------------------|");
+		System.out.println("|              CHOICES             |");
+		System.out.println("|----------------------------------|");
+		System.out.println("| 1. Display vehicles on road      |");
+		System.out.println("| 2. Check if intersection is busy |");
+		System.out.println("|   Press anything else to quit    |");
+		System.out.println("|----------------------------------|");
 		
-		Road SecondStreet = new Road(vehicles, false);
+		InputStreamReader pipe = new InputStreamReader(System.in);
+		BufferedReader reader = new BufferedReader(pipe);
 		
-		Road[] firstArray = new Road[2];
-		firstArray[0] = FirstStreet;
-		firstArray[1] = SecondStreet;
-		
-		boolean tempEmergency = true;
-		// No emergency?
-		if (!FirstStreet.emergency || !SecondStreet.emergency)
-			tempEmergency = false;
-		
-		Intersection intersection1 = new Intersection(firstArray, tempEmergency);
-		
-		intersection1.busyIntersection();
-		
-		
-//		Vehicle[] vehicles = generateVehicles();
-//		
-//		RoadQueue FirstStreet = new RoadQueue();
-//		
-//		// add vehicles to queue
-//		for (Vehicle v : vehicles) {
-//			FirstStreet.joinRoadQueue(v);
-//		}
-//		
-//		vehicles = generateVehicles();
-//		RoadQueue SecondStreet = new RoadQueue();
-//		
-//		// add vehicles to queue
-//		for (Vehicle v : vehicles) {
-//			SecondStreet.joinRoadQueue(v);
-//		}
-//		
-//		RoadQueue[] qs = new RoadQueue[2];
-//		qs[0] = FirstStreet;
-//		qs[1] = SecondStreet;
-//		
-//		Intersection intersection = new Intersection(0, qs);
-//		intersection.showCarsAtIntersection();
+		return Integer.parseInt(reader.readLine());
 		
 	}
 	
-	public void init(){;}
+	
+	// Initialize the roadNetwork
+	public static void init(){
+		
+		
+		System.out.println("\nWelcome to the Traffic Program by Nikhil Jain!");
+		
+		// sleep
+		try {
+		    Thread.sleep(2000);                 //1000 milliseconds is one second.
+		} 
+		catch (InterruptedException ex) {
+		    Thread.currentThread().interrupt();
+		}
+		
+		System.out.println("\nThis is what the road network looks like: ");
+		
+		try {
+		    Thread.sleep(2000);                 //1000 milliseconds is one second.
+		} 
+		catch (InterruptedException ex) {
+		    Thread.currentThread().interrupt();
+		}
+		
+		System.out.println("_____________________________________________________"
+				      + "\n|                     First Ave.                      |"
+				      + "\n|  [0]                   [1]                      [2] |"
+				      + "\n|     ________________        __________________      |"
+				      + "\n|    |                |      |                  |     |"
+				      + "\n|    |                |      |                  |     |"
+				      + "\n|    |                |      |                  |     |"
+				      + "\n| F  |                |  S   |                  |  T  |"
+				      + "\n| i  |                |  e   |                  |  h  |"
+				      + "\n| r  |                |  c   |                  |  i  |"
+				      + "\n| s  |                |  o   |                  |  r  |"
+				      + "\n| t  |                |  n   |                  |  d  |"
+				      + "\n|    |                |  d   |                  |     |"
+				      + "\n| S  |                |      |                  |  S  |"
+				      + "\n| t  |                |  S   |                  |  t  |"
+				      + "\n|    |                |  t   |                  |     |"
+				      + "\n|    |                |      |                  |     |"
+				      + "\n|    |                |      |                  |     |"
+				      + "\n|     ________________       ___________________      |"
+				      + "\n|                                                     |"
+				      + "\n|                    Second Ave.                      |"
+				      + "\n|  [3]                   [4]                     [5]  |"
+				      + "\n|     ________________        __________________      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|    |               |        |                |      |"
+				      + "\n|     ________________         _________________      |"
+				      + "\n|                                                     |"
+				      + "\n|                    Third Ave.                       |"
+				      + "\n|  [6]                   [7]                     [8]  |"
+				      + "\n|_____________________________________________________|");
+		
+		System.out.println("\nThe [n] represents an intersection number. You can access the intersection using its number.");
+		
+		// Generate random data for each intersection
+		
+		// Holds information about all roads
+		masterRoadArray = new Road[6]; 
+		
+		/* 
+		 *
+		 * 0,1,2 are aves, 3,4,5 are streets 
+		 * 
+		 */
+		
+		for (int i = 0; i < masterRoadArray.length; i++) {
+			// make Third Street and 1st Ave a 1 way road
+			if (i == 2 || i == 4)
+				masterRoadArray[i] = new Road(generateVehicles(), false);
+			
+			else
+				masterRoadArray[i] = new Road(generateVehicles(), true);
+			
+		}
+		
+		// Both variables are for constructing the intersection
+		Road[] subRoads; // takes values from master array depending on which intersection
+		boolean emergency = true; // 
+		
+		
+		
+		// initialize intersection 0
+		subRoads = new Road[2];
+		subRoads[0] = masterRoadArray[0];
+		subRoads[1] = masterRoadArray[3];
+		
+			// check for emergency
+		if (!subRoads[0].emergency && !subRoads[1].emergency)
+			emergency = false;
+		
+		roadNetwork[0] = new Intersection(subRoads, emergency);
+		
+		
+		
+		// initialize intersection 1
+		subRoads = new Road[2];
+		subRoads[0] = masterRoadArray[0];
+		subRoads[1] = masterRoadArray[4];
+		
+			// check for emergency
+		if (!subRoads[0].emergency && !subRoads[1].emergency)
+			emergency = false;
+		
+		roadNetwork[1] = new Intersection(subRoads, emergency);
+		
+		
+		
+		// initialize intersection 2
+		subRoads = new Road[2];
+		subRoads[0] = masterRoadArray[0];
+		subRoads[1] = masterRoadArray[5];
+		
+			// check for emergency
+		if (!subRoads[0].emergency && !subRoads[1].emergency)
+			emergency = false;
+		
+		roadNetwork[2] = new Intersection(subRoads, emergency);
+		
+		
+		
+		// initialize intersection 3
+		subRoads = new Road[2];
+		subRoads[0] = masterRoadArray[1];
+		subRoads[1] = masterRoadArray[3];
+		
+			// check for emergency
+		if (!subRoads[0].emergency && !subRoads[1].emergency)
+			emergency = false;
+		
+		roadNetwork[3] = new Intersection(subRoads, emergency);
+		
+		
+		
+		// initialize intersection 4
+		subRoads[0] = masterRoadArray[1];
+		subRoads[1] = masterRoadArray[4];
+		
+			// check for emergency
+		if (!subRoads[0].emergency && !subRoads[1].emergency)
+			emergency = false;
+		
+		roadNetwork[4] = new Intersection(subRoads, emergency);
+		
+		
+		
+		// initialize intersection 5
+		subRoads[0] = masterRoadArray[1];
+		subRoads[1] = masterRoadArray[5];
+		
+
+			// check for emergency
+		if (!subRoads[0].emergency && !subRoads[1].emergency)
+			emergency = false;
+		
+		roadNetwork[5] = new Intersection(subRoads, emergency);
+		
+		
+		
+		// initialize intersection 6
+		subRoads[0] = masterRoadArray[2];
+		subRoads[1] = masterRoadArray[3];
+		
+			// check for emergency
+		if (!subRoads[0].emergency && !subRoads[1].emergency)
+			emergency = false;
+		
+		roadNetwork[6] = new Intersection(subRoads, emergency);
+		
+		
+		
+		// initialize intersection 7
+		subRoads[0] = masterRoadArray[2];
+		subRoads[1] = masterRoadArray[4];
+		
+			// check for emergency
+		if (!subRoads[0].emergency && !subRoads[1].emergency)
+			emergency = false;
+		
+		roadNetwork[7] = new Intersection(subRoads, emergency);
+		
+		
+		
+		// initialize intersection 8
+		subRoads[0] = masterRoadArray[2];
+		subRoads[1] = masterRoadArray[5];
+		
+			// check for emergency
+		if (!subRoads[0].emergency && !subRoads[1].emergency)
+			emergency = false;
+		
+		roadNetwork[8] = new Intersection(subRoads, emergency);
+		
+		
+		// Done initializing 
+		System.out.println("\nRandom data generated for each intersection.");
+		
+		
+		
+		
+	}
 	
 	
 	// Generates random Vehicle objects for the roads to have
