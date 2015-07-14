@@ -5,14 +5,54 @@ public class Main {
 		
 		Vehicle[] vehicles = generateVehicles();
 		
-		for (Vehicle v : vehicles) {
-			System.out.println(v.getVehicleName());
-		}
+		Road FirstStreet = new Road(vehicles, true);
+//		FirstStreet.displayCarsOnRoad();
+		
+		vehicles = generateVehicles();
+		
+		Road SecondStreet = new Road(vehicles, false);
+		
+		Road[] firstArray = new Road[2];
+		firstArray[0] = FirstStreet;
+		firstArray[1] = SecondStreet;
+		
+		boolean tempEmergency = true;
+		// No emergency?
+		if (!FirstStreet.emergency || !SecondStreet.emergency)
+			tempEmergency = false;
+		
+		Intersection intersection1 = new Intersection(firstArray, tempEmergency);
+		
+		intersection1.busyIntersection();
 		
 		
-		
+//		Vehicle[] vehicles = generateVehicles();
+//		
+//		RoadQueue FirstStreet = new RoadQueue();
+//		
+//		// add vehicles to queue
+//		for (Vehicle v : vehicles) {
+//			FirstStreet.joinRoadQueue(v);
+//		}
+//		
+//		vehicles = generateVehicles();
+//		RoadQueue SecondStreet = new RoadQueue();
+//		
+//		// add vehicles to queue
+//		for (Vehicle v : vehicles) {
+//			SecondStreet.joinRoadQueue(v);
+//		}
+//		
+//		RoadQueue[] qs = new RoadQueue[2];
+//		qs[0] = FirstStreet;
+//		qs[1] = SecondStreet;
+//		
+//		Intersection intersection = new Intersection(0, qs);
+//		intersection.showCarsAtIntersection();
 		
 	}
+	
+	public void init(){;}
 	
 	
 	// Generates random Vehicle objects for the roads to have
@@ -71,7 +111,7 @@ public class Main {
 				vehicles[1] = new Vehicle("Dump Truck", false, 2, dumpTruckNames);
 				vehicles[2] = new Vehicle("Bicycle", false, 1, bicycleName);
 				vehicles[3] = new Vehicle("Ferrari Convertible", false, 2, sportsCar);
-				vehicles[4] = new Vehicle("Chevy Truck", false, 4, chevyTruckNames);
+				vehicles[4] = new Vehicle("Police Truck", true, 4, chevyTruckNames);
 				
 				break;
 				
@@ -116,7 +156,7 @@ public class Main {
 				vehicles[2] = new Vehicle("Mercedes Sedan", false, 4, sedan2Names);
 				vehicles[3] = new Vehicle("Sports Team Bus", false, 10, sportsTeamBus);
 				vehicles[4] = new Vehicle("Pickup Truck", false, 2, truckNames);
-				vehicles[5] = new Vehicle("Toyota Hybrid", false, 5, moreCarNames);
+				vehicles[5] = new Vehicle("Police Chief", true, 5, moreCarNames);
 				
 				break;
 				
