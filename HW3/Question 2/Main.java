@@ -19,6 +19,7 @@
 
             // Get file name
             p("\nPlease enter the CORRECT filename to load the names along with the extension, and check the path:");
+	    p("If you wish, you can type in names.txt for a sample file in the program folder.");
             String fileName = reader.readLine();
 
             // Input names from file
