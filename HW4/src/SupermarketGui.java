@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -8,6 +9,8 @@ public class SupermarketGui {
 	JPanel panel; // holds all components (text boxes, etc)
 	
 	JButton startSimulation; // kickstarts the whole program
+	
+	JLabel disclaimer; // there is a bug in the program because of multithreading
 	
 	JLabel queue1Label; // 
 	JLabel queue1Speed; // cashier speed
@@ -46,6 +49,15 @@ public class SupermarketGui {
 		startSimulation.setBounds(1100, 25, 150, 40);
 		startSimulation.setText("Run simulation");
 		
+		// disclaimer
+		disclaimer = new JLabel("If your computer's fan goes crazy or the program doesn't work, try restarting this program.\n"
+				+ "There is a bug because of multithreading that makes the program stuck in an infinite loop.");
+		/**
+		 * TODO Fix the disclaimer por favor
+		 * **/
+		
+		disclaimer.setBounds(1100, 50, 150, 400);
+		
 		// JFrame for holding panel
 		frame = new JFrame("Nikhil's Grocery Queue");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // the x button closes the window
@@ -78,12 +90,16 @@ public class SupermarketGui {
 		queue1Length.setBounds(20, 85, 80, 25);
 		// make cashier object?
 		
-		queue1ScrollPane = new JScrollPane();
-		queue1ScrollPane.setBounds(15, 140, 100, 500);
 		
 		// add the members to the scroll pane
 		queue1Members = new JTextArea("TEST");
-		queue1ScrollPane.add(queue1Members);
+		queue1Members.setText("Nobody");
+		queue1Members.setVisible(true);
+        queue1Members.setPreferredSize(new Dimension(140, 500));
+        
+        queue1ScrollPane = new JScrollPane(queue1Members, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		queue1ScrollPane.setBounds(15, 140, 140, 500);
+		queue1ScrollPane.setVisible(true);
 		
 		
 		
@@ -182,6 +198,7 @@ public class SupermarketGui {
 		
 		panel.add(startSimulation);
 		
+		panel.add(disclaimer);
 		
 		
 		panel.setBorder(padding);
