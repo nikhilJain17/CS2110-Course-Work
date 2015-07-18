@@ -177,15 +177,12 @@ public class SupermarketGui {
 	
 	public static void main(String[] args) {
 		
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			
-			@Override
-			public void run() {
-				SupermarketGui gui = new SupermarketGui();
-				gui.createAndShowGui();
-			}
-			
-		});
+		// call the "initialize" method
+			// it sets up the gui
+			// randomly populates the queues
+		
+		Main m = new Main();
+		m.initialize();
 		
 	}
 	
