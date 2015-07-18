@@ -16,9 +16,12 @@ public class CashierQueue {
 	
 	
 	// join the queue
-	public void joinQueue(int id) {
+	/*
+	 * have the user enter the name?
+	 */
+	public void joinQueue(String name) {
 		
-		Node wantsToJoin = new Node(id);
+		Node wantsToJoin = new Node(name);
 		
 		// if only person in queue
 		if (length == 0) {

@@ -30,9 +30,20 @@ public class Main {
 		CashierQueue queue1 = new CashierQueue();
 		// add people here
 		// TESTING HERE
-		queue1.joinQueue(1);
-		queue1.joinQueue(32);
-		queue1.joinQueue(3);
+		queue1.joinQueue("Adam");
+		queue1.joinQueue("jakov");
+		queue1.joinQueue("jorge");
+		
+		
+		for (QueueIterator i = new QueueIterator(queue1.getFront()); !i.atEnd(); i.plusPlus()) {
+			
+			System.out.println(i.getCurrent().getName());
+		}
+		
+		// dont forget about the back
+		System.out.println(queue1.getBack().getName());
+		
+		
 		
 	}
 	

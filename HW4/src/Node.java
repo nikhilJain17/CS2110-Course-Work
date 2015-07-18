@@ -3,10 +3,10 @@
 public class Node {
 
 	private Node next;
-	private int id;
+	private String name;
 	
-	public Node(int id) {
-		this.id = id;
+	public Node(String name) {
+		this.name = name;
 	}
 	
 	public Node getNext() {
@@ -17,12 +17,12 @@ public class Node {
 		next = n;
 	}
 	
-	public void setID(int id) {
-		this.id = id;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
-	public int getID() {
-		return id;
+	public String getName() {
+		return name;
 	}
 	
 	
