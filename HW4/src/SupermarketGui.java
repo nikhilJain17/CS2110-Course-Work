@@ -181,8 +181,7 @@ public class SupermarketGui {
 			// it sets up the gui
 			// randomly populates the queues
 		
-		Main m = new Main();
-		m.initialize();
+		Main.initialize();
 		
 	}
 	
