@@ -47,6 +47,19 @@ public class CashierQueue {
 	// "skip the queue"
 	
 	
+	// Used to display all members of the queue
+	public void displayQueueMembers() {
+
+		for (QueueIterator i = new QueueIterator(front); !i.atEnd(); i.plusPlus()) {
+			
+			System.out.println(i.getCurrent().getName());
+		}
+		
+		// dont forget about the back
+		System.out.println(back.getName());
+		
+	}
+	
 	
 	// Getters and setters
 	public Node getFront() {
