@@ -7,9 +7,13 @@ public class SupermarketGui {
 	JFrame frame; // holds panel
 	JPanel panel; // holds all components (text boxes, etc)
 	
+	JButton startSimulation; // kickstarts the whole program
+	
 	JLabel queue1Label; // 
 	JLabel queue1Speed; // cashier speed
 	JLabel queue1Length; // length of q
+	JScrollPane queue1ScrollPane; // holds the JTextArea and allows users to scroll through the members if necessary
+	JTextArea queue1Members; // people in queue 1
 	
 	JLabel queue2Label; // title
 	JLabel queue2Speed; // speed
@@ -36,6 +40,11 @@ public class SupermarketGui {
 	
 	
 	public void createAndShowGui () {
+		
+		// for starting a simulation, and resetting program
+		startSimulation = new JButton();
+		startSimulation.setBounds(1100, 25, 150, 40);
+		startSimulation.setText("Run simulation");
 		
 		// JFrame for holding panel
 		frame = new JFrame("Nikhil's Grocery Queue");
@@ -68,6 +77,14 @@ public class SupermarketGui {
 		queue1Length.setText("Length: ");
 		queue1Length.setBounds(20, 85, 80, 25);
 		// make cashier object?
+		
+		queue1ScrollPane = new JScrollPane();
+		queue1ScrollPane.setBounds(15, 140, 100, 500);
+		
+		// add the members to the scroll pane
+		queue1Members = new JTextArea("TEST");
+		queue1ScrollPane.add(queue1Members);
+		
 		
 		
 		// Labels for Queue 2
@@ -145,6 +162,8 @@ public class SupermarketGui {
 		panel.add(queue1Length);
 		panel.add(queue1Speed);
 		
+		panel.add(queue1ScrollPane);
+		
 		panel.add(queue2Label);
 		panel.add(queue2Length);
 		panel.add(queue2Speed);
@@ -160,6 +179,8 @@ public class SupermarketGui {
 		panel.add(queue5Label);
 		panel.add(queue5Length);
 		panel.add(queue5Speed);
+		
+		panel.add(startSimulation);
 		
 		
 		

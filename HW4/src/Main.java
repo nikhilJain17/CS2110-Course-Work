@@ -26,12 +26,22 @@ public class Main {
 		CashierQueue queue4 = new CashierQueue();
 		CashierQueue queue5 = new CashierQueue();
 		
+		// Randomly populate queues of sizes 1 to 11
 		
-		initializeQueue(queue1);
-		initializeQueue(queue2);
-		initializeQueue(queue3);
-		initializeQueue(queue4);
-		initializeQueue(queue5);
+		int numOfPeople = (int) (10 * Math.random() + 1);
+		initializeQueue(queue1, numOfPeople);
+		
+		numOfPeople = (int) (10 * Math.random() + 1);
+		initializeQueue(queue2, numOfPeople);
+		
+		numOfPeople = (int) (10 * Math.random() + 1);
+		initializeQueue(queue3, numOfPeople);
+		
+		numOfPeople = (int) (10 * Math.random() + 1);
+		initializeQueue(queue4, numOfPeople);
+		
+		numOfPeople = (int) (10 * Math.random() + 1);
+		initializeQueue(queue5, numOfPeople);
 		
 		
 		System.out.println("\nQueue 1 Members: \n");
@@ -54,16 +64,17 @@ public class Main {
 		
 	}
 	
-	public static void initializeQueue(CashierQueue q) {
+	public static void initializeQueue(CashierQueue q, int numOfPeople) {
 		
 		
 		// Randomly choose how many people there will be, from 1 to 10 people
-		int numOfPeople = (int) Math.floor(Math.random() * 10);
+		// a*Math.random() + b
 		
-		// don't want 0 people in the queue
-		if (numOfPeople == 0)
-			numOfPeople++;
 		
+		System.out.println("NUM OF PEOPLE + " + numOfPeople);
+		
+		
+//		// don't want 0 people in the queue		
 		
 		for (int i = 0; i < numOfPeople; i++) {
 			
