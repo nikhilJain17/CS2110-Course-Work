@@ -313,10 +313,16 @@ public class SupermarketGui {
 		
 		queueArray = Main.initialize();
 		
+		// initialize the JTextAreas with the proper data
 		for (int i = 0; i < queueArray.length; i++) {
 			displayNamesOnGui(queueArray[i], i + 1);
 		}
 		
+		// TESTING LEAVING QUEUE FROM FRONT
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		
+		displayNamesOnGui(queueArray[0], 1);
 		
 		
 	}
@@ -385,7 +391,7 @@ public class SupermarketGui {
 		
 		
 		
-	}
+	} // end of "displayNamesOnGui"
 	
 	
 

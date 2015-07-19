@@ -41,10 +41,30 @@ public class CashierQueue {
 	}
 	
 	
-	// leave the queue
+	// leave the queue (as if you have been served)
+	public String leaveQueueFromFront() {
+		
+		if (length > 0) {
+			length--;
+			
+			String name = front.getName();
+			front = front.getNext();
+			return name;
+		}
+		
+		// empty queue
+		else
+			return "";
+		
+	}
 	
 	
 	// "skip the queue"
+	// basically, only for YOU! to leave queue
+	// if you are at back, and want to switch to faster queue, for example
+	public void leaveQueue() {
+		
+	}
 	
 	
 	// Used to display all members of the queue
