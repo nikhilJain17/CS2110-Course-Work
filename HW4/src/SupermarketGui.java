@@ -25,7 +25,7 @@ public class SupermarketGui {
 	
 	
 	JLabel queue2Label; // title
-	JLabel queue2Speed; // speed
+	static JLabel queue2Speed; // speed
 	JLabel queue2Length; // length
 	JScrollPane queue2ScrollPane; // holds JTextArea
 	static JTextArea queue2Members = new JTextArea();
@@ -33,7 +33,7 @@ public class SupermarketGui {
 	
 	
 	JLabel queue3Label; 
-	JLabel queue3Speed;
+	static JLabel queue3Speed;
 	JLabel queue3Length;
 	JScrollPane queue3ScrollPane;
 	static JTextArea queue3Members = new JTextArea();
@@ -41,7 +41,7 @@ public class SupermarketGui {
 	
 	
 	JLabel queue4Label;
-	JLabel queue4Speed;
+	static JLabel queue4Speed;
 	JLabel queue4Length;
 	JScrollPane queue4ScrollPane;
 	static JTextArea queue4Members = new JTextArea();
@@ -49,7 +49,7 @@ public class SupermarketGui {
 	
 	
 	JLabel queue5Label;
-	JLabel queue5Speed;
+	static JLabel queue5Speed;
 	JLabel queue5Length;
 	JScrollPane queue5ScrollPane;
 	static JTextArea queue5Members = new JTextArea();
@@ -323,13 +323,33 @@ public class SupermarketGui {
 		// Depending on its speed, it will remove elements from the queue
 		// When it is finished, it will calculate the time it took to finish
 		
-		// TESTING PERSONREMOVERTHREAD
-		//int rate, CashierQueue q, int whichQueue
-		PersonRemoverThread q1Remover = new PersonRemoverThread(1, queueArray[0], 1);
+		PersonRemoverThread q1Remover = new PersonRemoverThread(queueArray[0].getRate(), queueArray[0], 1);
+		PersonRemoverThread q2Remover = new PersonRemoverThread(queueArray[1].getRate(), queueArray[1], 2);
+		PersonRemoverThread q3Remover = new PersonRemoverThread(queueArray[2].getRate(), queueArray[2], 3);
+		PersonRemoverThread q4Remover = new PersonRemoverThread(queueArray[3].getRate(), queueArray[3], 4);
+		PersonRemoverThread q5Remover = new PersonRemoverThread(queueArray[4].getRate(), queueArray[4], 5);
+		
+		// Display the speeds on the appropriate JLabels
+		queue1Speed.setText("Rate: " + queueArray[0].getRate() + " sec");
+		queue2Speed.setText("Rate: " + queueArray[1].getRate() + " sec");
+		queue3Speed.setText("Rate: " + queueArray[2].getRate() + " sec");
+		queue4Speed.setText("Rate: " + queueArray[3].getRate() + " sec");
+		queue5Speed.setText("Rate: " + queueArray[4].getRate() + " sec");
+		
+		// start the threads
 		q1Remover.start();
+		q2Remover.start();
+		q3Remover.start();
+		q4Remover.start();
+		q5Remover.start();
 		
 		
 	}
+	
+	
+	
+	
+	
 	
 	// prints the names from the queueArray to the JTextArea
 	public static void displayNamesOnGui(CashierQueue q, int whichQueue) {

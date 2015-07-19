@@ -5,6 +5,7 @@ public class CashierQueue {
 	private Node front;
 	private Node back;
 	private int length;
+	private int rate; // rate that cashier serves people
 	
 	
 	// Constructor
@@ -12,6 +13,8 @@ public class CashierQueue {
 		front = null;
 		back = null;
 		length = 0;
+		
+		rate = (int) (10 * (Math.random()));
 	}
 	
 	
@@ -106,6 +109,9 @@ public class CashierQueue {
 	}
 	public void setLength(int length) {
 		this.length = length;
+	}
+	public int getRate() {
+		return rate;
 	}
 	
 	
