@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import javax.swing.*;
 import javax.swing.border.Border;
 public class SupermarketGui {
+	
 	JFrame frame; // holds panel
 	JPanel panel; // holds all components (text boxes, etc)
 	
@@ -13,10 +14,10 @@ public class SupermarketGui {
 	JLabel disclaimer; // there is a bug in the program because of multithreading
 	
 	JLabel queue1Label; // 
-	JLabel queue1Speed; // cashier speed
+	static JLabel queue1Speed; // cashier speed
 	JLabel queue1Length; // length of q
 	JScrollPane queue1ScrollPane; // holds the JTextArea and allows users to scroll through the members if necessary
-	JTextArea queue1Members; // people in queue 1
+	static JTextArea queue1Members = new JTextArea(); // people in queue 1
 	JButton joinQueue1; // a button to join queue 1
 	
 	
@@ -25,7 +26,7 @@ public class SupermarketGui {
 	JLabel queue2Speed; // speed
 	JLabel queue2Length; // length
 	JScrollPane queue2ScrollPane; // holds JTextArea
-	JTextArea queue2Members;
+	static JTextArea queue2Members = new JTextArea();
 	JButton joinQueue2;
 	
 	
@@ -33,7 +34,7 @@ public class SupermarketGui {
 	JLabel queue3Speed;
 	JLabel queue3Length;
 	JScrollPane queue3ScrollPane;
-	JTextArea queue3Members;
+	static JTextArea queue3Members = new JTextArea();
 	JButton joinQueue3;
 	
 	
@@ -41,7 +42,7 @@ public class SupermarketGui {
 	JLabel queue4Speed;
 	JLabel queue4Length;
 	JScrollPane queue4ScrollPane;
-	JTextArea queue4Members;
+	static JTextArea queue4Members = new JTextArea();
 	JButton joinQueue4;
 	
 	
@@ -49,7 +50,7 @@ public class SupermarketGui {
 	JLabel queue5Speed;
 	JLabel queue5Length;
 	JScrollPane queue5ScrollPane;
-	JTextArea queue5Members;
+	static JTextArea queue5Members = new JTextArea();
 	JButton joinQueue5;
 	
 	
@@ -106,8 +107,6 @@ public class SupermarketGui {
 		
 		
 		// add the members to the scroll pane
-		queue1Members = new JTextArea("TEST");
-		queue1Members.setText("Nobody");
 		queue1Members.setVisible(true);
         queue1Members.setPreferredSize(new Dimension(140, 500));
         
@@ -117,7 +116,7 @@ public class SupermarketGui {
 		
 		joinQueue1 = new JButton("Join");
 		joinQueue1.setBounds(15, 700, 140, 35);
-		joinQueue1.setEnabled(false); // TEST TEST TEST TEST TEST TEST TEST
+//		joinQueue1.setEnabled(false); // TEST TEST TEST TEST TEST TEST TEST
 		
 		
 		
@@ -137,7 +136,7 @@ public class SupermarketGui {
 		queue2Length.setBounds(250, 85, 80, 25);
 		
 		// scroll pane code
-		queue2Members = new JTextArea("Test 2\nTest2\nTest2");
+//		queue2Members = new JTextArea("Test 2\nTest2\nTest2");
 		queue2Members.setPreferredSize(new Dimension(140, 500));
 		
 		queue2ScrollPane = new JScrollPane(queue2Members, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -164,7 +163,7 @@ public class SupermarketGui {
 		queue3Length.setBounds(475, 85, 80, 25);
 		
 		// scroll pane
-		queue3Members = new JTextArea("Queue 3 members");
+//		queue3Members = new JTextArea("Queue 3 members");
 		queue3Members.setPreferredSize(new Dimension(140, 500));
 		
 		queue3ScrollPane = new JScrollPane(queue3Members, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -190,7 +189,7 @@ public class SupermarketGui {
 		queue4Length.setBounds(700, 85, 80, 25);
 		
 		// scroll pane
-		queue4Members = new JTextArea("Q4\nq4");
+//		queue4Members = new JTextArea("Q4\nq4");
 		queue4Members.setPreferredSize(new Dimension(140, 500));
 		
 		queue4ScrollPane = new JScrollPane(queue4Members);
@@ -219,7 +218,7 @@ public class SupermarketGui {
 		queue5Length.setBounds(925, 85, 80, 25);
 		
 		// scrol poaeenene
-		queue5Members = new JTextArea("Queueueueueueueueueue 5\nQueueueueueueueueueue 5\nQueueueueueueueueueue 5\nQueueueueueueueueueue 5\nQueueueueueueueueueue 5\n");
+//		queue5Members = new JTextArea("Queueueueueueueueueue 5\nQueueueueueueueueueue 5\nQueueueueueueueueueue 5\nQueueueueueueueueueue 5\nQueueueueueueueueueue 5\n");
 		queue5Members.setPreferredSize(new Dimension(140, 500));
 		
 		queue5ScrollPane = new JScrollPane(queue5Members);
@@ -279,13 +278,101 @@ public class SupermarketGui {
 		
 	}
 	
+	
+	
+	/*
+	 * 
+	 * Unfortunately, the main function is here.
+	 * 
+	 * I would have much rather had it in Main.java, 
+	 * but whenever I access a GUI element from there, 
+	 * I get a nullpointerexception.
+	 * 
+	 * Additionally, some project setting in eclipse
+	 * set this to have the main method and gives me
+	 * an error whenever I move it.
+	 * 
+	 * oh well
+	 * 
+	 */
+	
 	public static void main(String[] args) {
 		
 		// call the "initialize" method
 			// it sets up the gui
 			// randomly populates the queues
 		
-		Main.initialize();
+		CashierQueue[] queueArray = Main.initialize();
+		
+		displayNamesOnGui(queueArray[0], 1);
+		
+		
+		
+	}
+	
+	// prints the names from the queueArray to the JTextArea
+	public static void displayNamesOnGui(CashierQueue q, int whichQueue) {
+		
+		// max possible length is 11, and add a few for good luck
+		String[] names = new String[14];
+		
+		// initialize the names array
+		for (int i = 0; i < names.length; i++) 
+			names[i] = "";
+		
+		// copy over the actual values from the queue
+		int index = 0;
+		for (QueueIterator j = new QueueIterator(q.getFront()); !j.atEnd(); j.plusPlus()) {
+			
+			names[index] = j.getCurrent().getName();
+			System.out.println("Names array " + index + " " + names[index]);
+			index++;
+			
+		}
+		
+		// don't forget about the back!
+		names[index] = q.getBack().getName();
+		
+		
+		// move data from names array to the JTextArea
+		StringBuilder appendinator = new StringBuilder(); // to appendinate strings together
+		
+		String setTextStr = ""; // to be passed to the JTextArea
+		for (int i = 0; i < names.length; i++) {
+			appendinator.append(names[i] + "\n");
+		}
+		
+		setTextStr = appendinator.toString();
+		
+		System.out.println("\nValue of setTextStr:\n" + setTextStr);
+		
+		// now, the data is stored in the String setText
+		// transfer it to the JTextArea
+		switch (whichQueue) {
+		
+		case 1:
+			queue1Members.setText(setTextStr);
+			break;
+			
+		case 2:
+			queue2Members.setText(setTextStr);
+			break;
+			
+		case 3:
+			queue3Members.setText(setTextStr);
+			break;
+			
+		case 4:
+			queue4Members.setText(setTextStr);
+			break;
+			
+		case 5:
+			queue5Members.setText(setTextStr);
+			break;
+		
+		}
+		
+		
 		
 	}
 	

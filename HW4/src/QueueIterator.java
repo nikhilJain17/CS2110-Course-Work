@@ -32,7 +32,7 @@ public class QueueIterator {
 	
 	// if at end, returns true
 	public boolean atEnd() {
-		return current.getNext() == null;
+		return current == null;
 	}
 	
 	

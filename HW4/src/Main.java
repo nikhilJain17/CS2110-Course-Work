@@ -4,7 +4,7 @@
 
 public class Main {
 	
-	public static void initialize() {
+	public static CashierQueue[] initialize() {
 		
 		// This block of code initializes the GUI on a new thread
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -60,7 +60,15 @@ public class Main {
 		queue5.displayQueueMembers();
 		
 		
+		// To be returned
+		CashierQueue[] q = new CashierQueue[5];
+		q[0] = queue1;
+		q[1] = queue2;
+		q[2] = queue3;
+		q[3] = queue4;
+		q[4] = queue5;
 		
+		return q;
 		
 	}
 	
