@@ -318,26 +318,15 @@ public class SupermarketGui {
 			displayNamesOnGui(queueArray[i], i + 1);
 		}
 		
-		// TESTING LEAVING QUEUE FROM FRONT
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
-		queueArray[0].leaveQueueFromFront();
 		
-		displayNamesOnGui(queueArray[0], 1);
+		// Create a new thread for each queue
+		// Depending on its speed, it will remove elements from the queue
+		// When it is finished, it will calculate the time it took to finish
+		
+		// TESTING PERSONREMOVERTHREAD
+		//int rate, CashierQueue q, int whichQueue
+		PersonRemoverThread q1Remover = new PersonRemoverThread(1, queueArray[0], 1);
+		q1Remover.start();
 		
 		
 	}
@@ -362,7 +351,11 @@ public class SupermarketGui {
 			
 		}
 		
-		// don't forget about the back!
+		/*** 
+		 * That line of code screwed up the program, since the last person was being duplicated
+		 * 
+		 * ***/
+		// don't forget about the back! 
 		//names[index] = q.getBack().getName();
 		
 		
