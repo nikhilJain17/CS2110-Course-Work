@@ -17,37 +17,40 @@ public class SupermarketGui {
 	JLabel queue1Length; // length of q
 	JScrollPane queue1ScrollPane; // holds the JTextArea and allows users to scroll through the members if necessary
 	JTextArea queue1Members; // people in queue 1
+	JButton joinQueue1; // a button to join queue 1
+	
+	
 	
 	JLabel queue2Label; // title
 	JLabel queue2Speed; // speed
 	JLabel queue2Length; // length
 	JScrollPane queue2ScrollPane; // holds JTextArea
 	JTextArea queue2Members;
+	JButton joinQueue2;
+	
 	
 	JLabel queue3Label; 
 	JLabel queue3Speed;
 	JLabel queue3Length;
 	JScrollPane queue3ScrollPane;
 	JTextArea queue3Members;
+	JButton joinQueue3;
+	
 	
 	JLabel queue4Label;
 	JLabel queue4Speed;
 	JLabel queue4Length;
 	JScrollPane queue4ScrollPane;
 	JTextArea queue4Members;
+	JButton joinQueue4;
+	
 	
 	JLabel queue5Label;
 	JLabel queue5Speed;
 	JLabel queue5Length;
 	JScrollPane queue5ScrollPane;
 	JTextArea queue5Members;
-	
-	/*
-	 * 
-	 * TODO ADD SOME FANCY PICTURES OF A GROCERY STORE!
-	 * MAKE IT LOOK LIKE A GROCERY STORE!
-	 * 
-	 */
+	JButton joinQueue5;
 	
 	
 	public void createAndShowGui () {
@@ -79,7 +82,10 @@ public class SupermarketGui {
 		// Border (padding around edges)
 		Border padding = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 		
-		// Labels for Queue 1
+		
+		
+		
+		// GUI Elements for Queue 1
 		queue1Label = new JLabel(); // title
 		
 		queue1Label.setText("Queue 1");
@@ -109,6 +115,12 @@ public class SupermarketGui {
 		queue1ScrollPane.setBounds(15, 140, 140, 500);
 		queue1ScrollPane.setVisible(true);
 		
+		joinQueue1 = new JButton("Join");
+		joinQueue1.setBounds(15, 700, 140, 35);
+		joinQueue1.setEnabled(false); // TEST TEST TEST TEST TEST TEST TEST
+		
+		
+		
 		
 		
 		// Labels for Queue 2
@@ -130,6 +142,10 @@ public class SupermarketGui {
 		
 		queue2ScrollPane = new JScrollPane(queue2Members, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		queue2ScrollPane.setBounds(245, 140, 140, 500);
+		
+		joinQueue2 = new JButton("Join");
+		joinQueue2.setBounds(245, 700, 140, 35);
+		
 		
 		
 		
@@ -153,6 +169,9 @@ public class SupermarketGui {
 		
 		queue3ScrollPane = new JScrollPane(queue3Members, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		queue3ScrollPane.setBounds(470, 140, 140, 500);
+		
+		joinQueue3 = new JButton("Join");
+		joinQueue3.setBounds(470, 700, 140, 35);
 		
 		
 		
@@ -178,6 +197,13 @@ public class SupermarketGui {
 		queue4ScrollPane.setBounds(695, 140, 140, 500);
 		
 		
+		joinQueue4 = new JButton("Join");
+		joinQueue4.setBounds(695, 700, 140, 35);
+		
+		
+		
+		
+		
 		
 		// Labels for Queue 5
 		queue5Label = new JLabel("Queue 5");
@@ -199,6 +225,10 @@ public class SupermarketGui {
 		queue5ScrollPane = new JScrollPane(queue5Members);
 		queue5ScrollPane.setBounds(920, 140, 140, 500);
 		
+		joinQueue5 = new JButton("Join");
+		joinQueue5.setBounds(920, 700, 140, 35);
+		
+		
 		
 		
 		// add all the components to the panel
@@ -206,26 +236,31 @@ public class SupermarketGui {
 		panel.add(queue1Length);
 		panel.add(queue1Speed);
 		panel.add(queue1ScrollPane);
+		panel.add(joinQueue1);
 		
 		panel.add(queue2Label);
 		panel.add(queue2Length);
 		panel.add(queue2Speed);
 		panel.add(queue2ScrollPane);
+		panel.add(joinQueue2);
 		
 		panel.add(queue3Label);
 		panel.add(queue3Length);
 		panel.add(queue3Speed);
 		panel.add(queue3ScrollPane);
+		panel.add(joinQueue3);
 		
 		panel.add(queue4Label);
 		panel.add(queue4Length);
 		panel.add(queue4Speed);
 		panel.add(queue4ScrollPane);
+		panel.add(joinQueue4);
 		
 		panel.add(queue5Label);
 		panel.add(queue5Length);
 		panel.add(queue5Speed);
 		panel.add(queue5ScrollPane);
+		panel.add(joinQueue5);
 		
 		panel.add(startSimulation);
 		
