@@ -21,18 +21,26 @@ public class SupermarketGui {
 	JLabel queue2Label; // title
 	JLabel queue2Speed; // speed
 	JLabel queue2Length; // length
+	JScrollPane queue2ScrollPane; // holds JTextArea
+	JTextArea queue2Members;
 	
 	JLabel queue3Label; 
 	JLabel queue3Speed;
 	JLabel queue3Length;
+	JScrollPane queue3ScrollPane;
+	JTextArea queue3Members;
 	
 	JLabel queue4Label;
 	JLabel queue4Speed;
 	JLabel queue4Length;
+	JScrollPane queue4ScrollPane;
+	JTextArea queue4Members;
 	
 	JLabel queue5Label;
 	JLabel queue5Speed;
 	JLabel queue5Length;
+	JScrollPane queue5ScrollPane;
+	JTextArea queue5Members;
 	
 	/*
 	 * 
@@ -116,6 +124,15 @@ public class SupermarketGui {
 		queue2Length = new JLabel("Length: ");
 		queue2Length.setBounds(250, 85, 80, 25);
 		
+		// scroll pane code
+		queue2Members = new JTextArea("Test 2\nTest2\nTest2");
+		queue2Members.setPreferredSize(new Dimension(140, 500));
+		
+		queue2ScrollPane = new JScrollPane(queue2Members, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		queue2ScrollPane.setBounds(245, 140, 140, 500);
+		
+		
+		
 		
 		// Labels for Queue 3
 		queue3Label = new JLabel("Queue 3");
@@ -129,6 +146,15 @@ public class SupermarketGui {
 		
 		queue3Length = new JLabel("Length: ");
 		queue3Length.setBounds(475, 85, 80, 25);
+		
+		// scroll pane
+		queue3Members = new JTextArea("Queue 3 members");
+		queue3Members.setPreferredSize(new Dimension(140, 500));
+		
+		queue3ScrollPane = new JScrollPane(queue3Members, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		queue3ScrollPane.setBounds(470, 140, 140, 500);
+		
+		
 		
 		
 		// Labels for Queue 4
@@ -144,6 +170,14 @@ public class SupermarketGui {
 		queue4Length = new JLabel("Length: ");
 		queue4Length.setBounds(700, 85, 80, 25);
 		
+		// scroll pane
+		queue4Members = new JTextArea("Q4\nq4");
+		queue4Members.setPreferredSize(new Dimension(140, 500));
+		
+		queue4ScrollPane = new JScrollPane(queue4Members);
+		queue4ScrollPane.setBounds(695, 140, 140, 500);
+		
+		
 		
 		// Labels for Queue 5
 		queue5Label = new JLabel("Queue 5");
@@ -158,18 +192,12 @@ public class SupermarketGui {
 		queue5Length = new JLabel("Length: ");
 		queue5Length.setBounds(925, 85, 80, 25);
 		
-		// each person will be represented by an x
+		// scrol poaeenene
+		queue5Members = new JTextArea("Queueueueueueueueueue 5\nQueueueueueueueueueue 5\nQueueueueueueueueueue 5\nQueueueueueueueueueue 5\nQueueueueueueueueueue 5\n");
+		queue5Members.setPreferredSize(new Dimension(140, 500));
 		
-		/*
-		 * x
-		 * x
-		 * x
-		 * x
-		 * x
-		 */
-		 
-		
-		
+		queue5ScrollPane = new JScrollPane(queue5Members);
+		queue5ScrollPane.setBounds(920, 140, 140, 500);
 		
 		
 		
@@ -177,24 +205,27 @@ public class SupermarketGui {
 		panel.add(queue1Label);
 		panel.add(queue1Length);
 		panel.add(queue1Speed);
-		
 		panel.add(queue1ScrollPane);
 		
 		panel.add(queue2Label);
 		panel.add(queue2Length);
 		panel.add(queue2Speed);
+		panel.add(queue2ScrollPane);
 		
 		panel.add(queue3Label);
 		panel.add(queue3Length);
 		panel.add(queue3Speed);
+		panel.add(queue3ScrollPane);
 		
 		panel.add(queue4Label);
 		panel.add(queue4Length);
 		panel.add(queue4Speed);
+		panel.add(queue4ScrollPane);
 		
 		panel.add(queue5Label);
 		panel.add(queue5Length);
 		panel.add(queue5Speed);
+		panel.add(queue5ScrollPane);
 		
 		panel.add(startSimulation);
 		
