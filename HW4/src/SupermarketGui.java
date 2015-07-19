@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 public class SupermarketGui {
 	
+	static CashierQueue[] queueArray; // ARRAY That holds all 5 queue objects pertaining to each queue
+	
 	JFrame frame; // holds panel
 	JPanel panel; // holds all components (text boxes, etc)
 	
@@ -309,7 +311,7 @@ public class SupermarketGui {
 			// it sets up the gui
 			// randomly populates the queues
 		
-		CashierQueue[] queueArray = Main.initialize();
+		queueArray = Main.initialize();
 		
 		for (int i = 0; i < queueArray.length; i++) {
 			displayNamesOnGui(queueArray[i], i + 1);

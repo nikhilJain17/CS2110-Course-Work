@@ -9,20 +9,136 @@ public class JoinQueueButtonListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if (e.getSource().equals(SupermarketGui.joinQueue1))
-			SupermarketGui.disclaimer.setText("Button 1");
-		
-		else if (e.getSource().equals(SupermarketGui.joinQueue2))
-			SupermarketGui.disclaimer.setText("Button 2");
-		
-		else if (e.getSource().equals(SupermarketGui.joinQueue3))
-			SupermarketGui.disclaimer.setText("Button 3");
+		if (e.getSource().equals(SupermarketGui.joinQueue1)) {
+			
+			// disable current button
+			SupermarketGui.joinQueue1.setEnabled(false);
+			
+			// enable all other buttons
+			SupermarketGui.joinQueue2.setEnabled(true);
+			SupermarketGui.joinQueue3.setEnabled(true);
+			SupermarketGui.joinQueue4.setEnabled(true);
+			SupermarketGui.joinQueue5.setEnabled(true);
+			
+			// Add you to the queue
+			SupermarketGui.queueArray[0].joinQueue("YOU!");
+			
+			// refresh the display
+			SupermarketGui.displayNamesOnGui(SupermarketGui.queueArray[0], 1);
+			
+			/***
+			 * 
+			 * TODO Remove ALL OTHER INSTANCES of you from the other queues!
+			 * 
+			 */
 
-		else if (e.getSource().equals(SupermarketGui.joinQueue4))
-			SupermarketGui.disclaimer.setText("Button 4");
+		}
 		
-		else if (e.getSource().equals(SupermarketGui.joinQueue5))
-			SupermarketGui.disclaimer.setText("Button 5");
+		else if (e.getSource().equals(SupermarketGui.joinQueue2)) {
+			
+			// disable current button
+			SupermarketGui.joinQueue2.setEnabled(false);
+			
+			// enable all other buttons
+			SupermarketGui.joinQueue1.setEnabled(true);
+			SupermarketGui.joinQueue3.setEnabled(true);
+			SupermarketGui.joinQueue4.setEnabled(true);
+			SupermarketGui.joinQueue5.setEnabled(true);
+			
+			// Add you to the queue
+			SupermarketGui.queueArray[1].joinQueue("YOU!");
+
+			
+			// refresh the display
+			SupermarketGui.displayNamesOnGui(SupermarketGui.queueArray[1], 2);
+			
+
+			/***
+			 * 
+			 * TODO Remove ALL OTHER INSTANCES of you from the other queues!
+			 * 
+			 */
+
+		}
+		
+		else if (e.getSource().equals(SupermarketGui.joinQueue3)) {
+
+			// disable current button
+			SupermarketGui.joinQueue3.setEnabled(false);
+			
+
+			// enable all other buttons
+			SupermarketGui.joinQueue2.setEnabled(true);
+			SupermarketGui.joinQueue1.setEnabled(true);
+			SupermarketGui.joinQueue4.setEnabled(true);
+			SupermarketGui.joinQueue5.setEnabled(true);
+
+			// Add you to the queue
+			SupermarketGui.queueArray[2].joinQueue("YOU!");
+			
+			// refresh the display
+			SupermarketGui.displayNamesOnGui(SupermarketGui.queueArray[2], 3);
+			
+
+			/***
+			 * 
+			 * TODO Remove ALL OTHER INSTANCES of you from the other queues!
+			 * 
+			 */
+
+		}
+
+		else if (e.getSource().equals(SupermarketGui.joinQueue4)) {
+
+			// disable current button
+			SupermarketGui.joinQueue4.setEnabled(false);
+
+			// enable all other buttons
+			SupermarketGui.joinQueue2.setEnabled(true);
+			SupermarketGui.joinQueue3.setEnabled(true);
+			SupermarketGui.joinQueue1.setEnabled(true);
+			SupermarketGui.joinQueue5.setEnabled(true);
+
+			// Add you to the queue
+			SupermarketGui.queueArray[3].joinQueue("YOU!");
+			
+			// refresh the display
+			SupermarketGui.displayNamesOnGui(SupermarketGui.queueArray[3], 4);
+
+
+			/***
+			 * 
+			 * TODO Remove ALL OTHER INSTANCES of you from the other queues!
+			 * 
+			 */
+			
+		}
+		
+		else if (e.getSource().equals(SupermarketGui.joinQueue5)) {
+
+			// disable current button
+			SupermarketGui.joinQueue5.setEnabled(false);
+
+			// enable all other buttons
+			SupermarketGui.joinQueue2.setEnabled(true);
+			SupermarketGui.joinQueue3.setEnabled(true);
+			SupermarketGui.joinQueue4.setEnabled(true);
+			SupermarketGui.joinQueue1.setEnabled(true);
+
+			// Add you to the queue
+			SupermarketGui.queueArray[4].joinQueue("YOU!");
+			
+			// refresh the display
+			SupermarketGui.displayNamesOnGui(SupermarketGui.queueArray[4], 5);
+			
+
+			/***
+			 * 
+			 * TODO Remove ALL OTHER INSTANCES of you from the other queues!
+			 * 
+			 */
+			
+		}
 		
 	}
 	
