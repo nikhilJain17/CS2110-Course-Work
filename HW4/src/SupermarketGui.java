@@ -321,6 +321,21 @@ public class SupermarketGui {
 		// TESTING LEAVING QUEUE FROM FRONT
 		queueArray[0].leaveQueueFromFront();
 		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
+		queueArray[0].leaveQueueFromFront();
 		
 		displayNamesOnGui(queueArray[0], 1);
 		
@@ -348,7 +363,7 @@ public class SupermarketGui {
 		}
 		
 		// don't forget about the back!
-		names[index] = q.getBack().getName();
+		//names[index] = q.getBack().getName();
 		
 		
 		// move data from names array to the JTextArea

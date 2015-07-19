@@ -52,6 +52,13 @@ public class CashierQueue {
 			return name;
 		}
 		
+		// if only 1 member in queue
+		if (length == 1) {
+			front.setName("");
+			back.setName("");
+			return "";
+		}
+		
 		// empty queue
 		else
 			return "";
