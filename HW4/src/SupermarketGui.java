@@ -304,7 +304,9 @@ public class SupermarketGui {
 		
 		CashierQueue[] queueArray = Main.initialize();
 		
-		displayNamesOnGui(queueArray[0], 1);
+		for (int i = 0; i < queueArray.length; i++) {
+			displayNamesOnGui(queueArray[i], i + 1);
+		}
 		
 		
 		
