@@ -9,16 +9,16 @@ public class SupermarketGui {
 	JFrame frame; // holds panel
 	JPanel panel; // holds all components (text boxes, etc)
 	
-	JButton startSimulation; // kickstarts the whole program
+	static JButton startSimulation; // kickstarts the whole program
 	
-	JLabel disclaimer; // there is a bug in the program because of multithreading
+	static JLabel disclaimer; // there is a bug in the program because of multithreading
 	
 	JLabel queue1Label; // 
 	static JLabel queue1Speed; // cashier speed
 	JLabel queue1Length; // length of q
 	JScrollPane queue1ScrollPane; // holds the JTextArea and allows users to scroll through the members if necessary
 	static JTextArea queue1Members = new JTextArea(); // people in queue 1
-	JButton joinQueue1; // a button to join queue 1
+	static JButton joinQueue1; // a button to join queue 1
 	
 	
 	
@@ -27,7 +27,7 @@ public class SupermarketGui {
 	JLabel queue2Length; // length
 	JScrollPane queue2ScrollPane; // holds JTextArea
 	static JTextArea queue2Members = new JTextArea();
-	JButton joinQueue2;
+	static JButton joinQueue2;
 	
 	
 	JLabel queue3Label; 
@@ -35,7 +35,7 @@ public class SupermarketGui {
 	JLabel queue3Length;
 	JScrollPane queue3ScrollPane;
 	static JTextArea queue3Members = new JTextArea();
-	JButton joinQueue3;
+	static JButton joinQueue3;
 	
 	
 	JLabel queue4Label;
@@ -43,7 +43,7 @@ public class SupermarketGui {
 	JLabel queue4Length;
 	JScrollPane queue4ScrollPane;
 	static JTextArea queue4Members = new JTextArea();
-	JButton joinQueue4;
+	static JButton joinQueue4;
 	
 	
 	JLabel queue5Label;
@@ -51,7 +51,7 @@ public class SupermarketGui {
 	JLabel queue5Length;
 	JScrollPane queue5ScrollPane;
 	static JTextArea queue5Members = new JTextArea();
-	JButton joinQueue5;
+	static JButton joinQueue5;
 	
 	
 	public void createAndShowGui () {
@@ -265,8 +265,15 @@ public class SupermarketGui {
 		
 		panel.add(disclaimer);
 		
-		
 		panel.setBorder(padding);
+		
+		// add the button listeners
+		joinQueue1.addActionListener(new JoinQueueButtonListener());
+		joinQueue2.addActionListener(new JoinQueueButtonListener());
+		joinQueue3.addActionListener(new JoinQueueButtonListener());
+		joinQueue4.addActionListener(new JoinQueueButtonListener());
+		joinQueue5.addActionListener(new JoinQueueButtonListener());
+		
 		
 		// add the panel to the frame
 		frame.add(panel);
