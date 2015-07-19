@@ -7,6 +7,12 @@ import javax.swing.border.Border;
 public class SupermarketGui {
 	
 	static CashierQueue[] queueArray; // ARRAY That holds all 5 queue objects pertaining to each queue
+
+	static PersonRemoverThread q1Remover;
+	static PersonRemoverThread q2Remover;
+	static PersonRemoverThread q3Remover;
+	static PersonRemoverThread q4Remover;
+	static PersonRemoverThread q5Remover;
 	
 	JFrame frame; // holds panel
 	JPanel panel; // holds all components (text boxes, etc)
@@ -275,6 +281,7 @@ public class SupermarketGui {
 		joinQueue3.addActionListener(new JoinQueueButtonListener());
 		joinQueue4.addActionListener(new JoinQueueButtonListener());
 		joinQueue5.addActionListener(new JoinQueueButtonListener());
+		startSimulation.addActionListener(new StartSimulationButtonListener());
 		
 		
 		// add the panel to the frame
@@ -323,11 +330,11 @@ public class SupermarketGui {
 		// Depending on its speed, it will remove elements from the queue
 		// When it is finished, it will calculate the time it took to finish
 		
-		PersonRemoverThread q1Remover = new PersonRemoverThread(queueArray[0].getRate(), queueArray[0], 1);
-		PersonRemoverThread q2Remover = new PersonRemoverThread(queueArray[1].getRate(), queueArray[1], 2);
-		PersonRemoverThread q3Remover = new PersonRemoverThread(queueArray[2].getRate(), queueArray[2], 3);
-		PersonRemoverThread q4Remover = new PersonRemoverThread(queueArray[3].getRate(), queueArray[3], 4);
-		PersonRemoverThread q5Remover = new PersonRemoverThread(queueArray[4].getRate(), queueArray[4], 5);
+		q1Remover = new PersonRemoverThread(queueArray[0].getRate(), queueArray[0], 1);
+		q2Remover = new PersonRemoverThread(queueArray[1].getRate(), queueArray[1], 2);
+		q3Remover = new PersonRemoverThread(queueArray[2].getRate(), queueArray[2], 3);
+		q4Remover = new PersonRemoverThread(queueArray[3].getRate(), queueArray[3], 4);
+		q5Remover = new PersonRemoverThread(queueArray[4].getRate(), queueArray[4], 5);
 		
 		// Display the speeds on the appropriate JLabels
 		queue1Speed.setText("Rate: " + queueArray[0].getRate() + " sec");
@@ -336,16 +343,25 @@ public class SupermarketGui {
 		queue4Speed.setText("Rate: " + queueArray[3].getRate() + " sec");
 		queue5Speed.setText("Rate: " + queueArray[4].getRate() + " sec");
 		
-		// start the threads
-		q1Remover.start();
-		q2Remover.start();
-		q3Remover.start();
-		q4Remover.start();
-		q5Remover.start();
-		
+		// Start removing people from the threads
+//		startRemovalThreads();
 		
 	}
 	
+	
+	
+	// Start up the threads
+	public static void startRemovalThreads() {
+		
+		// start the threads
+				q1Remover.start();
+				q2Remover.start();
+				q3Remover.start();
+				q4Remover.start();
+				q5Remover.start();
+		
+	
+	}
 	
 	
 	
