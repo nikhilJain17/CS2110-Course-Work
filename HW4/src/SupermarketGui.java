@@ -14,7 +14,7 @@ public class SupermarketGui {
 	static PersonRemoverThread q4Remover;
 	static PersonRemoverThread q5Remover;
 	
-	JFrame frame; // holds panel
+	static JFrame frame; // holds panel
 	JPanel panel; // holds all components (text boxes, etc)
 	
 	static JButton startSimulation; // kickstarts the whole program
@@ -313,6 +313,10 @@ public class SupermarketGui {
 	 */
 	
 	public static void main(String[] args) {
+		
+		// display a warning
+		JOptionPane.showMessageDialog(frame, "Please check the console, and if the same name appears constantly,"
+				+ "please restart the program. \nThis issue is due to multithreading and is being fixed.");
 		
 		// call the "initialize" method
 			// it sets up the gui
