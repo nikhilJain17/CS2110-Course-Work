@@ -15,7 +15,13 @@ public class StartSimulationButtonListener implements ActionListener {
 		// was it the proper button?
 		if (e.getSource().equals(SupermarketGui.startSimulation)) {
 			
-			// Randomly populate the queues
+//			// Randomly populate the queues
+//			SupermarketGui.queueArray = Main.initialize();
+//			
+//			// initialize the JTextAreas with the proper data
+//			for (int i = 0; i < SupermarketGui.queueArray.length; i++) {
+//				SupermarketGui.displayNamesOnGui(SupermarketGui.queueArray[i], i + 1);
+//			}
 			
 			// Start the threads
 			SupermarketGui.startRemovalThreads();
