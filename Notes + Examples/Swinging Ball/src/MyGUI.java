@@ -65,7 +65,7 @@ public class MyGUI {
 			frame.add(new Ball());
 			
 			// draw
-			frame.invalidate();
+			frame.validate();
 			
 		}
 		
@@ -101,8 +101,17 @@ public class MyGUI {
 			
 			// set the ball rolling
 			while (true) {
+				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
 			
 				// redraw the ball
+				frame.invalidate();
+				ball.repaint();
 				frame.validate();
 				
 				

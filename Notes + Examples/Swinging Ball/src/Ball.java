@@ -30,7 +30,7 @@ public class Ball extends JPanel{
 	public Ball (int a) {
 		
 		Random rand = new Random();
-		
+//		
 		width = 50;
 		height = 50;
 		x = rand.nextInt(450);
@@ -79,6 +79,7 @@ public class Ball extends JPanel{
 		// log the coordinates
 		System.out.println(x + ", " + y);
 		
+		repaint(x,y,width, height);
 	}
 	
 	
