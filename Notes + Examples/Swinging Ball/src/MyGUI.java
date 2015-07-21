@@ -13,8 +13,10 @@ public class MyGUI {
 	private JFrame frame = new JFrame();
 	private JPanel actionPanel = new JPanel(); // where the buttons are
 	private JPanel playArea = new JPanel();    // where the ball is
+	
 	private JButton addBallButton = new JButton("Add Red Ball");
 	private JButton moveBallButton = new JButton("Move The Ball");
+	private JButton freeRoamButton = new JButton("Set The Ball Rolling");
 	
 	public MyGUI() {
 		buildTheGui();
@@ -27,10 +29,12 @@ public class MyGUI {
 		// Set the button listeners
 		addBallButton.addActionListener(new AddBallButtonHandler());
 		moveBallButton.addActionListener(new MoveBallButtonHandler());
+		freeRoamButton.addActionListener(new FreeRoamButtonHandler());
 		
 		// add the components 
 		actionPanel.add(addBallButton);
 		actionPanel.add(moveBallButton);
+		actionPanel.add(freeRoamButton);
 		
 		frame.add(BorderLayout.NORTH, actionPanel);
 		frame.add(BorderLayout.SOUTH, playArea);
@@ -52,6 +56,7 @@ public class MyGUI {
 	/*************************************************************************
 	 * Button Listeners														 *
 	 *************************************************************************/
+	// add a ball to the canvas
 	class AddBallButtonHandler implements ActionListener {
 		
 		public void actionPerformed(ActionEvent e) {
@@ -64,9 +69,12 @@ public class MyGUI {
 			
 		}
 		
-	}
+	}// end of addballhandler
 	
-	// move the ball
+	
+	
+	
+	// move the ball to a new random position
 	class MoveBallButtonHandler implements ActionListener {
 		
 		public void actionPerformed(ActionEvent e) {
@@ -78,6 +86,40 @@ public class MyGUI {
 			
 		}
 		
-	}
+	} // end of moveball handler
+	
+	
+	// Set the ball into freeroam
+	class FreeRoamButtonHandler implements ActionListener {
+		
+		public void actionPerformed (ActionEvent e) {
+			
+			Ball ball = new Ball();
+			
+			frame.add(ball);
+			frame.validate();
+			
+			// set the ball rolling
+			while (true) {
+			
+				// redraw the ball
+				frame.validate();
+				
+				
+				try {
+					ball.moveBall();
+				} 
+				
+				catch (InterruptedException e1) {
+					e1.printStackTrace();
+				} 
+				
+				
+				
+			} // end of while
+			
+		} // end of actionperformed
+		
+	}// end of button handler
 
-}
+} // end of class MyGUI
