@@ -57,10 +57,10 @@ public class MyGUI {
 		public void actionPerformed(ActionEvent e) {
 			
 			// Create initial ball to add
-//			frame.add(new Ball());
+			frame.add(new Ball());
 			
 			// draw
-//			frame.invalidate();
+			frame.invalidate();
 			
 		}
 		
@@ -71,7 +71,10 @@ public class MyGUI {
 		
 		public void actionPerformed(ActionEvent e) {
 			
-			
+			// cheese
+			 frame.add(new Ball(1) );
+		        //redraw
+		     frame.validate();
 			
 		}
 		
