@@ -23,6 +23,13 @@ public class JoinQueueButtonListener implements ActionListener {
 			// Add you to the queue
 			SupermarketGui.queueArray[0].joinQueue("YOU!");
 			
+			// Remove you from the back of all other queues, if applicable
+			SupermarketGui.queueArray[1].leaveQueue();
+			SupermarketGui.queueArray[2].leaveQueue();
+			SupermarketGui.queueArray[3].leaveQueue();
+			SupermarketGui.queueArray[4].leaveQueue();
+			
+			
 			// refresh the display
 			SupermarketGui.displayNamesOnGui(SupermarketGui.queueArray[0], 1);
 			
@@ -47,6 +54,13 @@ public class JoinQueueButtonListener implements ActionListener {
 			
 			// Add you to the queue
 			SupermarketGui.queueArray[1].joinQueue("YOU!");
+			
+
+			// Remove you from the back of all other queues, if applicable
+			SupermarketGui.queueArray[0].leaveQueue();
+			SupermarketGui.queueArray[2].leaveQueue();
+			SupermarketGui.queueArray[3].leaveQueue();
+			SupermarketGui.queueArray[4].leaveQueue();
 
 			
 			// refresh the display
@@ -75,16 +89,17 @@ public class JoinQueueButtonListener implements ActionListener {
 
 			// Add you to the queue
 			SupermarketGui.queueArray[2].joinQueue("YOU!");
+
+			// Remove you from the back of all other queues, if applicable
+			SupermarketGui.queueArray[1].leaveQueue();
+			SupermarketGui.queueArray[0].leaveQueue();
+			SupermarketGui.queueArray[3].leaveQueue();
+			SupermarketGui.queueArray[4].leaveQueue();
 			
 			// refresh the display
 			SupermarketGui.displayNamesOnGui(SupermarketGui.queueArray[2], 3);
 			
-
-			/***
-			 * 
-			 * TODO Remove ALL OTHER INSTANCES of you from the other queues!
-			 * 
-			 */
+			
 
 		}
 
@@ -101,6 +116,12 @@ public class JoinQueueButtonListener implements ActionListener {
 
 			// Add you to the queue
 			SupermarketGui.queueArray[3].joinQueue("YOU!");
+
+			// Remove you from the back of all other queues, if applicable
+			SupermarketGui.queueArray[1].leaveQueue();
+			SupermarketGui.queueArray[2].leaveQueue();
+			SupermarketGui.queueArray[0].leaveQueue();
+			SupermarketGui.queueArray[4].leaveQueue();
 			
 			// refresh the display
 			SupermarketGui.displayNamesOnGui(SupermarketGui.queueArray[3], 4);
@@ -128,15 +149,20 @@ public class JoinQueueButtonListener implements ActionListener {
 			// Add you to the queue
 			SupermarketGui.queueArray[4].joinQueue("YOU!");
 			
+
+			// Remove you from the back of all other queues, if applicable
+			SupermarketGui.queueArray[1].leaveQueue();
+			SupermarketGui.queueArray[2].leaveQueue();
+			SupermarketGui.queueArray[3].leaveQueue();
+			SupermarketGui.queueArray[0].leaveQueue();
+			// TEST
+//			SupermarketGui.queueArray[4].leaveQueue();
+			
 			// refresh the display
 			SupermarketGui.displayNamesOnGui(SupermarketGui.queueArray[4], 5);
 			
 
-			/***
-			 * 
-			 * TODO Remove ALL OTHER INSTANCES of you from the other queues!
-			 * 
-			 */
+			
 			
 		}
 		

@@ -78,6 +78,17 @@ public class CashierQueue {
 	// if you are at back, and want to switch to faster queue, for example
 	public void leaveQueue() {
 		
+		// are you in the queue?
+		for (QueueIterator i = new QueueIterator (front); !i.atEnd(); i.plusPlus())
+			if (i.getCurrent().getName().equalsIgnoreCase("YOU!"))
+				i.getCurrent().setName("");
+		
+		if (back.getName().equalsIgnoreCase("YOU!")) {
+			back.setName(""); // rip
+							  // should have probably made a Node previous
+						      // oh well 
+		}
+		
 	}
 	
 	
