@@ -1,7 +1,11 @@
 
 // Where the ball will be displayed
+// Contains the main method
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class MyGUI {
@@ -33,6 +37,43 @@ public class MyGUI {
 		
 		frame.setSize(500, 500);
 		frame.setVisible(true);
+		
+	}
+	
+	
+	// main method, run the program
+	public static void main(String[] args) {
+		
+		new MyGUI();
+		
+	}
+	
+	
+	/*************************************************************************
+	 * Button Listeners														 *
+	 *************************************************************************/
+	class AddBallButtonHandler implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			
+			// Create initial ball to add
+//			frame.add(new Ball());
+			
+			// draw
+//			frame.invalidate();
+			
+		}
+		
+	}
+	
+	// move the ball
+	class MoveBallButtonHandler implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			
+			
+			
+		}
 		
 	}
 
