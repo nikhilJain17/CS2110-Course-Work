@@ -14,10 +14,14 @@ public class CashierQueue {
 		back = null;
 		length = 0;
 		
-		rate = (int) (10 * (Math.random()));
+		// I keep getting NullPointerExceptions on the JLabels that display this, so the speeds are being generated in SupermarketGui.java
+		//rate = (int) (10 * (Math.random()));
 	}
 	
 	
+	
+
+
 	// join the queue
 	/*
 	 * have the user enter the name?
@@ -112,6 +116,9 @@ public class CashierQueue {
 	}
 	public int getRate() {
 		return rate;
+	}
+	public void setRate(int rate) {
+		this.rate = rate;
 	}
 	
 	

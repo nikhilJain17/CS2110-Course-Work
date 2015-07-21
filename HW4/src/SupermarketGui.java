@@ -61,8 +61,24 @@ public class SupermarketGui {
 	static JTextArea queue5Members = new JTextArea();
 	static JButton joinQueue5;
 	
+	static int[] cashierSpeeds = new int[5]; // holds the speeds for the cashiers0
 	
+	// make some random speeds for the cashiers
+	// between 1 and 10 seconds
+	public int generateRandomSpeeds() {
+		
+		int speed = (int) (9 * (Math.random()) + 1 );
+		return speed;
+		
+	}
+	
+	// create and show the gui
 	public void createAndShowGui () {
+		
+		// generate some random speeds, why don't you
+		for (int i = 0; i < cashierSpeeds.length; i++) {
+			cashierSpeeds[i] = generateRandomSpeeds();
+		}
 		
 		// for starting a simulation, and resetting program
 		startSimulation = new JButton();
@@ -104,7 +120,7 @@ public class SupermarketGui {
 		queue1Label.setOpaque(true); // paints every pixel in the specified region
 		
 		queue1Speed = new JLabel();
-		queue1Speed.setText("Speed: "); // + (int) Math.floor((10 * Math.random())));
+		queue1Speed.setText("Speed: " + cashierSpeeds[0]); 
 		queue1Speed.setBounds(20, 65, 80, 25);
 		// add cashier speed here
 		
@@ -130,14 +146,14 @@ public class SupermarketGui {
 		
 		
 		
-		// Labels for Queue 2
+		// GUI for Queue 2
 		queue2Label = new JLabel("Queue 2");
 		queue2Label.setBackground(Color.ORANGE);
 		queue2Label.setBounds(250, 25, 80, 25);
 		queue2Label.setOpaque(true);
 		queue2Label.setBorder(padding);
 		
-		queue2Speed = new JLabel("Speed: ");
+		queue2Speed = new JLabel("Speed: " + cashierSpeeds[1]);
 		queue2Speed.setBounds(250, 65, 80, 25);
 		
 		queue2Length = new JLabel("Length: ");
@@ -157,14 +173,14 @@ public class SupermarketGui {
 		
 		
 		
-		// Labels for Queue 3
+		// Gui for Queue 3
 		queue3Label = new JLabel("Queue 3");
 		queue3Label.setBackground(Color.ORANGE);
 		queue3Label.setBounds(475, 25, 80, 25);
 		queue3Label.setOpaque(true);
 		queue3Label.setBorder(padding);
 		
-		queue3Speed = new JLabel("Speed: ");
+		queue3Speed = new JLabel("Speed: " + cashierSpeeds[2]);
 		queue3Speed.setBounds(475, 65, 80, 25);
 		
 		queue3Length = new JLabel("Length: ");
@@ -183,14 +199,14 @@ public class SupermarketGui {
 		
 		
 		
-		// Labels for Queue 4
+		// GUI for Queue 4
 		queue4Label = new JLabel("Queue 4");
 		queue4Label.setBackground(Color.orange);
 		queue4Label.setBounds(700, 25, 80, 25);
 		queue4Label.setOpaque(true);
 		queue4Label.setBorder(padding);
 		
-		queue4Speed = new JLabel("Speed: ");
+		queue4Speed = new JLabel("Speed: " + cashierSpeeds[2]);
 		queue4Speed.setBounds(700, 65, 80, 25);
 		
 		queue4Length = new JLabel("Length: ");
@@ -212,14 +228,14 @@ public class SupermarketGui {
 		
 		
 		
-		// Labels for Queue 5
+		// GUI for Queue 5
 		queue5Label = new JLabel("Queue 5");
 		queue5Label.setBackground(Color.orange);
 		queue5Label.setBounds(925, 25, 80, 25);
 		queue5Label.setOpaque(true);
 		queue5Label.setBorder(padding);
 	
-		queue5Speed = new JLabel("Speed: ");
+		queue5Speed = new JLabel("Speed: " + cashierSpeeds[4]);
 		queue5Speed.setBounds(925, 65, 80, 25);
 		
 		queue5Length = new JLabel("Length: ");
@@ -315,8 +331,9 @@ public class SupermarketGui {
 	public static void main(String[] args) {
 		
 		// display a warning
-		JOptionPane.showMessageDialog(frame, "Please check the console, and if the same name appears constantly,"
-				+ "please restart the program. \nThis issue is due to multithreading and is being fixed.");
+		JOptionPane.showMessageDialog(frame, "Please check the console in Eclipse, and if the same name appears constantly, "
+				+ "please restart the program. \nThis issue is due to multithreading causing an infinite loop.\n"
+				+ "You can also tell that this issue has occured if there are no names displayed when you hit OK.");
 		
 		// call the "initialize" method
 			// it sets up the gui
@@ -325,9 +342,15 @@ public class SupermarketGui {
 		queueArray = Main.initialize();
 		
 		// initialize the JTextAreas with the proper data
+		// Also, set the proper speeds for each queue
+		// the speeds were randomly generated in the createGuiAndDisplay() function
 		for (int i = 0; i < queueArray.length; i++) {
 			displayNamesOnGui(queueArray[i], i + 1);
+			queueArray[i].setRate(cashierSpeeds[i]);
 		}
+		
+		
+		
 		
 		
 		// Create a new thread for each queue
@@ -341,11 +364,18 @@ public class SupermarketGui {
 		q5Remover = new PersonRemoverThread(queueArray[4].getRate(), queueArray[4], 5);
 		
 		// Display the speeds on the appropriate JLabels
-		queue1Speed.setText("Rate: " + queueArray[0].getRate() + " sec");
-		queue2Speed.setText("Rate: " + queueArray[1].getRate() + " sec");
-		queue3Speed.setText("Rate: " + queueArray[2].getRate() + " sec");
-		queue4Speed.setText("Rate: " + queueArray[3].getRate() + " sec");
-		queue5Speed.setText("Rate: " + queueArray[4].getRate() + " sec");
+
+		for (CashierQueue q : queueArray) {
+			System.out.println("Cashier speed: " + q.getRate());
+		}
+		
+		// Removed for now
+//		
+//		queue1Speed.setText("Rate: " + queueArray[0].getRate() + " sec");
+//		queue2Speed.setText("Rate: " + queueArray[1].getRate() + " sec");
+//		queue3Speed.setText("Rate: " + queueArray[2].getRate() + " sec");
+//		queue4Speed.setText("Rate: " + queueArray[3].getRate() + " sec");
+//		queue5Speed.setText("Rate: " + queueArray[4].getRate() + " sec");
 		
 		// Start removing people from the threads
 //		startRemovalThreads();
