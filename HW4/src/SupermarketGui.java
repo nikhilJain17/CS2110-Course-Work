@@ -24,7 +24,7 @@ public class SupermarketGui {
 	
 	JLabel queue1Label; // 
 	static JLabel queue1Speed; // cashier speed
-	static JLabel queue1Length = new JLabel("RESTART"); // length of q
+	static JLabel queue1Length = new JLabel("<html><FONT COLOR=RED>RESTART</FONT></html>"); // length of q
 	JScrollPane queue1ScrollPane; // holds the JTextArea and allows users to scroll through the members if necessary
 	static JTextArea queue1Members = new JTextArea(); // people in queue 1
 	static JButton joinQueue1; // a button to join queue 1
@@ -33,7 +33,7 @@ public class SupermarketGui {
 	
 	JLabel queue2Label; // title
 	static JLabel queue2Speed; // speed
-	static JLabel queue2Length = new JLabel("RESTART"); // length
+	static JLabel queue2Length = new JLabel("<html><FONT COLOR=RED>RESTART</FONT></html>"); // length
 	JScrollPane queue2ScrollPane; // holds JTextArea
 	static JTextArea queue2Members = new JTextArea();
 	static JButton joinQueue2;
@@ -41,7 +41,7 @@ public class SupermarketGui {
 	
 	JLabel queue3Label; 
 	static JLabel queue3Speed;
-	static JLabel queue3Length = new JLabel("RESTART");
+	static JLabel queue3Length = new JLabel("<html><FONT COLOR=RED>RESTART</FONT></html>");
 	JScrollPane queue3ScrollPane;
 	static JTextArea queue3Members = new JTextArea();
 	static JButton joinQueue3;
@@ -49,7 +49,7 @@ public class SupermarketGui {
 	
 	JLabel queue4Label;
 	static JLabel queue4Speed;
-	static JLabel queue4Length = new JLabel("RESTART");
+	static JLabel queue4Length = new JLabel("<html><FONT COLOR=RED>RESTART</FONT></html>");
 	JScrollPane queue4ScrollPane;
 	static JTextArea queue4Members = new JTextArea();
 	static JButton joinQueue4;
@@ -57,7 +57,7 @@ public class SupermarketGui {
 	
 	JLabel queue5Label;
 	static JLabel queue5Speed;
-	static JLabel queue5Length = new JLabel("RESTART");
+	static JLabel queue5Length = new JLabel("<html><FONT COLOR=RED>RESTART</FONT></html>");
 	JScrollPane queue5ScrollPane;
 	static JTextArea queue5Members = new JTextArea();
 	static JButton joinQueue5;
@@ -339,7 +339,12 @@ public class SupermarketGui {
 		// display a warning
 		JOptionPane.showMessageDialog(frame, "Please check the console in Eclipse, and if the same name appears constantly, "
 				+ "please restart the program. \nThis issue is due to multithreading causing an infinite loop.\n"
-				+ "You can also tell that this issue has occured if there are no names displayed when you hit OK.");
+				+ "You can also tell that this issue has occured if there are no names displayed in the text boxes when you hit OK."
+				+ "\nAdditionally, there will be labels that say RESTART. You may have to restart several times."
+				+ "\nSorry for the inconvenience!"
+				+ "\n\nSome additional information: "
+				+ "\nYou cannot join a queue after it has emptied on purpose because that queue has finished."
+				+ "\nIf you are in Queue 1 and join Queue 2, you will be removed from Queue 1 after it has updated (ie removed a person)");
 		
 		// call the "initialize" method
 			// it sets up the gui

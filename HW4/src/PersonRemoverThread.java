@@ -67,6 +67,7 @@ public class PersonRemoverThread extends Thread {
 			// Wait
 			try {
 				Thread.sleep(rate * 1000);
+				
 			} 
 			
 			catch (InterruptedException e) {
@@ -77,6 +78,7 @@ public class PersonRemoverThread extends Thread {
 				return;
 				
 			}
+			
 			
 			// repeat
 			
