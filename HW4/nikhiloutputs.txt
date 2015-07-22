@@ -1,0 +1,34 @@
++++++++++++++++
++   Stats     +
++++++++++++++++
+
+
+    Queue 1    
+----------------
+Time: 8
+Length: 8
+Rate: 1
+
+    Queue 2    
+----------------
+Time: 36
+Length: 9
+Rate: 4
+
+    Queue 3    
+----------------
+Time: 21
+Length: 7
+Rate: 3
+
+    Queue 4    
+----------------
+Time: 2
+Length: 2
+Rate: 1
+
+    Queue 5    
+----------------
+Time: 2
+Length: 2
+Rate: 1

@@ -19,6 +19,7 @@ public class SupermarketGui {
 	
 	static JButton startSimulation; // kickstarts the whole program
 	
+	static JButton writeToFileBtn; // writes data to file (o rly) (ya rly)
 	
 	static JLabel disclaimer; // there is a bug in the program because of multithreading
 	
@@ -84,7 +85,11 @@ public class SupermarketGui {
 			cashierSpeeds[i] = generateRandomSpeeds();
 		}
 		
-		
+		// for wrigint ot g afile
+		writeToFileBtn = new JButton("Output in File");
+		writeToFileBtn.setBounds(1100, 100, 150, 40);
+		writeToFileBtn.addActionListener(new OutputResultsButtonHandler());
+//		writeToFileBtn.set
 		
 		// for starting a simulation, and resetting program
 		startSimulation = new JButton();
@@ -269,6 +274,8 @@ public class SupermarketGui {
 		panel.add(queue1ScrollPane);
 		panel.add(joinQueue1);
 		
+		panel.add(writeToFileBtn);
+		
 		panel.add(queue2Label);
 		panel.add(queue2Length);
 		panel.add(queue2Speed);
@@ -339,17 +346,10 @@ public class SupermarketGui {
 	public static void main(String[] args) {
 		
 		// display a warning
-		JOptionPane.showMessageDialog(frame, "Please check the console in Eclipse, and if the same name appears constantly, "
-				+ "please restart the program. \nThis issue is due to multithreading causing an infinite loop.\n"
-				+ "You can also tell that this issue has occured if there are no names displayed in the text boxes when you hit OK."
-				+ "\nAdditionally, there will be labels that say \bRESTART. You may have to restart several times."
-				+ "\nSorry for the inconvenience!"
-				+ "\n\nSome additional information: "
-				+ "\nYou cannot join a queue after it has emptied on purpose because that queue has finished."
-				+ "\nIf you are in Queue 1 and join Queue 2, you will be removed from Queue 1 after it has updated (ie removed a person)"
-				+ "\nThere is a rare bug where the program will not execute Thread.sleep(), and all the queues will zip by."
-				+ "\nI believe I have fixed the issue, but I cannot 100% reliably reproduce the bug so it may still persist."
-				+ "\nSorry for the inconvenience!");
+		JOptionPane.showMessageDialog(frame, "Hello and welcome to Nikhil's Grocery Queue Simulator!"
+				+ "\nBefore you begin, please read the file called bugs.txt"
+				+ "\nThese bugs have been resolved, but they may pop back up as multithreading causes them to exist."
+				+ "\nThanks!", "An Important Message", 2, null);
 		
 		// call the "initialize" method
 			// it sets up the gui
