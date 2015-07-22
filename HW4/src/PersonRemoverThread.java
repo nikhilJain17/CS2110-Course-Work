@@ -7,11 +7,16 @@ public class PersonRemoverThread extends Thread {
 	private int rate; // A new person leaves every [rate] seconds
 	private CashierQueue q; // Queue that has elements removed
 	private int whichQueue; // Which queue is this? (ie Queue 1, 2, ... 5)
+	private int totalLength; // total length of time needed to billa
 	
 	
 	// Getters and setters
 	public double getRate() {
 		return rate;
+	}
+	
+	public int getTotalLength() {
+		return totalLength;
 	}
 
 	
@@ -28,11 +33,23 @@ public class PersonRemoverThread extends Thread {
 		this.whichQueue = whichQueue;
 	}
 	
+// calculate time for queue
+	public void calculateTime () {
+		
+		int speed = q.getRate();
+		int length = q.getLength();
+		
+		totalLength =  speed * length;
+				
+	} // End of Time.
 	
 	
 	// Remove people here
 	@Override
 	public void run() {
+		
+		// calculate time
+		calculateTime();
 		
 		// Remove person
 		// Update display
@@ -63,8 +80,8 @@ public class PersonRemoverThread extends Thread {
 			
 			// repeat
 			
-		}
+		} // end of while
 		
-	}
+	} // end of run
 
 }

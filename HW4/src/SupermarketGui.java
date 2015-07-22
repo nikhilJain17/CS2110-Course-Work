@@ -18,7 +18,7 @@ public class SupermarketGui {
 	JPanel panel; // holds all components (text boxes, etc)
 	
 	static JButton startSimulation; // kickstarts the whole program
-	
+		
 	static JLabel disclaimer; // there is a bug in the program because of multithreading
 	
 	JLabel queue1Label; // 
@@ -75,6 +75,8 @@ public class SupermarketGui {
 	// create and show the gui
 	public void createAndShowGui () {
 		
+		/*Initialize all the JComponents*/
+		
 		// generate some random speeds, why don't you
 		for (int i = 0; i < cashierSpeeds.length; i++) {
 			cashierSpeeds[i] = generateRandomSpeeds();
@@ -85,9 +87,11 @@ public class SupermarketGui {
 		startSimulation.setBounds(1100, 25, 150, 40);
 		startSimulation.setText("Run simulation");
 		
-		// disclaimer
-		disclaimer = new JLabel("If your computer's fan goes crazy or the program doesn't work, try restarting this program.\n"
-				+ "There is a bug because of multithreading that makes the program stuck in an infinite loop.");
+		
+		
+		// disclaimer DONT NEED IT
+		disclaimer = new JLabel("");
+//				+ "There is a bug because of multithreading that makes the program stuck in an infinite loop.");
 		/**
 		 * TODO Fix the disclaimer por favor
 		 * **/
@@ -287,7 +291,7 @@ public class SupermarketGui {
 		
 		panel.add(startSimulation);
 		
-		panel.add(disclaimer);
+//		panel.add(disclaimer);
 		
 		panel.setBorder(padding);
 		
@@ -388,16 +392,34 @@ public class SupermarketGui {
 	public static void startRemovalThreads() {
 		
 		// start the threads
-				q1Remover.start();
-				q2Remover.start();
-				q3Remover.start();
-				q4Remover.start();
-				q5Remover.start();
+		q1Remover.start();
+		q2Remover.start();
+		q3Remover.start();
+		q4Remover.start();
+		q5Remover.start();
 		
-	
 	}
 	
+
+	// make a popup which displays the results
+	// called by OutputResultsButtonHandler class
+	public static void displaySpeedResults() {
+		
+		// get the length back
+		int[] lengths = new int[5]; 
+		lengths[0] = q1Remover.getTotalLength();
+		lengths[1] = q2Remover.getTotalLength();
+		lengths[2] = q3Remover.getTotalLength();
+		lengths[3] = q4Remover.getTotalLength();
+		lengths[4] = q5Remover.getTotalLength();
 	
+		// make a popup for test
+		JOptionPane.showMessageDialog(frame, "Queue 1 took " + lengths[0] + " seconds."
+				+ "\nQueue 2 took " + lengths[1] + " seconds. "
+				+ "\nQueue 3 took " + lengths[2] + " seconds. "
+				+ "\nQueue 4 took " + lengths[3] + " seconds. "
+				+ "\nQueue 5 took " + lengths[4] + " seconds. ");
+	}
 	
 	
 	
@@ -472,5 +494,27 @@ public class SupermarketGui {
 	} // end of "displayNamesOnGui"
 	
 	
+	
+	
+	
 
-}
+} // end of class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// eof
+// rip

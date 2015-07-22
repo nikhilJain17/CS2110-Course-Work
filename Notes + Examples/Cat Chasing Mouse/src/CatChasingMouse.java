@@ -79,6 +79,30 @@ public class CatChasingMouse {
 		// Nikhil's handler
 		private void slowlyMoveSquare(int x, int y) {
 			
+			/***
+			 * 
+			 * 
+			 * 	ADD A SWING TIMER HERE
+			 * 
+			 * 
+			 * 
+			 * 
+			 * ADDDDDDDDD
+			 * AAAAA
+			 * SWING TIMER HERE
+			 * 
+			 * 
+			 * 
+			 * ADD
+			 * A SWING
+			 * TIMER HERE
+			 * 
+			 * 
+			 * 
+			 * 
+			 */
+			
+			
 			int currX = redSquare.getX();
 			int currY = redSquare.getY();
 			final int WIDTH = redSquare.getWidth();
