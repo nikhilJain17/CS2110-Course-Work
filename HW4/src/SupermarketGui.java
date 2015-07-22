@@ -346,10 +346,12 @@ public class SupermarketGui {
 	public static void main(String[] args) {
 		
 		// display a warning
-		JOptionPane.showMessageDialog(frame, "Hello and welcome to Nikhil's Grocery Queue Simulator!"
+		JOptionPane.showMessageDialog(frame, "Hello and welcome to Nikhil's Grocery Queue Simulator!\n"
 				+ "\nBefore you begin, please read the file called bugs.txt"
-				+ "\nThese bugs have been resolved, but they may pop back up as multithreading causes them to exist."
-				+ "\nThanks!", "An Important Message", 2, null);
+				+ "\n\nThese bugs have been mostly resolved, but they may pop back up as multithreading causes them to exist."
+				+ "\nThanks!"
+				+ "\n\nIn case you didn't read it and the program has red labels that say RESTART, then you need to restart the program several times until it works.", 
+				"An Important Message", 2, null);
 		
 		// call the "initialize" method
 			// it sets up the gui

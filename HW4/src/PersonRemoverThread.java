@@ -63,7 +63,7 @@ public class PersonRemoverThread extends Thread {
 			// Remove person
 			q.leaveQueueFromFront();
 			
-			// Update display
+			// Update display as often as possible
 			SupermarketGui.displayNamesOnGui(q, whichQueue);
 			
 			System.out.println("Queue RATE: " + q.getRate());
@@ -71,9 +71,17 @@ public class PersonRemoverThread extends Thread {
 			
 			// Wait
 			try {
-				Thread.sleep(SupermarketGui.cashierSpeeds[whichQueue - 1] * 1000);
 				
-			} 
+				// update the gui in .1 second intervals * rate
+				for (int i = 0; i < 10; i++) {
+					Thread.sleep(SupermarketGui.cashierSpeeds[whichQueue - 1] * 100);
+
+					// Update display as often as possible
+					SupermarketGui.displayNamesOnGui(q, whichQueue);
+				} // end of for
+				
+				
+			} // end of try
 			
 			catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -83,6 +91,11 @@ public class PersonRemoverThread extends Thread {
 				return;
 				
 			}
+			
+			
+			// Update display as often as possible
+			SupermarketGui.displayNamesOnGui(q, whichQueue);
+			
 			
 			
 //			try {
