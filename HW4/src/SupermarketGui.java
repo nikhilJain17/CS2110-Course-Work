@@ -461,7 +461,7 @@ public class SupermarketGui {
 		
 		setTextStr = appendinator.toString();
 		
-		System.out.println("\nValue of setTextStr:\n" + setTextStr);
+//		System.out.println("\nValue of setTextStr:\n" + setTextStr);
 		
 		// now, the data is stored in the String setText
 		// transfer it to the JTextArea

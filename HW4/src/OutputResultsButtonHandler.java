@@ -12,7 +12,7 @@ public class OutputResultsButtonHandler implements ActionListener {
 	
 		
 		
-		// output to file
+	// output to file
 		
 		
 		

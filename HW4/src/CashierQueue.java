@@ -80,13 +80,18 @@ public class CashierQueue {
 		
 		// are you in the queue?
 		for (QueueIterator i = new QueueIterator (front); !i.atEnd(); i.plusPlus())
-			if (i.getCurrent().getName().equalsIgnoreCase("YOU!"))
+			if (i.getCurrent().getName().equalsIgnoreCase("YOU!")) {
+				System.out.println("YOU are being tested");
 				i.getCurrent().setName("");
+			}
 		
 		if (back.getName().equalsIgnoreCase("YOU!")) {
 			back.setName(""); // rip
 							  // should have probably made a Node previous
 						      // oh well 
+			
+			System.out.println("YOU Are HERE");
+			
 		}
 		
 	}
