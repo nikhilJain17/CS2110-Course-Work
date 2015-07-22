@@ -84,6 +84,8 @@ public class SupermarketGui {
 			cashierSpeeds[i] = generateRandomSpeeds();
 		}
 		
+		
+		
 		// for starting a simulation, and resetting program
 		startSimulation = new JButton();
 		startSimulation.setBounds(1100, 25, 150, 40);
@@ -340,11 +342,14 @@ public class SupermarketGui {
 		JOptionPane.showMessageDialog(frame, "Please check the console in Eclipse, and if the same name appears constantly, "
 				+ "please restart the program. \nThis issue is due to multithreading causing an infinite loop.\n"
 				+ "You can also tell that this issue has occured if there are no names displayed in the text boxes when you hit OK."
-				+ "\nAdditionally, there will be labels that say RESTART. You may have to restart several times."
+				+ "\nAdditionally, there will be labels that say \bRESTART. You may have to restart several times."
 				+ "\nSorry for the inconvenience!"
 				+ "\n\nSome additional information: "
 				+ "\nYou cannot join a queue after it has emptied on purpose because that queue has finished."
-				+ "\nIf you are in Queue 1 and join Queue 2, you will be removed from Queue 1 after it has updated (ie removed a person)");
+				+ "\nIf you are in Queue 1 and join Queue 2, you will be removed from Queue 1 after it has updated (ie removed a person)"
+				+ "\nThere is a rare bug where the program will not execute Thread.sleep(), and all the queues will zip by."
+				+ "\nI believe I have fixed the issue, but I cannot 100% reliably reproduce the bug so it may still persist."
+				+ "\nSorry for the inconvenience!");
 		
 		// call the "initialize" method
 			// it sets up the gui
@@ -377,11 +382,11 @@ public class SupermarketGui {
 		// Depending on its speed, it will remove elements from the queue
 		// When it is finished, it will calculate the time it took to finish
 		
-		q1Remover = new PersonRemoverThread(queueArray[0].getRate(), queueArray[0], 1);
-		q2Remover = new PersonRemoverThread(queueArray[1].getRate(), queueArray[1], 2);
-		q3Remover = new PersonRemoverThread(queueArray[2].getRate(), queueArray[2], 3);
-		q4Remover = new PersonRemoverThread(queueArray[3].getRate(), queueArray[3], 4);
-		q5Remover = new PersonRemoverThread(queueArray[4].getRate(), queueArray[4], 5);
+		q1Remover = new PersonRemoverThread(cashierSpeeds[0], queueArray[0], 1);
+		q2Remover = new PersonRemoverThread(cashierSpeeds[1], queueArray[1], 2);
+		q3Remover = new PersonRemoverThread(cashierSpeeds[2], queueArray[2], 3);
+		q4Remover = new PersonRemoverThread(cashierSpeeds[3], queueArray[3], 4);
+		q5Remover = new PersonRemoverThread(cashierSpeeds[4], queueArray[4], 5);
 		
 		// Display the speeds on the appropriate JLabels
 

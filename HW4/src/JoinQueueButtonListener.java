@@ -1,6 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 // Button Listener for Join Queue button
 
 
@@ -8,6 +10,7 @@ public class JoinQueueButtonListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		
 		if (e.getSource().equals(SupermarketGui.joinQueue1)) {
 			

@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 
 // Removes people from the front of the queue depending on the queue's speed
 // It does this on a separate thread for each queue
@@ -64,9 +66,12 @@ public class PersonRemoverThread extends Thread {
 			// Update display
 			SupermarketGui.displayNamesOnGui(q, whichQueue);
 			
+			System.out.println("Queue RATE: " + q.getRate());
+//			System.out.println("Cashier Speed Array RATE: " + SupermarketGui.cashierSpeeds[whichQueue]);
+			
 			// Wait
 			try {
-				Thread.sleep(rate * 1000);
+				Thread.sleep(q.getRate() * 1000);
 				
 			} 
 			
@@ -78,6 +83,14 @@ public class PersonRemoverThread extends Thread {
 				return;
 				
 			}
+			
+			
+//			try {
+//				TimeUnit.SECONDS.sleep(rate);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 			
 			
 			// repeat
