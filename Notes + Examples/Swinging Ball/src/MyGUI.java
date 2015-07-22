@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class MyGUI {
+public class MyGUI extends JPanel {
 	
 	private JFrame frame = new JFrame();
 	private JPanel actionPanel = new JPanel(); // where the buttons are
@@ -18,7 +18,9 @@ public class MyGUI {
 	private JButton moveBallButton = new JButton("Move The Ball");
 	private JButton freeRoamButton = new JButton("Set The Ball Rolling");
 	
-	public MyGUI() {
+	private Ball ball = new Ball();
+	
+	public void MyGUI () {
 		buildTheGui();
 	}
 	
@@ -41,6 +43,19 @@ public class MyGUI {
 		
 		frame.setSize(500, 500);
 		frame.setVisible(true);
+		
+	}
+	
+	// paint the screen with this method
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
+		g.drawString("HELLO!", 10, 10);
+		
+		// repaint the ball
+		ball.paintBall(g);
+		
 		
 	}
 	
@@ -99,7 +114,8 @@ public class MyGUI {
 			frame.add(ball);
 			frame.validate();
 			
-			// set the ball rolling
+			
+//			// set the ball rolling
 			while (true) {
 				
 				try {

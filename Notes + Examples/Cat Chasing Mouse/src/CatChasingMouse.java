@@ -49,7 +49,7 @@ public class CatChasingMouse {
 			setBorder(BorderFactory.createLineBorder(Color.BLACK));
 			
 			addMouseListener (new MouseAdapter() {
-				public void mousePressed (MouseEvent e) {
+				public void mouseClicked (MouseEvent e) {
 					moveSquare(e.getX(), e.getY());
 				}
 			}); // end of mouse listener
@@ -62,10 +62,73 @@ public class CatChasingMouse {
 				}
 			});
 			
+			// Nikhil was here
+			// hold down mouse to slowly move ball to mouse
+			addMouseMotionListener (new MouseAdapter() {
+				
+				public void mousePressed(MouseEvent e) {
+					slowlyMoveSquare(e.getX(), e.getY());
+				}
+				
+			});
+			
 			
 		} // end of constructor
 		
 		
+		// Nikhil's handler
+		private void slowlyMoveSquare(int x, int y) {
+			
+			int currX = redSquare.getX();
+			int currY = redSquare.getY();
+			final int WIDTH = redSquare.getWidth();
+			final int HEIGHT = redSquare.getHeight();
+			
+			// while loop? it crashed the program last time
+			
+			// a for loop with a certain number
+			// of iterations depending on the distance from press to current
+			// each iteration moves it 1 unit closer
+			
+			int numberOfIterations;
+			int differenceX = currX - x; // between current and distance to press
+			int differenceY = currY - y; // same as dX
+			
+			// slowly move to new location
+			for (int i = 0; i < differenceX; i++) {
+				
+				// move backwards or forwards?
+				if (differenceX < 0) {
+					// backwards
+					
+					repaint(currX - 1, currY, WIDTH, HEIGHT);
+					
+				} // end of if
+				
+				else {
+					repaint (currX + 1, currY, WIDTH, HEIGHT);
+				}
+				
+			} // end of for loop
+			
+			for (int j = 0; j < differenceY; j++) {
+				
+				if (differenceY > 0) {
+					// down
+					repaint(currX, currY + 1, WIDTH, HEIGHT);
+				}
+				
+				else {
+					repaint (currX, currY - 1, WIDTH, HEIGHT);
+				}
+				
+				
+			} // end of for
+			
+			
+		} // end of function
+		
+		// Java Tutorial handler
 		private void moveSquare(int x, int y) {
 			
 			// current state square, to avoid repeat invocations of same method

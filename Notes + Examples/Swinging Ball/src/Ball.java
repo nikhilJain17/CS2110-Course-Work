@@ -48,6 +48,14 @@ public class Ball extends JPanel{
 	    
 	}
 	
+	// paint ball
+	public void paintBall(Graphics g) {
+		
+		g.drawOval(x, y, width, height);
+		
+	}
+	
+	
 	// move the ball forwards, check if it crashes into wall, move it backwards
 	public void moveBall() throws InterruptedException {
 		
