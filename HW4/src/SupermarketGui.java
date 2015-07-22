@@ -24,7 +24,7 @@ public class SupermarketGui {
 	
 	JLabel queue1Label; // 
 	static JLabel queue1Speed; // cashier speed
-	static JLabel queue1Length = new JLabel(); // length of q
+	static JLabel queue1Length = new JLabel("RESTART"); // length of q
 	JScrollPane queue1ScrollPane; // holds the JTextArea and allows users to scroll through the members if necessary
 	static JTextArea queue1Members = new JTextArea(); // people in queue 1
 	static JButton joinQueue1; // a button to join queue 1
@@ -33,7 +33,7 @@ public class SupermarketGui {
 	
 	JLabel queue2Label; // title
 	static JLabel queue2Speed; // speed
-	static JLabel queue2Length = new JLabel(); // length
+	static JLabel queue2Length = new JLabel("RESTART"); // length
 	JScrollPane queue2ScrollPane; // holds JTextArea
 	static JTextArea queue2Members = new JTextArea();
 	static JButton joinQueue2;
@@ -41,7 +41,7 @@ public class SupermarketGui {
 	
 	JLabel queue3Label; 
 	static JLabel queue3Speed;
-	static JLabel queue3Length = new JLabel();
+	static JLabel queue3Length = new JLabel("RESTART");
 	JScrollPane queue3ScrollPane;
 	static JTextArea queue3Members = new JTextArea();
 	static JButton joinQueue3;
@@ -49,7 +49,7 @@ public class SupermarketGui {
 	
 	JLabel queue4Label;
 	static JLabel queue4Speed;
-	static JLabel queue4Length = new JLabel();
+	static JLabel queue4Length = new JLabel("RESTART");
 	JScrollPane queue4ScrollPane;
 	static JTextArea queue4Members = new JTextArea();
 	static JButton joinQueue4;
@@ -57,7 +57,7 @@ public class SupermarketGui {
 	
 	JLabel queue5Label;
 	static JLabel queue5Speed;
-	static JLabel queue5Length = new JLabel();
+	static JLabel queue5Length = new JLabel("RESTART");
 	JScrollPane queue5ScrollPane;
 	static JTextArea queue5Members = new JTextArea();
 	static JButton joinQueue5;
