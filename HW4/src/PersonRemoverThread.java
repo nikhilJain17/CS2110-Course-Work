@@ -71,7 +71,7 @@ public class PersonRemoverThread extends Thread {
 			
 			// Wait
 			try {
-				Thread.sleep(q.getRate() * 1000);
+				Thread.sleep(SupermarketGui.cashierSpeeds[whichQueue - 1] * 1000);
 				
 			} 
 			
