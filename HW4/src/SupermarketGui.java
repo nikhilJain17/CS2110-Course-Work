@@ -18,12 +18,13 @@ public class SupermarketGui {
 	JPanel panel; // holds all components (text boxes, etc)
 	
 	static JButton startSimulation; // kickstarts the whole program
-		
+	
+	
 	static JLabel disclaimer; // there is a bug in the program because of multithreading
 	
 	JLabel queue1Label; // 
 	static JLabel queue1Speed; // cashier speed
-	JLabel queue1Length; // length of q
+	static JLabel queue1Length = new JLabel(); // length of q
 	JScrollPane queue1ScrollPane; // holds the JTextArea and allows users to scroll through the members if necessary
 	static JTextArea queue1Members = new JTextArea(); // people in queue 1
 	static JButton joinQueue1; // a button to join queue 1
@@ -32,7 +33,7 @@ public class SupermarketGui {
 	
 	JLabel queue2Label; // title
 	static JLabel queue2Speed; // speed
-	JLabel queue2Length; // length
+	static JLabel queue2Length = new JLabel(); // length
 	JScrollPane queue2ScrollPane; // holds JTextArea
 	static JTextArea queue2Members = new JTextArea();
 	static JButton joinQueue2;
@@ -40,7 +41,7 @@ public class SupermarketGui {
 	
 	JLabel queue3Label; 
 	static JLabel queue3Speed;
-	JLabel queue3Length;
+	static JLabel queue3Length = new JLabel();
 	JScrollPane queue3ScrollPane;
 	static JTextArea queue3Members = new JTextArea();
 	static JButton joinQueue3;
@@ -48,7 +49,7 @@ public class SupermarketGui {
 	
 	JLabel queue4Label;
 	static JLabel queue4Speed;
-	JLabel queue4Length;
+	static JLabel queue4Length = new JLabel();
 	JScrollPane queue4ScrollPane;
 	static JTextArea queue4Members = new JTextArea();
 	static JButton joinQueue4;
@@ -56,12 +57,13 @@ public class SupermarketGui {
 	
 	JLabel queue5Label;
 	static JLabel queue5Speed;
-	JLabel queue5Length;
+	static JLabel queue5Length = new JLabel();
 	JScrollPane queue5ScrollPane;
 	static JTextArea queue5Members = new JTextArea();
 	static JButton joinQueue5;
 	
-	static int[] cashierSpeeds = new int[5]; // holds the speeds for the cashiers0
+	static int[] cashierSpeeds = new int[5]; // holds the speeds for the cashiers
+	static int[] lengths = new int[5]; // lengths of queues (in terms of people)
 	
 	// make some random speeds for the cashiers
 	// between 1 and 10 seconds
@@ -127,9 +129,9 @@ public class SupermarketGui {
 		queue1Speed.setText("Speed: " + cashierSpeeds[0]); 
 		queue1Speed.setBounds(20, 65, 80, 25);
 		// add cashier speed here
-		
-		queue1Length = new JLabel();
-		queue1Length.setText("Length: ");
+//		
+//		queue1Length = new JLabel();
+////		queue1Length.setText("Length: ");
 		queue1Length.setBounds(20, 85, 80, 25);
 		// make cashier object?
 		
@@ -160,7 +162,7 @@ public class SupermarketGui {
 		queue2Speed = new JLabel("Speed: " + cashierSpeeds[1]);
 		queue2Speed.setBounds(250, 65, 80, 25);
 		
-		queue2Length = new JLabel("Length: ");
+//		queue2Length = new JLabel();
 		queue2Length.setBounds(250, 85, 80, 25);
 		
 		// scroll pane code
@@ -187,7 +189,7 @@ public class SupermarketGui {
 		queue3Speed = new JLabel("Speed: " + cashierSpeeds[2]);
 		queue3Speed.setBounds(475, 65, 80, 25);
 		
-		queue3Length = new JLabel("Length: ");
+//		queue3Length = new JLabel();
 		queue3Length.setBounds(475, 85, 80, 25);
 		
 		// scroll pane
@@ -213,7 +215,7 @@ public class SupermarketGui {
 		queue4Speed = new JLabel("Speed: " + cashierSpeeds[2]);
 		queue4Speed.setBounds(700, 65, 80, 25);
 		
-		queue4Length = new JLabel("Length: ");
+//		queue4Length = new JLabel();
 		queue4Length.setBounds(700, 85, 80, 25);
 		
 		// scroll pane
@@ -242,7 +244,7 @@ public class SupermarketGui {
 		queue5Speed = new JLabel("Speed: " + cashierSpeeds[4]);
 		queue5Speed.setBounds(925, 65, 80, 25);
 		
-		queue5Length = new JLabel("Length: ");
+//		queue5Length = new JLabel();
 		queue5Length.setBounds(925, 85, 80, 25);
 		
 		// scrol poaeenene
@@ -345,14 +347,23 @@ public class SupermarketGui {
 		
 		queueArray = Main.initialize();
 		
+		
 		// initialize the JTextAreas with the proper data
 		// Also, set the proper speeds for each queue
 		// the speeds were randomly generated in the createGuiAndDisplay() function
 		for (int i = 0; i < queueArray.length; i++) {
+			
 			displayNamesOnGui(queueArray[i], i + 1);
 			queueArray[i].setRate(cashierSpeeds[i]);
+			
+			lengths[i] = queueArray[i].getLength();
+			
+			System.out.println("LENGTHS: " + lengths[i] + " - i: " + i);
+			
+			displayLengthsOnGui(i);
+			
+			
 		}
-		
 		
 		
 		
@@ -387,6 +398,37 @@ public class SupermarketGui {
 	}
 	
 	
+	// display the lengths of the queues on the gui labels
+	public static void displayLengthsOnGui(int whichQueue) {
+		
+		switch (whichQueue) {
+
+		case 0:
+			queue1Length.setText("Length: " + lengths[0]);
+			break;
+
+		case 1:
+			queue2Length.setText("Length: " + lengths[1]);
+			break;
+
+		case 2:
+			queue3Length.setText("Length: " + lengths[2]);
+			break;
+
+		case 3:
+			queue4Length.setText("Length: " + lengths[3]);
+			break;
+
+		case 4:
+			queue5Length.setText("Length: " + lengths[4]);
+			break;
+
+		
+		}
+		
+	}
+	
+	
 	
 	// Start up the threads
 	public static void startRemovalThreads() {
@@ -401,25 +443,25 @@ public class SupermarketGui {
 	}
 	
 
-	// make a popup which displays the results
-	// called by OutputResultsButtonHandler class
-	public static void displaySpeedResults() {
-		
-		// get the length back
-		int[] lengths = new int[5]; 
-		lengths[0] = q1Remover.getTotalLength();
-		lengths[1] = q2Remover.getTotalLength();
-		lengths[2] = q3Remover.getTotalLength();
-		lengths[3] = q4Remover.getTotalLength();
-		lengths[4] = q5Remover.getTotalLength();
-	
-		// make a popup for test
-		JOptionPane.showMessageDialog(frame, "Queue 1 took " + lengths[0] + " seconds."
-				+ "\nQueue 2 took " + lengths[1] + " seconds. "
-				+ "\nQueue 3 took " + lengths[2] + " seconds. "
-				+ "\nQueue 4 took " + lengths[3] + " seconds. "
-				+ "\nQueue 5 took " + lengths[4] + " seconds. ");
-	}
+//	// make a popup which displays the results
+//	// called by OutputResultsButtonHandler class
+//	public static void displaySpeedResults() {
+//		
+//		// get the length back
+//		int[] lengths = new int[5]; 
+//		lengths[0] = q1Remover.getTotalLength();
+//		lengths[1] = q2Remover.getTotalLength();
+//		lengths[2] = q3Remover.getTotalLength();
+//		lengths[3] = q4Remover.getTotalLength();
+//		lengths[4] = q5Remover.getTotalLength();
+//	
+//		// make a popup for test
+//		JOptionPane.showMessageDialog(frame, "Queue 1 took " + lengths[0] + " seconds."
+//				+ "\nQueue 2 took " + lengths[1] + " seconds. "
+//				+ "\nQueue 3 took " + lengths[2] + " seconds. "
+//				+ "\nQueue 4 took " + lengths[3] + " seconds. "
+//				+ "\nQueue 5 took " + lengths[4] + " seconds. ");
+//	}
 	
 	
 	

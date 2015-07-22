@@ -33,11 +33,6 @@ public class JoinQueueButtonListener implements ActionListener {
 			// refresh the display
 			SupermarketGui.displayNamesOnGui(SupermarketGui.queueArray[0], 1);
 			
-			/***
-			 * 
-			 * TODO Remove ALL OTHER INSTANCES of you from the other queues!
-			 * 
-			 */
 
 		}
 		
