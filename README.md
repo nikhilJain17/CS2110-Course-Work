@@ -19,13 +19,15 @@ Summer Session 2015
   * Binary Trees
   * B-Trees
 * Recursion
-* Proof By Inductoin
+* Proof By Induction
 * GUI Basics
   * Java Swing 
 * Sorting
   * Different Notations
     * Big-O, Little-O, Omega 
   * Selection Sort
+  * Merge Sort
+  * Quick Sort
   
 
 ### Homework Assignments
