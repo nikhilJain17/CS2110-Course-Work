@@ -347,10 +347,10 @@ public class SupermarketGui {
 		
 		// display a warning
 		JOptionPane.showMessageDialog(frame, "Hello and welcome to Nikhil's Grocery Queue Simulator!\n"
-				+ "\nBefore you begin, please read the file called bugs.txt"
-				+ "\n\nThese bugs have been mostly resolved, but they may pop back up as multithreading causes them to exist."
-				+ "\nThanks!"
-				+ "\n\nIn case you didn't read it and the program has red labels that say RESTART, then you need to restart the program several times until it works.", 
+				+ "\nBefore you begin, please read the following information."
+				+ "\nIf the program has red labels that say RESTART, you may need to restart the program several times."
+				+ "\nThis issue and others that may pop up are due to multithreading, and while they should not occur often, if they do occur, they do several times in a row."
+				+ "\n\nThanks for reading!", 
 				"An Important Message", 2, null);
 		
 		// call the "initialize" method

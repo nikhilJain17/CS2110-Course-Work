@@ -5,30 +5,30 @@
 
     Queue 1    
 ----------------
-Time: 8
-Length: 8
-Rate: 1
+Time: 36
+Length: 4
+Rate: 9
 
     Queue 2    
 ----------------
-Time: 36
-Length: 9
-Rate: 4
+Time: 24
+Length: 3
+Rate: 8
 
     Queue 3    
 ----------------
-Time: 21
-Length: 7
-Rate: 3
+Time: 15
+Length: 3
+Rate: 5
 
     Queue 4    
 ----------------
-Time: 2
-Length: 2
-Rate: 1
+Time: 35
+Length: 7
+Rate: 5
 
     Queue 5    
 ----------------
-Time: 2
-Length: 2
-Rate: 1
+Time: 35
+Length: 7
+Rate: 5
