@@ -9,7 +9,7 @@ Summer Session 2015
   * Objects
   * Inheritance
     * Custom Exceptions 
-* Data Structures (All were implemented with Nodes, some with arrays)
+* Data Structures (Mostly implemented with linked lists instead of arrays)
   * Nodes
   * Iterators
   * Singly Linked List
@@ -28,6 +28,8 @@ Summer Session 2015
   * Selection Sort
   * Merge Sort
   * Quick Sort
+  * Bucket Sort
+  * Radix Sort
   
 
 ### Homework Assignments
