@@ -17,6 +17,7 @@ Summer Session 2015
   * Stacks
   * Queues
   * Binary Trees
+    * Balancing Techniques 
   * B-Trees
 * Recursion
 * Proof By Induction
@@ -30,6 +31,8 @@ Summer Session 2015
   * Quick Sort
   * Bucket Sort
   * Radix Sort
+  * Heap Sort
+  
   
 
 ### Homework Assignments
