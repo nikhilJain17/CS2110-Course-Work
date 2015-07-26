@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="Cat Chasing Mouse/src/|AVL Balanced Binary Tree/|Swinging Ball/src/|NodeQueue/" kind="src" path=""/>
+	<classpathentry kind="src" path="AVL Balanced Binary Tree"/>
+	<classpathentry kind="src" path="Cat Chasing Mouse/src"/>
+	<classpathentry kind="src" path="NodeQueue"/>
+	<classpathentry kind="src" path="Swinging Ball/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Swinging Ball/bin"/>
+</classpath>
