@@ -40,8 +40,7 @@ public class BucketSorter {
 		findMin();
 		findMax();
 		
-		// test
-		System.out.println("Min: " + min + "\nMax: " + max);
+		//System.out.println("Min: " + min + "\nMax: " + max);
 		
 	}
 	

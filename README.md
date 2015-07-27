@@ -32,6 +32,8 @@ Summer Session 2015
   * Bucket Sort
   * Radix Sort
   * Heap Sort
+* Graphs
+  * Topological Sort
   
   
 
