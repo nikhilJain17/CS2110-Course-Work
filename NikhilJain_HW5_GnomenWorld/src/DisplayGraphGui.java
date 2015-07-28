@@ -1,6 +1,8 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -23,7 +25,7 @@ public class DisplayGraphGui {
 	
 	/* All the components inside the graphPanel go here */
 	JPanel graphPanel; // panel that only holds the graph
-	
+	List<VillageNode> villageNodeList = new ArrayList<VillageNode>();
 	
 	
 	/* All the components inside the actionPanel go here */
@@ -65,6 +67,8 @@ public class DisplayGraphGui {
 		testNode.setPreferredSize(new Dimension(100, 100));
 		graphPanel.add(testNode);
 		
+		
+		
 		// see below for what it does
 		packageComponents();
 		
@@ -86,6 +90,15 @@ public class DisplayGraphGui {
 		frame.pack();
 		
 	} // end of packageComponents()
+	
+	// TODO Finish this method
+//	// initialize the graphPanel with a network of villages
+//	public VillageNode intializeVillage(int name) {
+//		
+//		VillageNode village;
+//		
+//		
+//	} // end of initializeVillage
 	
 
 } // end of class

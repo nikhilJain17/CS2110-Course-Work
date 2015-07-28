@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 /***
  * 
  * This class is the Main.java file. It is the launchpoint of the program, and it calls all the
@@ -17,6 +19,11 @@ public class Main {
 		
 		// Build the DisplayGraphGUI
 		DisplayGraphGui displayGraphGui = new DisplayGraphGui();
+		
+		// test
+		VillageNode node = new VillageNode(1, null, null);
+		VillageDetailsPopup p = new VillageDetailsPopup(node);
+		
 		
 		
 		
