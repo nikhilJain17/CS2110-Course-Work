@@ -1,0 +1,24 @@
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
+/***
+ * 
+ * This class creates a popup message that displays details about each village
+ * @author Nick
+ *
+ */
+
+public class VillageDetailsPopup extends JDialog {
+	
+	String testString;
+	
+	public VillageDetailsPopup() {
+		super();
+		
+		testString = "yolo";
+		
+	}
+	
+//	JOptionPane
+
+}

@@ -1,0 +1,16 @@
+/***
+ * 
+ * Gnome class
+ * 
+ * Having fun isn't hard when you've got a gnome!
+ * 
+ * @author Nick
+ *
+ */
+
+public class Gnome {
+	
+	String name;
+	boolean lazy; // does he want to take the shortest path or nahhhhh
+	
+}

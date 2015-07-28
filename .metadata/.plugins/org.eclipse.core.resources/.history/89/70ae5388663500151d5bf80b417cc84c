@@ -1,0 +1,32 @@
+/***
+ * 
+ * This class is the Main.java file. It is the launchpoint of the program, and it calls all the
+ * necessary functions to kickstart the program.
+ * 
+ * @author Nikhil J
+ *
+ */
+
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Launching program.");
+		
+		// Build the DisplayGraphGUI
+		DisplayGraphGui displayGraphGui = new DisplayGraphGui();
+		
+		// test
+		VillageDetailsPopup p = new VillageDetailsPopup();
+		
+		p.setBounds(100, 100, 100, 100);
+		p.setVisible(true);
+		p.show();
+		
+		
+		
+	} // end of main
+
+} // end of class
