@@ -41,7 +41,6 @@ public class DisplayGraphGui {
 		frame.setPreferredSize(new Dimension(1000, 1000));
 		frame.setBackground(Color.yellow);
 		
-		// TODO Check if it displays properly
 		graphPanel = new JPanel();
 		graphPanel.setBounds(0, 0, 1000, 1000);
 		graphPanel.setPreferredSize(new Dimension(800, 1000));
@@ -56,6 +55,15 @@ public class DisplayGraphGui {
 		actionPanel.setBackground(Color.WHITE);
 		actionPanel.setBorder(BorderFactory.createTitledBorder("Options"));
 		
+		
+		/***
+		 * Testing the VillageNode buttons
+		 */
+		
+		VillageNode testNode = new VillageNode(1, null, null);
+		testNode.setBounds(50, 50, 100, 100);
+		testNode.setPreferredSize(new Dimension(100, 100));
+		graphPanel.add(testNode);
 		
 		// see below for what it does
 		packageComponents();

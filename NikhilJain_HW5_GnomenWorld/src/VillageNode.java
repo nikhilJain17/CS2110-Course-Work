@@ -15,17 +15,55 @@ import javax.swing.*;
 
 public class VillageNode extends JButton {
 	
-	int name; // each village is named from 1, 2, 3, ... incrementally
-	// GnomeArray
+	int named; // each village is named from 1, 2, 3, ... incrementally
+	Gnome[] gnomeArray;
 	List<VillageNode> adjacencyList; // no need to make a custom linked list and die
 	
-	
-	public VillageNode(int name, List<VillageNode> adjacencyList) {
-		super();
-		this.name = name;
+	// getters and setters
+	public int getNamed() {
+		return this.named;
+	}
+
+
+	public void setName(int named) {
+		this.named = named;
+	}
+
+
+	public Gnome[] getGnomeArray() {
+		return gnomeArray;
+	}
+
+
+	public void setGnomeArray(Gnome[] gnomeArray) {
+		this.gnomeArray = gnomeArray;
+	}
+
+
+	public List<VillageNode> getAdjacencyList() {
+		return adjacencyList;
+	}
+
+
+	public void setAdjacencyList(List<VillageNode> adjacencyList) {
 		this.adjacencyList = adjacencyList;
+	}
+
+	
+	// constructor
+	public VillageNode(int named, List<VillageNode> adjacencyList, Gnome[] gnomeArray) {
+		super();
 		
+		String name = Integer.toString(named);
 		
+		this.named = named;
+		this.adjacencyList = adjacencyList;
+		this.gnomeArray = gnomeArray;
+		
+		super.setText(name);
+				
 	} // end of constructor
 
+	
+	
 }
