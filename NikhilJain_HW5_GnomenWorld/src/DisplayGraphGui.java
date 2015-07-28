@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.*;
@@ -68,6 +69,8 @@ public class DisplayGraphGui {
 		graphPanel.add(testNode);
 		
 		
+		intializeVillage();
+		
 		
 		// see below for what it does
 		packageComponents();
@@ -93,12 +96,68 @@ public class DisplayGraphGui {
 	
 	// TODO Finish this method
 //	// initialize the graphPanel with a network of villages
-//	public VillageNode intializeVillage(int name) {
-//		
-//		VillageNode village;
-//		
-//		
-//	} // end of initializeVillage
+	public VillageNode[] intializeVillage() {
+		
+		/***
+		 * TODO Set the Main.VillageNodeList as the array
+		 */
+		
+		// initialize each village, start off with no gnomes.
+		
+		VillageNode[] villageArray = new VillageNode[10];
+		villageArray[0] = null; // DON'T USE VILLAGE #0 - IT DOESN'T EXIST!!!
+		
+		// empty gnome array to use for initializing VillageNodes
+		Gnome[] emptyGnomeArray = new Gnome[1];
+		emptyGnomeArray[0] = new Gnome("EMPTY", false, null);
+		
+		
+		// initialize with name and empty gnome array
+		for (int i = 1; i < villageArray.length; i++) {
+			villageArray[i] = new VillageNode(i, null, emptyGnomeArray);
+		}
+		
+		
+		// Set up the adjacency lists 
+		
+		
+
+		// make the adjacency list for Village 1
+		List<VillageNode> adjacencyList1 = new ArrayList<VillageNode>();
+		adjacencyList1.add(villageArray[2]);
+		adjacencyList1.add(villageArray[4]);
+		villageArray[1].setAdjacencyList(adjacencyList1);
+		
+		// make the adjacency list for Village 2
+		List<VillageNode> adjacencyList2 = new ArrayList<VillageNode>();
+		adjacencyList2.add(villageArray[1]);
+		adjacencyList2.add(villageArray[3]);
+		adjacencyList2.add(villageArray[6]);
+		villageArray[2].setAdjacencyList(adjacencyList2);
+		
+		// make the adjacency list for Village 3
+		List<VillageNode> adjacencyList3 = new ArrayList<VillageNode>();
+		adjacencyList3.add(villageArray[2]);
+		adjacencyList3.add(villageArray[6]);
+		villageArray[3].setAdjacencyList(adjacencyList3);
+		
+		/*TEST*/
+		List<VillageNode> testList = villageArray[1].getAdjacencyList();
+		
+		
+		// Printing stuff for debugging
+		for (VillageNode testV : testList) {
+			System.out.println("Adjacent to " + testV.getNamed());
+		}
+		
+		
+		// set Main.villageList to this cheese
+		
+		return villageArray;
+		
+		
+		
+	} // end of initializeVillage
 	
 
 } // end of class

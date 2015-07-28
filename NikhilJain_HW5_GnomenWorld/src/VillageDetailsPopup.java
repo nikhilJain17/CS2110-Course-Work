@@ -32,6 +32,12 @@ public class VillageDetailsPopup {
 	
 	private void createAndShowGui() {
 		
+		/***
+		 * 
+		 * CONSIDER GETTING RID OF LAYOUT AND JUST HAVING A FRAME INSTEAD
+		 * 
+		 */
+		
 		// Set up the layout for inserting elements
 		dialogBox.setLayout(new GridBagLayout());
 		GridBagConstraints layoutSettings = new GridBagConstraints(); 

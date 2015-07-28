@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 
 /***
  * 
@@ -12,6 +14,9 @@ import java.awt.Color;
 
 
 public class Main {
+	
+	// list with all the villages in it
+	public static List<VillageNode> villageNodeList = new ArrayList<VillageNode>();
 
 	public static void main(String[] args) {
 		
