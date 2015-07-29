@@ -60,7 +60,7 @@ public class DisplayGraphGui {
 		
 		
 		/***
-		 * Testing the VillageNode buttons
+		 * Display the initial 9 buttons/villages
 		 */
 		
 		VillageNode testNode = new VillageNode(1, null, null);
@@ -69,7 +69,20 @@ public class DisplayGraphGui {
 		graphPanel.add(testNode);
 		
 		
+		// set up the initial 9 villages
 		intializeVillage();
+		
+		
+		
+		
+		
+		// set the size for each button
+		for (int i = 1; i < villageNodeList.size(); i++) {
+			
+			villageNodeList.get(i).setPreferredSize(new Dimension(25, 25));
+			graphPanel.add(villageNodeList.get(i));
+			
+		}
 		
 		
 		// see below for what it does
@@ -193,18 +206,26 @@ public class DisplayGraphGui {
 		
 		
 		/*TEST*/
+//		for (int i = 1; i < 10; i++) {
+//			
+//			List<VillageNode> testAdj = villageArray[i].getAdjacencyList();
+//			System.out.println("\n" + i + "-th Village\n");
+//			
+//			for (VillageNode v : testAdj) {
+//				System.out.println("Adj: " + v.getNamed());
+//			}
+//			
+//		}
+		
+		// set villageNodeList from here to be that
+		this.villageNodeList.add(0, null);
 		for (int i = 1; i < 10; i++) {
+			this.villageNodeList.add(i, villageArray[i]);
 			
-			List<VillageNode> testAdj = villageArray[i].getAdjacencyList();
-			System.out.println("\n" + i + "-th Village\n");
-			
-			for (VillageNode v : testAdj) {
-				System.out.println("Adj: " + v.getNamed());
-			}
+			System.out.println(villageNodeList.size());
 			
 		}
 		
-		// set Main.villageList to this cheese
 		
 		return villageArray;
 		

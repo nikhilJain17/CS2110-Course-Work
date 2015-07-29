@@ -25,6 +25,9 @@ public class Main {
 		// Build the DisplayGraphGUI
 		DisplayGraphGui displayGraphGui = new DisplayGraphGui();
 		
+		// transfer the initial village node data
+		villageNodeList = displayGraphGui.villageNodeList;
+		
 		// test the popup
 //		VillageNode node = new VillageNode(1, null, null);
 //		VillageDetailsPopup p = new VillageDetailsPopup(node);
