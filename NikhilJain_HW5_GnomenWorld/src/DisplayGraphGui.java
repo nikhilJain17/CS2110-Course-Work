@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,6 +22,9 @@ import javax.swing.border.BevelBorder;
  *
  */
 public class DisplayGraphGui {
+	
+	// List of lines to be drawn
+	List<Line> lineList = new ArrayList<Line>();
 	
 	JFrame frame; // main frame that holds everything
 	
@@ -93,7 +97,7 @@ public class DisplayGraphGui {
 		}
 		
 		
-		initializeAdjacencyLists();
+		initializeAdjacencyLists(); // make the connections between villages
 		
 		// CHECK IF CONNECTIONS HAVE BEEN MADE
 		for (int i = 1; i < villageNodeList.size(); i++) {
@@ -105,6 +109,37 @@ public class DisplayGraphGui {
 			}
 			
 		} // END OF CONNECTION TESTING
+		
+		
+		// make Line objects to be drawn onto the screen
+		for (int i = 1; i < villageNodeList.size(); i++) {
+			
+			VillageNode iNode = villageNodeList.get(i);
+			
+			List<VillageNode> adjList = iNode.getAdjacencyList();
+			
+			for (int j = 0; j < adjList.size(); j++) {
+				
+				VillageNode jNode = adjList.get(j);
+				
+				
+				Line line = new Line((int) iNode.getX(), (int)  jNode.getX(),
+						(int) iNode.getY(), (int) iNode.getY());
+			
+				// add the line
+			
+			}
+			
+		}
+		
+		/**
+		 * 
+		 * TODO
+		 * TEST IF THE LINE ARRAY HAS THE GOODS
+		 * DRAW THE LINES TO THE SCREEN
+		 * 
+		 */
+		
 		
 		
 		// see below for what it does
@@ -129,7 +164,6 @@ public class DisplayGraphGui {
 		
 	} // end of packageComponents()
 	
-	// TODO Finish this method
 //	// initialize the graphPanel with a network of villages
 	public VillageNode[] intializeVillage() {
 		
@@ -257,7 +291,6 @@ public class DisplayGraphGui {
 	} // end of initializeVillage
 	
 	
-	
 	// Finds the villages closest to each other
 	public void initializeAdjacencyLists() {
 		
@@ -300,5 +333,18 @@ public class DisplayGraphGui {
 		
 	}// end of initializeAdjacencyLists
 	
+	
+	// add a line to the arraylist
+	public void addLine(int x1, int x2, int y1, int y2) {
+		lineList.add(new Line(x1, x2, y1, y2));
+	} // end of addLien
+	
+	
+	// draw all the lines at the same time
+	 public void paintComponent(Graphics g) {
+	        for(final Line r : lineList) {
+	            r.paint(g);
+	        }
+	 } // end of paintComponent
 	
 } // end of class
