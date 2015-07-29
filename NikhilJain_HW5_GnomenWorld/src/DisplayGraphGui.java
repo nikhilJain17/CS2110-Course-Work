@@ -93,6 +93,20 @@ public class DisplayGraphGui {
 		}
 		
 		
+		initializeAdjacencyLists();
+		
+		// CHECK IF CONNECTIONS HAVE BEEN MADE
+		for (int i = 1; i < villageNodeList.size(); i++) {
+			
+			System.out.println("\n" + i);
+			
+			for (int j = 0; j < villageNodeList.get(i).getAdjacencyList().size(); j++) {
+				System.out.println(i + "-" + villageNodeList.get(i).getAdjacencyList().get(j).getNamed());
+			}
+			
+		} // END OF CONNECTION TESTING
+		
+		
 		// see below for what it does
 		packageComponents();
 		
@@ -242,5 +256,49 @@ public class DisplayGraphGui {
 		
 	} // end of initializeVillage
 	
-
+	
+	
+	// Finds the villages closest to each other
+	public void initializeAdjacencyLists() {
+		
+		// Randomly decide whether or not 2 nodes will be connected
+		
+		for (int i = 1; i < villageNodeList.size(); i++) {
+			
+			for (int j = 1; j < villageNodeList.size(); j++) {
+				
+				if (i == j)
+					break;
+				
+				double probability = Math.random();
+				
+				if (probability > 0.6) {
+					
+					// make a connection between them
+//					System.out.println("Connection between " + i + " and " + j);
+					
+					// connect i to j
+					List<VillageNode> list1 = villageNodeList.get(i).getAdjacencyList();
+					list1.add(villageNodeList.get(j));
+					villageNodeList.get(i).setAdjacencyList(list1);
+					
+					// connect j to i
+					List<VillageNode> list2 = villageNodeList.get(j).getAdjacencyList();
+					list2.add(villageNodeList.get(i));
+					villageNodeList.get(j).setAdjacencyList(list2);
+					
+				} // end of if
+				
+				
+			} // end of 4
+			
+			
+			
+		}// end of for
+		
+		
+		
+	}// end of initializeAdjacencyLists
+	
+	
 } // end of class
