@@ -120,7 +120,7 @@ public class DisplayGraphGui {
 		
 		// Set up the adjacency lists 
 		
-		
+		List<VillageNode> adjacencyList = new ArrayList<VillageNode>();
 
 		// make the adjacency list for Village 1
 		List<VillageNode> adjacencyList1 = new ArrayList<VillageNode>();
@@ -130,6 +130,7 @@ public class DisplayGraphGui {
 		
 		// make the adjacency list for Village 2
 		List<VillageNode> adjacencyList2 = new ArrayList<VillageNode>();
+		adjacencyList.clear();
 		adjacencyList2.add(villageArray[1]);
 		adjacencyList2.add(villageArray[3]);
 		adjacencyList2.add(villageArray[6]);
@@ -137,19 +138,71 @@ public class DisplayGraphGui {
 		
 		// make the adjacency list for Village 3
 		List<VillageNode> adjacencyList3 = new ArrayList<VillageNode>();
+		adjacencyList.clear();
 		adjacencyList3.add(villageArray[2]);
 		adjacencyList3.add(villageArray[6]);
 		villageArray[3].setAdjacencyList(adjacencyList3);
 		
+		// make the adjacency list for Village 4
+		List<VillageNode> adjacencyList4 = new ArrayList<VillageNode>();
+		adjacencyList.clear();
+		adjacencyList4.add(villageArray[1]);
+		adjacencyList4.add(villageArray[7]);
+		adjacencyList4.add(villageArray[5]);
+		villageArray[4].setAdjacencyList(adjacencyList4);
+		
+		// make the adjacency list for Village 5
+		List<VillageNode> adjacencyList5 = new ArrayList<VillageNode>();
+		adjacencyList.clear();
+		adjacencyList5.add(villageArray[4]);
+		adjacencyList5.add(villageArray[7]);
+		adjacencyList5.add(villageArray[8]);
+		adjacencyList5.add(villageArray[9]);
+		adjacencyList5.add(villageArray[6]);
+		villageArray[5].setAdjacencyList(adjacencyList5);
+		
+		// make the adjacency list for Village 6
+		List<VillageNode> adjacencyList6 = new ArrayList<VillageNode>();
+		adjacencyList.clear();
+		adjacencyList6.add(villageArray[2]);
+		adjacencyList6.add(villageArray[3]);
+		adjacencyList6.add(villageArray[5]);
+		villageArray[6].setAdjacencyList(adjacencyList6);
+		
+		// make the adjacency list for Village 7
+		List<VillageNode> adjacencyList7 = new ArrayList<VillageNode>();
+		adjacencyList.clear();
+		adjacencyList7.add(villageArray[4]);
+		adjacencyList7.add(villageArray[5]);
+		adjacencyList7.add(villageArray[8]);
+		villageArray[7].setAdjacencyList(adjacencyList7);
+		
+		// make the adjacency list for Village 8
+		List<VillageNode> adjacencyList8 = new ArrayList<VillageNode>();
+		adjacencyList.clear();
+		adjacencyList8.add(villageArray[5]);
+		adjacencyList8.add(villageArray[7]);
+		villageArray[8].setAdjacencyList(adjacencyList8);
+		
+		// make the adjacency list for Village 9
+		List<VillageNode> adjacencyList9 = new ArrayList<VillageNode>();
+		adjacencyList.clear();
+		adjacencyList9.add(villageArray[5]);
+		villageArray[9].setAdjacencyList(adjacencyList9);
+		
+		
+		
 		/*TEST*/
-		List<VillageNode> testList = villageArray[1].getAdjacencyList();
-		
-		
-		// Printing stuff for debugging
-		for (VillageNode testV : testList) {
-			System.out.println("Adjacent to " + testV.getNamed());
+		for (int i = 1; i < 10; i++) {
+			
+			List<VillageNode> testAdj = villageArray[i].getAdjacencyList();
+			System.out.println("\n" + i + "-th Village\n");
+			
+			for (VillageNode v : testAdj) {
+				System.out.println("Adj: " + v.getNamed());
+			}
+			
 		}
-		
 		
 		// set Main.villageList to this cheese
 		
