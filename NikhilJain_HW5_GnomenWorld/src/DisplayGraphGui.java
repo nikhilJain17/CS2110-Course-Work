@@ -49,6 +49,7 @@ public class DisplayGraphGui {
 		graphPanel.setPreferredSize(new Dimension(800, 1000));
 		graphPanel.setVisible(true);
 		graphPanel.setBackground(Color.GREEN);
+		graphPanel.setLayout(null); // use absolute layout - only x and y coordinates
 		
 		
 		actionPanel = new JPanel();
@@ -63,16 +64,9 @@ public class DisplayGraphGui {
 		 * Display the initial 9 buttons/villages
 		 */
 		
-		VillageNode testNode = new VillageNode(1, null, null);
-		testNode.setBounds(50, 50, 100, 100);
-		testNode.setPreferredSize(new Dimension(100, 100));
-		graphPanel.add(testNode);
-		
 		
 		// set up the initial 9 villages
 		intializeVillage();
-		
-		
 		
 		
 		
@@ -80,6 +74,20 @@ public class DisplayGraphGui {
 		for (int i = 1; i < villageNodeList.size(); i++) {
 			
 			villageNodeList.get(i).setPreferredSize(new Dimension(25, 25));
+			
+			// randomly set the position
+			int x = (int) (800 * Math.random());
+			int y = (int) (800 * Math.random());
+			
+			villageNodeList.get(i).setBounds(x, y, 25, 25);
+			villageNodeList.get(i).setAlignmentX(x);
+			villageNodeList.get(i).setAlignmentY(y);
+			
+			System.out.println(x + ", " + y);
+			
+//			 set the colour
+//			villageNodeList.get(i).setBackground(Color.getColor("00DDFF", Color.blue));
+			
 			graphPanel.add(villageNodeList.get(i));
 			
 		}
@@ -219,10 +227,11 @@ public class DisplayGraphGui {
 		
 		// set villageNodeList from here to be that
 		this.villageNodeList.add(0, null);
+		
 		for (int i = 1; i < 10; i++) {
 			this.villageNodeList.add(i, villageArray[i]);
 			
-			System.out.println(villageNodeList.size());
+//			System.out.println(villageNodeList.size());
 			
 		}
 		
