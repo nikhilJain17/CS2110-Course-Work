@@ -29,9 +29,35 @@ public class Line extends JComponent {
 	// Draw the line
 	public void paint(Graphics g) {
 		
+		final int OFFSET = 25; // to draw in middle of button
+		
         System.out.println(this.x1 + ", " + this.y1 + "--" + this.x2 + ", " + this.y2);
 
-        g.drawLine(this.x1, this.y1, this.x2, this.y2);
+        Graphics2D g2 = (Graphics2D) g;
+        
+        g2.setColor(Color.CYAN);
+        
+        BasicStroke smoothStroke = new BasicStroke(25, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
+//        smoothStroke.
+        g2.setStroke(smoothStroke);
+        
+        
+        // draw a thick blue line
+        g2.drawLine(x1 + OFFSET, y1 + OFFSET, x2 + OFFSET, y2 + OFFSET);
+        
+        
+        // make a thin border around it
+        g2.setColor(Color.black);
+        BasicStroke thinStroke = new BasicStroke((float) 4.5);
+        g2.setStroke(thinStroke);
+        
+        
+        final int BORDEROFFSET = 10;
+        
+        // draw a line above and below to make it appear like a border
+        g2.drawLine(x1 - BORDEROFFSET + OFFSET, y1 - BORDEROFFSET + OFFSET, x2 - BORDEROFFSET + OFFSET, y2 - BORDEROFFSET + OFFSET);
+        g2.drawLine(x1 + BORDEROFFSET + OFFSET, y1 + BORDEROFFSET + OFFSET, x2 + BORDEROFFSET + OFFSET, y2 + BORDEROFFSET + OFFSET);
+        
 //        System.out.println(this.x1 + ", " + this.y1 + "--" + this.x2 + ", " + this.y2);
     }
 

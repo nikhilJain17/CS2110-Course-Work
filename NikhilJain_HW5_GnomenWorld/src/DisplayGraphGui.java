@@ -84,7 +84,7 @@ public class DisplayGraphGui {
 			int x = (int) (800 * Math.random());
 			int y = (int) (700 * Math.random());
 			
-			villageNodeList.get(i).setBounds(x, y, 25, 25);
+			villageNodeList.get(i).setBounds(x, y, 50, 50);
 			villageNodeList.get(i).setAlignmentX(x);
 			villageNodeList.get(i).setAlignmentY(y);
 			
@@ -310,7 +310,7 @@ public class DisplayGraphGui {
 				
 				double probability = Math.random();
 				
-				if (probability > 0.75) {
+				if (probability > 0.8) {
 					
 					// make a connection between them
 //					System.out.println("Connection between " + i + " and " + j);
