@@ -139,13 +139,14 @@ public class DisplayGraphGui {
 		
 		// DRAW THE LINES!!!!!!
 		graphPanel.setShouldDraw(true);
-		graphPanel.repaint();;
+		graphPanel.repaint();
 		
 		// check contents of line array
 //		for (Line l : graphPanel.getDrawLinesList()) {
 //			System.out.println("(" + l.x1 + ", " + l.y1 + ")" + "(" + l.x2 + ", " + l.y2 + ")");
 //		}
 //		
+		graphPanel.setBackground(Color.GREEN);
 		
 		// see below for what it does
 		packageComponents();

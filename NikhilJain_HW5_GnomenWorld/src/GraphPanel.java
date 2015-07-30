@@ -47,9 +47,10 @@ public class GraphPanel extends JPanel {
 	
 	// Paint over this 
 	 public void paintComponent(Graphics g) {
-		 
-		 this.setOpaque(true);
-		 this.setBackground(Color.GREEN);
+		 super.paintComponent(g);
+//		 
+//		 this.setOpaque(true);
+//		 this.setBackground(Color.YELLOW);
 		 
 		 if (shouldDraw)
 			 for(final Line r : drawLinesList) {
