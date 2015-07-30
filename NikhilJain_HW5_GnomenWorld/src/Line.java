@@ -35,25 +35,27 @@ public class Line extends JComponent {
 
         Graphics2D g2 = (Graphics2D) g;
         
-        g2.setColor(Color.CYAN);
+        g2.setColor(Color.BLACK);
         
         BasicStroke smoothStroke = new BasicStroke(25, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
 //        smoothStroke.
         g2.setStroke(smoothStroke);
         
         
-        // draw a thick blue line
+        // draw a thick black line as the border
         g2.drawLine(x1 + OFFSET, y1 + OFFSET, x2 + OFFSET, y2 + OFFSET);
         
         
-        // make a thin border around it
-        g2.setColor(Color.black);
-        BasicStroke thinStroke = new BasicStroke((float) 4.5);
+        // make a road in the middle
+        g2.setColor(Color.CYAN);
+        BasicStroke thinStroke = new BasicStroke((float) 20);
         g2.setStroke(thinStroke);
         
         
-        final int BORDEROFFSET = 10;
-        
+         int BORDEROFFSET = 0;
+//        
+//        if (y1 - y2 > 150 && y1 - y2 < 300)
+//        	g2.setColor(Color.orange);
         // draw a line above and below to make it appear like a border
         g2.drawLine(x1 - BORDEROFFSET + OFFSET, y1 - BORDEROFFSET + OFFSET, x2 - BORDEROFFSET + OFFSET, y2 - BORDEROFFSET + OFFSET);
         g2.drawLine(x1 + BORDEROFFSET + OFFSET, y1 + BORDEROFFSET + OFFSET, x2 + BORDEROFFSET + OFFSET, y2 + BORDEROFFSET + OFFSET);
