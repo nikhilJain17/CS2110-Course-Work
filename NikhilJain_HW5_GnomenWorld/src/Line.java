@@ -47,7 +47,8 @@ public class Line extends JComponent {
         
         
         // make a road in the middle
-        g2.setColor(Color.CYAN);
+        Color beige = new Color (242, 203, 136);
+        g2.setColor(beige);
         BasicStroke thinStroke = new BasicStroke((float) 20);
         g2.setStroke(thinStroke);
         

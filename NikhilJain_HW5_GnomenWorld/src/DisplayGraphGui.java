@@ -146,7 +146,6 @@ public class DisplayGraphGui {
 //			System.out.println("(" + l.x1 + ", " + l.y1 + ")" + "(" + l.x2 + ", " + l.y2 + ")");
 //		}
 //		
-		graphPanel.setBackground(Color.GREEN);
 		
 		// see below for what it does
 		packageComponents();
