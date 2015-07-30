@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,8 +63,33 @@ public class VillageNode extends JButton {
 		this.gnomeArray = gnomeArray;
 		
 		super.setText(name);
+		
+		// attach the onclick listener
+		this.addActionListener(new VillageButtonActionListener());
 				
 	} // end of constructor
+	
+	
+	/***
+	 * Action-Listener class, easier just to embed it here rather than set the action listener for each individual button
+	 * Handles the onclick event
+	 * shows a kewl pop-up with some information
+	 */
+	
+	class VillageButtonActionListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			// show the popup
+			VillageDetailsPopup popup = new VillageDetailsPopup((VillageNode) e.getSource());
+			
+			
+			
+			
+		} // end of actionPerformed
+		
+	} // end of actionlistener class
 
 	
 	

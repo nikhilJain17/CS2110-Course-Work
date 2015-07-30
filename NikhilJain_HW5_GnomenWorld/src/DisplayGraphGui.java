@@ -53,6 +53,7 @@ public class DisplayGraphGui {
 		graphPanel.setPreferredSize(new Dimension(900, 1000));
 		graphPanel.setVisible(true);
 		graphPanel.setBackground(Color.GREEN);
+//		graphPanel.setB
 		graphPanel.setLayout(null); // use absolute layout - only x and y coordinates
 		
 		

@@ -56,7 +56,7 @@ public class VillageDetailsPopup {
 		dialogBox.add(numberOfGnomes, layoutSettings);
 		
 		// set up the dialog box
-		dialogBox.setBounds(500, 500, 400, 400);
+		dialogBox.setBounds(500, 100, 400, 400);
 		dialogBox.setPreferredSize(new Dimension(400, 400));
 		dialogBox.setTitle(title);
 		dialogBox.setBackground(Color.YELLOW);
