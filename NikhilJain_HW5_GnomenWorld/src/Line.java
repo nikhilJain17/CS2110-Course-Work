@@ -1,4 +1,6 @@
-import java.awt.Graphics;
+import java.awt.*;
+
+import javax.swing.*;
 
 
 /**
@@ -13,7 +15,7 @@ import java.awt.Graphics;
  *
  */
 
-public class Line {
+public class Line extends JComponent {
 	
 	int x1, x2, y1, y2;
 	
@@ -26,7 +28,11 @@ public class Line {
 	
 	// Draw the line
 	public void paint(Graphics g) {
+		
+        System.out.println(this.x1 + ", " + this.y1 + "--" + this.x2 + ", " + this.y2);
+
         g.drawLine(this.x1, this.y1, this.x2, this.y2);
+//        System.out.println(this.x1 + ", " + this.y1 + "--" + this.x2 + ", " + this.y2);
     }
 
 }

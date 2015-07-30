@@ -24,12 +24,12 @@ import javax.swing.border.BevelBorder;
 public class DisplayGraphGui {
 	
 	// List of lines to be drawn
-	List<Line> lineList = new ArrayList<Line>();
+	static List<Line> lineList = new ArrayList<Line>();
 	
 	JFrame frame; // main frame that holds everything
 	
 	/* All the components inside the graphPanel go here */
-	JPanel graphPanel; // panel that only holds the graph
+	GraphPanel graphPanel; // panel that only holds the graph
 	List<VillageNode> villageNodeList = new ArrayList<VillageNode>();
 	
 	
@@ -45,12 +45,12 @@ public class DisplayGraphGui {
 		frame = new JFrame();
 		frame.setTitle("Nikhil's GnomenWorld Simulator");
 //		frame.setBounds(0, 0, 1400, 1000);
-		frame.setPreferredSize(new Dimension(1000, 1000));
+		frame.setPreferredSize(new Dimension(1100, 1000));
 		frame.setBackground(Color.yellow);
 		
-		graphPanel = new JPanel();
+		graphPanel = new GraphPanel();
 		graphPanel.setBounds(0, 0, 1000, 1000);
-		graphPanel.setPreferredSize(new Dimension(800, 1000));
+		graphPanel.setPreferredSize(new Dimension(900, 1000));
 		graphPanel.setVisible(true);
 		graphPanel.setBackground(Color.GREEN);
 		graphPanel.setLayout(null); // use absolute layout - only x and y coordinates
@@ -81,7 +81,7 @@ public class DisplayGraphGui {
 			
 			// randomly set the position
 			int x = (int) (800 * Math.random());
-			int y = (int) (800 * Math.random());
+			int y = (int) (700 * Math.random());
 			
 			villageNodeList.get(i).setBounds(x, y, 25, 25);
 			villageNodeList.get(i).setAlignmentX(x);
@@ -124,23 +124,27 @@ public class DisplayGraphGui {
 				
 				
 				Line line = new Line((int) iNode.getX(), (int)  jNode.getX(),
-						(int) iNode.getY(), (int) iNode.getY());
+						(int) iNode.getY(), (int) jNode.getY());
 			
-				// add the line
-			
+				// add the lines
+				lineList.add(line);
+				
 			}
+			
+			graphPanel.setDrawLinesList((ArrayList<Line>) lineList);
 			
 		}
 		
-		/**
-		 * 
-		 * TODO
-		 * TEST IF THE LINE ARRAY HAS THE GOODS
-		 * DRAW THE LINES TO THE SCREEN
-		 * 
-		 */
 		
+		// DRAW THE LINES!!!!!!
+		graphPanel.setShouldDraw(true);
+		graphPanel.repaint();;
 		
+		// check contents of line array
+//		for (Line l : graphPanel.getDrawLinesList()) {
+//			System.out.println("(" + l.x1 + ", " + l.y1 + ")" + "(" + l.x2 + ", " + l.y2 + ")");
+//		}
+//		
 		
 		// see below for what it does
 		packageComponents();
@@ -305,7 +309,7 @@ public class DisplayGraphGui {
 				
 				double probability = Math.random();
 				
-				if (probability > 0.6) {
+				if (probability > 0.75) {
 					
 					// make a connection between them
 //					System.out.println("Connection between " + i + " and " + j);
