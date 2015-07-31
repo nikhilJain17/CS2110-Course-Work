@@ -296,7 +296,7 @@ public class DisplayGraphGui {
 	} // end of initializeVillage
 	
 	
-	// Finds the villages closest to each other
+	// Randomly pair up villages
 	public void initializeAdjacencyLists() {
 		
 		// Randomly decide whether or not 2 nodes will be connected
@@ -319,11 +319,11 @@ public class DisplayGraphGui {
 					List<VillageNode> list1 = villageNodeList.get(i).getAdjacencyList();
 					list1.add(villageNodeList.get(j));
 					villageNodeList.get(i).setAdjacencyList(list1);
-					
-					// connect j to i
-					List<VillageNode> list2 = villageNodeList.get(j).getAdjacencyList();
-					list2.add(villageNodeList.get(i));
-					villageNodeList.get(j).setAdjacencyList(list2);
+//					
+//					// connect j to i
+//					List<VillageNode> list2 = villageNodeList.get(j).getAdjacencyList();
+//					list2.add(villageNodeList.get(i));
+//					villageNodeList.get(j).setAdjacencyList(list2);
 					
 				} // end of if
 				
