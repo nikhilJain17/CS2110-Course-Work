@@ -74,7 +74,7 @@ public class VillageDetailsPopup {
 		dialogBox.setBackground(Color.YELLOW);
 		
 		// set up jpalbalelb
-		numberOfGnomes.setBounds(10, 10, 100, 25);
+		numberOfGnomes.setBounds(10, 10, 120, 25);
 		
 		
 		// gnome names here
@@ -139,6 +139,9 @@ public class VillageDetailsPopup {
 		}
 		
 		gnomeLabel.setText(displayText);
+		
+		int numGnomes = village.getGnomeArray().size();
+		numberOfGnomes.setText("# of Gnomes: " + numGnomes);
 		
 	} // end of updateGnomeDisplay
 	
