@@ -30,13 +30,13 @@ public class VillageDetailsPopup {
 	public VillageDetailsPopup(VillageNode village) {
 		
 		this.village = village;
-		gnomePopup = new AddGnomePopup(village);
+		gnomePopup = new AddGnomePopup(village, this);
 		
 		dialogBox = new JDialog();
 		title = "Village #" + village.getNamed();
 		numberOfGnomes = new JLabel("# of Gnomes: " + village.getGnomeArray().size());
 		
-		gnomeLabel = new JTextArea("Cart Mellow");
+		gnomeLabel = new JTextArea("");
 		gnomeLabel.setVisible(true);
 		gnomeNamesPane = new JScrollPane(gnomeLabel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		
@@ -121,12 +121,26 @@ public class VillageDetailsPopup {
 		
 	} // end of createAndShowGui
 	
-//	/*To customize the appearance of this component*/
-//	@Override
-//	public void paintComponent(Graphics g) {
-//		
-//	}
-
+	// after a gnome is added, this method will be called to update the display accordingly
+	public void updateGnomeDisplay() {
+		
+		// gnomeLabel = JTextArea
+		// get the names again from the gnome array
+		// put in string
+		// update ui
+		
+		String displayText = "";
+		
+		for (Gnome g : village.getGnomeArray()) {
+			
+			displayText += g.getName();
+			displayText += "\n";
+			
+		}
+		
+		gnomeLabel.setText(displayText);
+		
+	} // end of updateGnomeDisplay
 	
 	
 	/***

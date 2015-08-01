@@ -18,8 +18,10 @@ import javax.swing.event.ChangeListener;
 public class AddGnomePopup {
 
 	JDialog popup = new JDialog();
+	
+	// used to update the text in the villagepopup after a gnome is added
 	VillageNode village;
-//	boolean display; // should display
+	VillageDetailsPopup villageDetailsPopup;
 	
 	JLabel enterGnomeLabel = new JLabel("Enter name");
 	
@@ -33,9 +35,12 @@ public class AddGnomePopup {
 	
 	JButton addGnomeButton; // add gnome to village
 	
-	public AddGnomePopup(VillageNode village) {
+	public AddGnomePopup(VillageNode village, VillageDetailsPopup villageDetailsPopup) {
 		
+		this.villageDetailsPopup = villageDetailsPopup;
 		this.village = village;
+//		this.village = villageDetailsPopup.village;
+		
 		enterGnomeName = new JTextField();
 		busyButton = new JToggleButton("Not Busy");
 		addGnomeButton = new JButton("Add Gnome");
@@ -96,7 +101,7 @@ public class AddGnomePopup {
 						gnomeList.add(createdGnome);
 						
 						// update the display on the villagepopup
-						
+						villageDetailsPopup.updateGnomeDisplay();
 						
 					}// end of actionPerformed
 			    }); // end of action listener
