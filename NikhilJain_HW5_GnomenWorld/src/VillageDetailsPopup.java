@@ -22,7 +22,7 @@ public class VillageDetailsPopup {
 	JTextArea gnomeLabel;
 	String gnomeNamesString = "";
 
-	AddGnomePopup gnomePopup = new AddGnomePopup(village);
+	AddGnomePopup gnomePopup;
 	
 	
 	JButton createAGnomeButton;
@@ -30,6 +30,7 @@ public class VillageDetailsPopup {
 	public VillageDetailsPopup(VillageNode village) {
 		
 		this.village = village;
+		gnomePopup = new AddGnomePopup(village);
 		
 		dialogBox = new JDialog();
 		title = "Village #" + village.getNamed();
