@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -19,6 +21,11 @@ public class VillageDetailsPopup {
 	JScrollPane gnomeNamesPane; // scroll pane that shows gnomes names (rhyming accidentally)
 	JTextArea gnomeLabel;
 	String gnomeNamesString = "";
+
+	AddGnomePopup gnomePopup = new AddGnomePopup(village);
+	
+	
+	JButton createAGnomeButton;
 	
 	public VillageDetailsPopup(VillageNode village) {
 		
@@ -32,7 +39,8 @@ public class VillageDetailsPopup {
 		gnomeLabel.setVisible(true);
 		gnomeNamesPane = new JScrollPane(gnomeLabel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		
-		
+		createAGnomeButton = new JButton();
+		createAGnomeButton.addActionListener(new CreateAGnomeListener());
 		
 		// set up the look of this dialog box
 		EventQueue.invokeLater(new Runnable() {
@@ -89,12 +97,6 @@ public class VillageDetailsPopup {
 		
 		System.out.println("Value of Gnome Names Str: " + gnomeNamesString);
 		
-		/***
-		 * 
-		 * 
-		 * SET THE NAME HERERERERRER
-		 * 
-		 */
 		
 		gnomeLabel.setText(gnomeNamesString);
 		gnomeLabel.setEditable(false); // no editing por favor
@@ -103,9 +105,15 @@ public class VillageDetailsPopup {
 		gnomeNamesPane.add(gnomeLabel);
 		
 		
+		// add a gnome button code
+		createAGnomeButton.setBounds(150, 10, 200, 45);
+		createAGnomeButton.setText("Add a Gnome");
 		
+		
+		// add all the components
 		dialogBox.add(gnomeNamesPane);
 		dialogBox.add(numberOfGnomes);
+		dialogBox.add(createAGnomeButton);
 		
 		dialogBox.setVisible(true);
 
@@ -118,4 +126,23 @@ public class VillageDetailsPopup {
 //		
 //	}
 
+	
+	
+	/***
+	 * Action Listener for CreateAGNomeButton
+	 * Opens a popup where user enters details about gnome and it will be created, and added to the villageNode
+	 */
+	
+	class CreateAGnomeListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			gnomePopup.createAndShowGui();
+			
+		}
+		
+		
+	} // end of listener
+	
 }
