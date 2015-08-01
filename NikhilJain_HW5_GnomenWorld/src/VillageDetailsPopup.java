@@ -32,28 +32,10 @@ public class VillageDetailsPopup {
 	
 	private void createAndShowGui() {
 		
-		/***
-		 * 
-		 * CONSIDER GETTING RID OF LAYOUT AND JUST HAVING A FRAME INSTEAD
-		 * 
-		 */
 		
-		// Set up the layout for inserting elements
-		dialogBox.setLayout(new GridBagLayout());
-		GridBagConstraints layoutSettings = new GridBagConstraints(); 
+		// absolute layout 
+		dialogBox.setLayout(null); 
 		
-		// set up the numberOfGnomes JLabel
-		numberOfGnomes = new JLabel("Number of Gnomes: ");
-		numberOfGnomes.setPreferredSize(new Dimension(100, 25));
-		layoutSettings.gridx = 0;
-		layoutSettings.gridy = 1;
-		layoutSettings.ipadx = 5;
-		layoutSettings.ipady = 5;
-		layoutSettings.fill = GridBagConstraints.HORIZONTAL;
-		layoutSettings.gridheight = 1;
-		layoutSettings.gridwidth = 5;
-			// add the component with the previously set constraings
-		dialogBox.add(numberOfGnomes, layoutSettings);
 		
 		// set up the dialog box
 		dialogBox.setBounds(500, 100, 400, 400);
