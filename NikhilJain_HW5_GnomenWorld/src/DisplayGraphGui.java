@@ -182,14 +182,20 @@ public class DisplayGraphGui {
 		villageArray[0] = null; // DON'T USE VILLAGE #0 - IT DOESN'T EXIST!!!
 		
 		// empty gnome array to use for initializing VillageNodes
-		Gnome[] emptyGnomeArray = new Gnome[1];
-		emptyGnomeArray[0] = new Gnome("EMPTY", false, null);
+		List<Gnome> emptyGnomeArray = new ArrayList<Gnome>();
 		
+		List<Gnome> TESTGNOME = new ArrayList<Gnome>();
+		TESTGNOME.add(new Gnome("Hello", false, villageArray[1]));
+		TESTGNOME.add(new Gnome("Melo", false, villageArray[1]));
+		TESTGNOME.add(new Gnome("CP4", false, villageArray[1]));
+		TESTGNOME.add(new Gnome("Snowbee", false, villageArray[1]));
 		
 		// initialize with name and empty gnome array
 		for (int i = 1; i < villageArray.length; i++) {
 			villageArray[i] = new VillageNode(i, null, emptyGnomeArray);
 		}
+		
+		villageArray[1].setGnomeArray(TESTGNOME);
 		
 		
 		// Set up the adjacency lists 
@@ -201,6 +207,7 @@ public class DisplayGraphGui {
 		adjacencyList1.add(villageArray[2]);
 		adjacencyList1.add(villageArray[4]);
 		villageArray[1].setAdjacencyList(adjacencyList1);
+
 		
 		// make the adjacency list for Village 2
 		List<VillageNode> adjacencyList2 = new ArrayList<VillageNode>();

@@ -16,15 +16,36 @@ public class VillageDetailsPopup {
 	VillageNode village; // which village this popup pertains to
 	JLabel numberOfGnomes;
 	
+	JScrollPane gnomeNamesPane; // scroll pane that shows gnomes names (rhyming accidentally)
+	JTextArea gnomeLabel;
+	String gnomeNamesString = "";
+	
 	public VillageDetailsPopup(VillageNode village) {
 		
 		this.village = village;
 		
 		dialogBox = new JDialog();
 		title = "Village #" + village.getNamed();
+		numberOfGnomes = new JLabel("# of Gnomes: " + village.getGnomeArray().size());
+		
+		gnomeLabel = new JTextArea("Cart Mellow");
+		gnomeLabel.setVisible(true);
+		gnomeNamesPane = new JScrollPane(gnomeLabel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		
+		
 		
 		// set up the look of this dialog box
-		createAndShowGui();
+		EventQueue.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				
+				createAndShowGui();
+				
+			}
+			
+		});
+//		createAndShowGui();
 		
 	} // end of constructor
 	
@@ -38,18 +59,63 @@ public class VillageDetailsPopup {
 		
 		
 		// set up the dialog box
-		dialogBox.setBounds(500, 100, 400, 400);
-		dialogBox.setPreferredSize(new Dimension(400, 400));
+		dialogBox.setBounds(500, 100, 600, 600);
+		dialogBox.setPreferredSize(new Dimension(600, 600));
 		dialogBox.setTitle(title);
 		dialogBox.setBackground(Color.YELLOW);
 		
+		// set up jpalbalelb
+		numberOfGnomes.setBounds(10, 10, 100, 25);
 		
 		
-//		gridLayout.addLayoutComponent("numberOfGnomes", numberOfGnomes);
+		// gnome names here
+		gnomeNamesPane.setBounds(10, 40, 100, 500);
+		
+		gnomeLabel.setPreferredSize(new Dimension(100, 500));
+		gnomeLabel.setBounds(0, 0, 100, 500);
+		gnomeLabel.setOpaque(true);
+		
+		// set up scroll pane for names
+		if (village.getGnomeArray().size() != 0) {
+			
+			// if there are names, iterate through dem
+			for (Gnome g : village.getGnomeArray()) {
+				gnomeNamesString += g.getName();
+				gnomeNamesString += "\n";
+			}
+			
+			
+		}
+		
+		System.out.println("Value of Gnome Names Str: " + gnomeNamesString);
+		
+		/***
+		 * 
+		 * 
+		 * SET THE NAME HERERERERRER
+		 * 
+		 */
+		
+		gnomeLabel.setText(gnomeNamesString);
+		gnomeLabel.setEditable(false); // no editing por favor
+		gnomeLabel.selectAll(); // fixes a glitch where the letters don't show up
+		
+		gnomeNamesPane.add(gnomeLabel);
+		
+		
+		
+		dialogBox.add(gnomeNamesPane);
+		dialogBox.add(numberOfGnomes);
 		
 		dialogBox.setVisible(true);
 
 		
 	} // end of createAndShowGui
+	
+//	/*To customize the appearance of this component*/
+//	@Override
+//	public void paintComponent(Graphics g) {
+//		
+//	}
 
 }
