@@ -78,18 +78,26 @@ public class VillageDetailsPopup {
 		
 		
 		// gnome names here
-		gnomeNamesPane.setBounds(10, 40, 100, 500);
+		gnomeNamesPane.setBounds(10, 40, 200, 500);
 		
-		gnomeLabel.setPreferredSize(new Dimension(100, 500));
-		gnomeLabel.setBounds(0, 0, 100, 500);
+		gnomeLabel.setPreferredSize(new Dimension(200, 500));
+		gnomeLabel.setBounds(0, 0, 200, 500);
 		gnomeLabel.setOpaque(true);
 		
 		// set up scroll pane for names
 		if (village.getGnomeArray().size() != 0) {
 			
-			// if there are names, iterate through dem
+			// if there are gnomes, iterate through dem and collect their info to display
 			for (Gnome g : village.getGnomeArray()) {
 				gnomeNamesString += g.getName();
+				gnomeNamesString += " – ";
+				
+				if (g.getBusy())
+					gnomeNamesString += "In a rush";
+				
+				else
+					gnomeNamesString += "Not in a rush";
+				
 				gnomeNamesString += "\n";
 			}
 			
@@ -107,7 +115,7 @@ public class VillageDetailsPopup {
 		
 		
 		// add a gnome button code
-		createAGnomeButton.setBounds(150, 10, 200, 45);
+		createAGnomeButton.setBounds(320, 10, 200, 45);
 		createAGnomeButton.setText("Add a Gnome");
 		
 		
@@ -134,6 +142,14 @@ public class VillageDetailsPopup {
 		for (Gnome g : village.getGnomeArray()) {
 			
 			displayText += g.getName();
+			displayText += " – ";
+			
+			if (g.getBusy())
+				displayText += "In a rush";
+			
+			else
+				displayText += "Not in a rush";
+			
 			displayText += "\n";
 			
 		}

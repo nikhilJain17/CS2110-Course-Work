@@ -31,7 +31,7 @@ public class Line extends JComponent {
 		
 		final int OFFSET = 25; // to draw in middle of button
 		
-        System.out.println(this.x1 + ", " + this.y1 + "--" + this.x2 + ", " + this.y2);
+//        System.out.println(this.x1 + ", " + this.y1 + "--" + this.x2 + ", " + this.y2);
 
         Graphics2D g2 = (Graphics2D) g;
         

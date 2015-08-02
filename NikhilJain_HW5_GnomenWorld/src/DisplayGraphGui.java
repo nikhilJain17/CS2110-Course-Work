@@ -88,7 +88,7 @@ public class DisplayGraphGui {
 			villageNodeList.get(i).setAlignmentX(x);
 			villageNodeList.get(i).setAlignmentY(y);
 			
-			System.out.println(x + ", " + y);
+//			System.out.println(x + ", " + y);
 			
 //			 set the colour
 //			villageNodeList.get(i).setBackground(Color.getColor("00DDFF", Color.blue));

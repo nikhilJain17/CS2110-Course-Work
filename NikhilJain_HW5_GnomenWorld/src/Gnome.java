@@ -11,13 +11,13 @@
 public class Gnome {
 	
 	String name;
-	boolean lazy; // does he want to take the shortest path or nahhhhh
+	boolean busy; // does he want to take the shortest path or nahhhhh
 	VillageNode currentVillage;
 	
-	public Gnome(String name, boolean lazy, VillageNode currentVillage) {
+	public Gnome(String name, boolean busy, VillageNode currentVillage) {
 		
 		this.name = name;
-		this.lazy = lazy;
+		this.busy = busy;
 		this.currentVillage = currentVillage;
 		
 	} // end of constructor
@@ -32,12 +32,12 @@ public class Gnome {
 		return name;
 	}
 	
-	public void setLazy(boolean lazy) {
-		this.lazy = lazy;
+	public void setLazy(boolean busy) {
+		this.busy = busy;
 	}
 	
-	public boolean getLazy() {
-		return lazy;
+	public boolean getBusy() {
+		return busy;
 	}
 	
 	public void setCurrentVillage(VillageNode currentVillage) {
