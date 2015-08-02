@@ -21,6 +21,7 @@ public class VillageDetailsPopup {
 	JScrollPane gnomeNamesPane; // scroll pane that shows gnomes names (rhyming accidentally)
 	JTextArea gnomeLabel;
 	String gnomeNamesString = "";
+//	JButton
 
 	AddGnomePopup gnomePopup;
 	
@@ -142,7 +143,7 @@ public class VillageDetailsPopup {
 		for (Gnome g : village.getGnomeArray()) {
 			
 			displayText += g.getName();
-			displayText += " – ";
+			displayText += "–";
 			
 			if (g.getBusy())
 				displayText += "In a rush";

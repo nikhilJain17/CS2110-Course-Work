@@ -66,12 +66,28 @@ public class GnomeMoverThread extends Thread {
 			
 		}
 		
+		/****
+		 * 
+		 * TEST TO SEE IF GNOMES MOVED
+		 * 
+		 */
+		
+//		for (VillageNode v : village.getAdjacencyList()) {
+//			
+//			System.out.println("Village " + v.getNamed());
+//			
+//			for (Gnome g : v.getGnomeArray()) {
+//				System.out.println("Name of gnome " + g.getName());
+//			}
+//			
+//		}
+		
 		
 		
 		/***
 		 * Update UI here
 		 */
-		startDestination.updateGnomeDisplay();
+//		startDestination.updateGnomeDisplay();
 		
 	} // end of run
 	
