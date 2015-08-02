@@ -16,14 +16,14 @@ public class GnomeMoverThread extends Thread {
 	List<Gnome> currentVillageGnomes; // current village's gnomes that the gnome is in
 	VillageDetailsPopup startDestination;
 	
-	public GnomeMoverThread(Gnome gnome, VillageDetailsPopup p) {
+	public GnomeMoverThread(Gnome gnome) {
 		
 		this.gnome = gnome;
 		village = gnome.getCurrentVillage();
 		adjacentVillages = village.getAdjacencyList();
 		currentVillageGnomes = village.getGnomeArray();
 		
-		startDestination = p;
+		startDestination = village.villageDetailsPopup;
 		
 	} // end of constructor
 	

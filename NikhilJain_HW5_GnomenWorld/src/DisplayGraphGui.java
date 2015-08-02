@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -67,6 +69,7 @@ public class DisplayGraphGui {
 		
 		startMovingGnomes = new JButton("Move Gnomes Around");
 		startMovingGnomes.setBounds(25, 25, 150, 35);
+		
 		
 		helpButton = new JButton("Help");
 		helpButton.setVisible(true);
@@ -161,6 +164,30 @@ public class DisplayGraphGui {
 		
 		// see below for what it does
 		packageComponents();
+		
+		
+		/**
+		 * Action listener for button to start simulation
+		 */
+		
+		startMovingGnomes.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				List<Gnome> list = villageNodeList.get(3).getGnomeArray();
+				
+				for (Gnome g : list)
+					System.out.println(g.getName());
+		
+				GnomeMoverThread testThread = new GnomeMoverThread(villageNodeList.get(3).getGnomeArray().get(0));
+				testThread.start();
+//				
+			} // end of actionPerformed
+			
+		}); // end of action lsitener
+		
+		
 		
 	} // end of constructor
 	
