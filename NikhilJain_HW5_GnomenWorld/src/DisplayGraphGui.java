@@ -177,11 +177,31 @@ public class DisplayGraphGui {
 				
 				List<Gnome> list = villageNodeList.get(3).getGnomeArray();
 				
-				for (Gnome g : list)
-					System.out.println(g.getName());
-		
-				GnomeMoverThread testThread = new GnomeMoverThread(villageNodeList.get(3).getGnomeArray().get(0));
-				testThread.start();
+//				for (Gnome g : list)
+//					System.out.println(g.getName());
+//		
+				for (int i = 1; i < 10; i++) {
+					
+					List<Gnome> tempList = villageNodeList.get(i).getGnomeArray();
+					
+					GnomeMoverThread testThread = new GnomeMoverThread(villageNodeList.get(i));
+					testThread.start(); // Basically Sound
+					
+					// store all the village's gnomes
+					// remove all gnomes in one shot
+					// move the gnomes to a new spot
+					
+					
+					
+////					for (Gnome g : tempList) {
+////					
+////						GnomeMoverThread testThread = new GnomeMoverThread(villageNodeList.get(i));
+////						testThread.start(); // Basically Sound
+////						
+////					
+////					} // end of 4
+//					
+				} // end of for
 //				
 			} // end of actionPerformed
 			

@@ -20,7 +20,7 @@ public class VillageNode extends JButton {
 	int named; // each village is named from 1, 2, 3, ... incrementally
 	List<Gnome> gnomeArray;
 	List<VillageNode> adjacencyList; // no need to make a custom linked list and die
-	VillageDetailsPopup villageDetailsPopup;
+	VillageDetailsPopup villageDetailsPopup = new VillageDetailsPopup(this);
 	
 	// getters and setters
 	public int getNamed() {
