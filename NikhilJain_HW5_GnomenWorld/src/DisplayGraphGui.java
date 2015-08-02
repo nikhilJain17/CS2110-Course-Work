@@ -35,8 +35,8 @@ public class DisplayGraphGui {
 	
 	/* All the components inside the actionPanel go here */
 	JPanel actionPanel; // panel that holds buttons for adding and deleting villages
-	
-	
+	JButton startMovingGnomes; // button to start simulation of moving gnomes arouuuuuund
+	JButton helpButton; // button for help
 	
 	
 	public DisplayGraphGui() {
@@ -58,12 +58,24 @@ public class DisplayGraphGui {
 		
 		
 		actionPanel = new JPanel();
+		actionPanel.setLayout(null);
 //		actionPanel.setBounds(1030, 10, 200, frame.getHeight() - 10);
 		actionPanel.setPreferredSize(new Dimension(200, 1000));
 		actionPanel.setVisible(true);
 		actionPanel.setBackground(Color.WHITE);
 		actionPanel.setBorder(BorderFactory.createTitledBorder("Options"));
 		
+		startMovingGnomes = new JButton("Move Gnomes Around");
+		startMovingGnomes.setBounds(25, 25, 150, 35);
+		
+		helpButton = new JButton("Help");
+		helpButton.setVisible(true);
+		helpButton.setBounds(25, 666, 150, 35);
+		helpButton.setPreferredSize(new Dimension(150, 35));
+		
+
+		actionPanel.add(helpButton);
+		actionPanel.add(startMovingGnomes);
 		
 		/***
 		 * Display the initial 9 buttons/villages
