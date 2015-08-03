@@ -33,7 +33,11 @@ Summer Session 2015
   * Radix Sort
   * Heap Sort
 * Graphs
-  * Topological Sort
+  * Topological Sort 
+  * Dijkstra’s Algorithm
+  * Shortest Path
+  * Trees
+  t
   
   
 
