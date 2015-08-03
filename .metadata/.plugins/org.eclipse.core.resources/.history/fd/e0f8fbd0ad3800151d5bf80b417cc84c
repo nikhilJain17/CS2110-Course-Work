@@ -1,0 +1,28 @@
+/***
+ * 
+ * 
+ * Moves gnomes around to adjacent villages on their own thread
+ * 
+ * @author Nick
+ *
+ */
+public class GnomeMoverThread extends Thread {
+	
+	Gnome gnome;
+	
+	public GnomeMoverThread(Gnome gnome) {
+		
+		this.gnome = gnome;
+		
+	} // end of constructor
+	
+	
+	@Override
+	public void run() {
+		
+		
+		
+		
+	} // end of run
+
+} // end of class

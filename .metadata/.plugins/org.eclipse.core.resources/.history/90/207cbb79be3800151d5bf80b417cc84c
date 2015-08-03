@@ -1,0 +1,34 @@
+import java.util.List;
+
+/***
+ * 
+ * 
+ * Moves gnomes around to adjacent villages on their own thread
+ * 
+ * @author Nick
+ *
+ */
+public class GnomeMoverThread extends Thread {
+	
+	Gnome gnome;
+	VillageNode village;
+	List<VillageNode> adjacentVillages;
+	
+	public GnomeMoverThread(Gnome gnome) {
+		
+		this.gnome = gnome;
+		village = gnome.getCurrentVillage();
+		adjacentVillages = village.getAdjacencyList();
+		
+	} // end of constructor
+	
+	
+	@Override
+	public void run() {
+		
+		
+		
+		
+	} // end of run
+
+} // end of class

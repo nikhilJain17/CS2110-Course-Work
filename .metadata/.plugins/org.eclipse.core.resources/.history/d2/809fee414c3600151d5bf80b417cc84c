@@ -1,0 +1,30 @@
+import java.awt.*;
+import java.util.ArrayList;
+
+import javax.swing.*;
+
+/**
+ * 
+ * The panel where the graph is drawn
+ * @author Nick
+ * 
+ */
+public class GraphPanel extends JPanel {
+
+	private ArrayList<Line> drawLinesList;
+	
+	public GraphPanel() {
+		
+	}
+
+	
+	// Paint over this 
+	 public void paintComponent(Graphics g) {
+        for(final Line r : drawLinesList) {
+            r.paint(g);
+        }
+    }
+	 
+	 
+	
+}

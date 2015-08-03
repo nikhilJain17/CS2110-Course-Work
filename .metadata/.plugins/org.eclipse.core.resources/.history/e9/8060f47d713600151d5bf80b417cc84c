@@ -1,0 +1,64 @@
+import java.awt.*;
+import java.util.ArrayList;
+
+import javax.swing.*;
+
+/**
+ * 
+ * The panel where the graph is drawn
+ * @author Nick
+ * 
+ */
+public class GraphPanel extends JPanel {
+
+	private ArrayList<Line> drawLinesList;
+	private boolean shouldDraw = false;
+	
+	public GraphPanel() {
+		
+	}
+	
+	
+	
+	public ArrayList<Line> getDrawLinesList() {
+		return drawLinesList;
+	}
+
+	public void setDrawLinesList(ArrayList<Line> drawLinesList) {
+		this.drawLinesList = drawLinesList;
+	}
+
+	public boolean isShouldDraw() {
+		return shouldDraw;
+	}
+
+	public void setShouldDraw(boolean shouldDraw) {
+		this.shouldDraw = shouldDraw;
+	}
+
+
+
+
+
+	public void addLine(int x1, int y1, int x2, int y2) {
+        this.drawLinesList.add(new Line(x1, y1, x2, y2));
+    }
+
+	
+	// Paint over this 
+	 public void paintComponent(Graphics g) {
+		 super.paintComponent(g);
+//		 
+//		 this.setOpaque(true);
+		 this.setBackground(Color.YELLOW);
+		 
+		 if (shouldDraw)
+			 for(final Line r : drawLinesList) {
+				 r.paint(g);
+			 }
+		 
+    }
+	 
+	 
+	
+}

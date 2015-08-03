@@ -1,0 +1,13 @@
+import javax.swing.*;
+
+/**
+ * 
+ * The panel where the graph is drawn
+ * 
+ * 
+ */
+public class GraphPanel extends JPanel {
+
+	
+	
+}

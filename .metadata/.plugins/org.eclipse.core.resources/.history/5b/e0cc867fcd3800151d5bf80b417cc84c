@@ -1,0 +1,53 @@
+import java.util.List;
+
+/***
+ * 
+ * 
+ * Moves gnomes around to adjacent villages on their own thread
+ * 
+ * @author Nick
+ *
+ */
+public class GnomeMoverThread extends Thread {
+	
+	Gnome gnome;
+	VillageNode village;
+	List<VillageNode> adjacentVillages;
+	List<Gnome> currentVillageGnomes; // current village's gnomes that the gnome is in
+	VillageDetailsPopup startDestination;
+	
+	public GnomeMoverThread(Gnome gnome) {
+		
+		this.gnome = gnome;
+		village = gnome.getCurrentVillage();
+		adjacentVillages = village.getAdjacencyList();
+		currentVillageGnomes = village.getGnomeArray();
+		
+		startDestination = village.villageDetailsPopup;
+		
+	} // end of constructor
+	
+	
+	@Override
+	public void run() {
+		
+		// randomly pick a village to go to
+		/***
+		 * testing village movement
+		 */
+		
+		// 1. remove gnome from current village
+		for (int i = 0; i < currentVillageGnomes.size(); i++) {
+			
+			if (currentVillageGnomes.get(i).equals(gnome)) {
+				currentVillageGnomes.remove(i);
+			}
+			
+		}
+		
+		// update ui
+		startDestination.updateGnomeDisplay();
+		
+	} // end of run
+
+} // end of class

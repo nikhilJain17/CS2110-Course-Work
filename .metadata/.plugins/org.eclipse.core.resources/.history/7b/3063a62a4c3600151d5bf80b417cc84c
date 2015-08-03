@@ -1,0 +1,15 @@
+import java.util.ArrayList;
+
+import javax.swing.*;
+
+/**
+ * 
+ * The panel where the graph is drawn
+ * @author Nick
+ * 
+ */
+public class GraphPanel extends JPanel {
+
+	private final ArrayList<Line> drawLinesList;
+	
+}

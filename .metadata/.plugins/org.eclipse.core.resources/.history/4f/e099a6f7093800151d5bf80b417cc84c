@@ -1,0 +1,63 @@
+//import java.awt.Dimension;
+import java.awt.*;
+
+import javax.swing.*;
+
+/***
+ * 
+ * 
+ * Popup to add a gnome
+ * 
+ * @author Nick
+ *
+ */
+public class AddGnomePopup {
+
+	JDialog popup = new JDialog();
+	VillageNode village;
+//	boolean display; // should display
+	
+	JTextField enterGnomeName;
+	String nameInput = "";
+	
+	public AddGnomePopup(VillageNode village) {
+		
+		this.village = village;
+		enterGnomeName = new JTextField();
+		
+	} // end of constructor
+	
+	
+	public void createAndShowGui() {
+		
+		EventQueue.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				
+				// set up popup
+				popup.setLayout(null);
+				popup.setBounds(100, 100, 400, 400);
+				popup.setPreferredSize(new Dimension(400, 400));
+				popup.setTitle("Add a gnome to Village #" + village.getNamed());
+				
+				
+				// set up enterGnomeName
+				enterGnomeName.setBounds(0, 0, 100, 35);
+				enterGnomeName.setPreferredSize(new Dimension(100, 35));
+				
+				
+				// pack and ship to screen
+				popup.add(enterGnomeName);
+				popup.setVisible(true);
+				popup.pack();
+								
+			} // end of run
+			
+			
+		}); // end of runnable
+		
+	} // end of create and show gui
+	
+	
+}
